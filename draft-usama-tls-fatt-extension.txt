@@ -2,34 +2,40 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
+Transport Layer Security                                    M. U. Sardar
+Internet-Draft                                                TU Dresden
 Intended status: Informational                               5 July 2025
 Expires: 6 January 2026
 
 
                      Extensions to TLS FATT Process
-                  draft-todo-yourname-protocol-latest
+                 draft-usama-tls-fatt-extension-latest
 
 Abstract
 
-   TODO Abstract
+   While the TLS FATT process marks a historic change in achieving high
+   cryptographic assurances by tightly integrating formal methods in the
+   working group process, the current FATT process has some practical
+   limitations.  This document proposes some solutions to make it
+   sustainable, given the steep learning curve of the existing tools and
+   a relatively smaller formal methods community.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   The latest revision of this draft can be found at https://muhammad-
+   usama-sardar.github.io/tls-fatt-extension/draft-usama-tls-fatt-
+   extension.html.  Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-usama-tls-fatt-extension/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   Discussion of this document takes place on the Transport Layer
+   Security Working Group mailing list (mailto:tls@ietf.org), which is
+   archived at https://mailarchive.ietf.org/arch/browse/tls/.  Subscribe
+   at https://www.ietf.org/mailman/listinfo/tls/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/muhammad-usama-sardar/tls-fatt-extension.
 
 Status of This Memo
 
@@ -109,6 +115,6 @@ Acknowledgments
 
 Author's Address
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Muhammad Usama Sardar
+   TU Dresden
+   Email: muhammad_usama.sardar@tu-dresden.de
