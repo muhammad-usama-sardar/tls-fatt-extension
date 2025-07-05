@@ -10,10 +10,6 @@ consensus: true
 v: 3
 area: "Security"
 workgroup: "Transport Layer Security"
-keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
 venue:
   group: "Transport Layer Security"
   type: "Working Group"
@@ -25,8 +21,8 @@ venue:
 author:
  -
     fullname: "Muhammad Usama Sardar"
-    organization: Your Organization Here
-    email: "56355592+muhammad-usama-sardar@users.noreply.github.com"
+    organization: TU Dresden
+    email: "muhammad_usama.sardar@tu-dresden.de"
 
 normative:
 
@@ -36,7 +32,7 @@ informative:
 
 --- abstract
 
-TODO Abstract
+While the TLS FATT process marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group process, the current FATT process has some practical limitations. This document proposes some solutions to make it sustainable, given the steep learning curve of the existing tools and a relatively smaller formal methods community.
 
 
 --- middle
