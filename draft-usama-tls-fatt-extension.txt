@@ -16,9 +16,12 @@ Abstract
    While the TLS FATT process marks a historic change in achieving high
    cryptographic assurances by tightly integrating formal methods in the
    working group process, the current FATT process has some practical
-   limitations.  This document proposes some solutions to make it
-   sustainable, given the steep learning curve of the existing tools and
-   a relatively smaller formal methods community.
+   limitations.  Given a relatively smaller formal methods community,
+   and a steep learning curve as well as very low consideration of
+   usability in the existing security analysis tools, this document
+   proposes some solutions to make the FATT process sustainable.  This
+   document applies only to non-trivial extensions of TLS, which require
+   formal analysis.
 
 About This Document
 
@@ -71,18 +74,73 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   2.  Responsibilities of Authors
+     2.1.  Threat Model
+     2.2.  Informal Security Goals
+     2.3.  Protocol Diagram
+   3.  Responsibilities of Verifier
+   4.  Definition of Attack
+   5.  Conventions and Definitions
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  Normative References
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   TODO Introduction
+   The FATT process does not outline the division of responsibility
+   between the authors and the one doing the formal analysis (the latter
+   is hereafter referred to as the "verifier").  This document aims to
+   fill this gap without putting an extensive burden on either party.
+   This document also outlines the corresponding changes in the way
+   Internet-Drafts are typically written.
 
-2.  Conventions and Definitions
+   An argument is often presented by the authors that an Internet-Draft
+   is written for the implementers.  With the FATT process, this
+   argument is no longer valid.  For the Internet-Draft to be useful for
+   the formal analysis, it should contain three main items, namely a
+   threat model, informal security goals, and a protocol diagram
+   highlighting the proposed changes to the standard TLS protocol.  Each
+   one of these is summarized in the following sections.
+
+2.  Responsibilities of Authors
+
+2.1.  Threat Model
+
+   A threat model outlines the assumptions and known weaknesses of the
+   proposed protocol.  The threat model could be the classical Dolev-Yao
+   adversary.  In addition, it could specify any keys which are assumed
+   to be available to the adversary.
+
+2.2.  Informal Security Goals
+
+   Knowing what you want is the first step toward achieving it.  Hence,
+   informal security goals such as integrity, authentication, freshness,
+   etc. should be outlined in the Internet-Draft.  These goals could be
+   part of the security considerations or the Appendix.  If the informal
+   security goals are not spelled out in the Internet-Draft, it is safe
+   to assume that the goals are still unclear to the authors.  In such a
+   case, the Internet-Draft should not be considered as ready for
+   adoption.
+
+2.3.  Protocol Diagram
+
+   A protocol diagram highlights the proposed changes compared to the
+   standard TLS protocol.
+
+3.  Responsibilities of Verifier
+
+   When the authors declare the version as ready for formal analysis,
+   the verifier takes the above inputs, performs the formal analysis,
+   and brings the results back to the authors and the working group.
+
+4.  Definition of Attack
+
+   Any possible ambiguity is to considered as an attack.  The authors
+   are, therefore, encouraged to be as precise as possible.
+
+5.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -90,15 +148,15 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+6.  Security Considerations
 
-   TODO Security
+   The whole document is about security considerations.
 
-4.  IANA Considerations
+7.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  Normative References
+8.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
