@@ -27,12 +27,25 @@ author:
 normative:
 
 informative:
+  I-D.ietf-tls-rfc8446bis:
+  I-D.fossati-tls-attestation-08:
   TLS-FATT:
      author:
         org: IETF TLS WG
      title: TLS FATT Process
      target: https://github.com/tlswg/tls-fatt
      date: June 2025
+  Example-Protocol-Diagram:
+       title: "Identity Crisis in Attested TLS for Confidential Computing"
+       date: 20 March 2025,
+       target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00
+       author:
+       -
+         ins: M. U. Sardar
+       -
+         ins: M. Moustafa
+       -
+         ins: T. Aura
 
 --- abstract
 
@@ -48,12 +61,12 @@ An argument is often presented by the authors that an Internet-Draft is written 
 
 * a threat model,
 * informal security goals, and
-* a protocol diagram highlighting the proposed changes to the standard TLS protocol.
+* a protocol diagram ({{sec-prot-diagram}}).
 
 Each one of these is summarized in {{sec-res-authors}}. Responsibilities of the verifier are summarized in {{sec-res-verifier}}.
 
 ## Motivation
-A clear separation of resposibilities would help UFMRG to train the groups separately to fulfill their own responsibilities.
+A clear separation of resposibilities would help UFMRG to train the authors and verifiers separately to fulfill their own responsibilities.
 
 [comment]: <> (The goal of authors of Internet-Draft is to ...)
 
@@ -62,6 +75,10 @@ A clear separation of resposibilities would help UFMRG to train the groups separ
 
 {::boilerplate bcp14-tagged}
 
+## Protocol Diagram
+{: #sec-prot-diagram }
+
+In the context of this document, a protocol diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}.
 
 ## Definition of Attack
 Any ambiguity originating from the threat model, informal security goals, and a protocol diagram is to be considered as an attack. The authors are, therefore, encouraged to be as precise as possible.
@@ -69,15 +86,20 @@ Any ambiguity originating from the threat model, informal security goals, and a 
 # Responsibilities of Authors
 {: #sec-res-authors }
 
+This document proposes a new "Formal Analysis Considerations" section where the authors provide the following three items:
+
 ## Threat Model
-A threat model outlines the assumptions and known weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary. In addition, it could specify any keys which are assumed to be available to the adversary.
+A threat model outlines the assumptions and known weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary. In addition, it could specify any keys (e.g., long-term keys or session keys) which are assumed to be compromised (i.e., available to the adversary).
 
 ## Informal Security Goals
-Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. should be outlined in the Internet-Draft. These goals could be part of the security considerations or the Appendix.
+Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. should be outlined in the Internet-Draft.
 If the informal security goals are not spelled out in the Internet-Draft, it is safe to assume that the goals are still unclear to the authors. In such a case, the Internet-Draft should not be considered as ready for adoption.
 
+[section]: <> (These goals could be part of the security considerations or the Appendix.)
+
+
 ## Protocol Diagram
-A protocol diagram highlights the proposed changes compared to the standard TLS protocol. It should clearly mention the initial knowledge of the protocol participants.
+A protocol diagram highlights the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. It should clearly mention the initial knowledge of the protocol participants, e.g., which authentic public keys are known to the protocol participants at the start of the protocol. An example of a protocol diagram for {{I-D.fossati-tls-attestation-08}} is provided in Section 3 of {{Example-Protocol-Diagram}}.
 
 # Responsibilities of Verifier
 {: #sec-res-verifier }
