@@ -76,7 +76,8 @@ Table of Contents
    1.  Introduction
      1.1.  Motivation
    2.  Conventions and Definitions
-     2.1.  Definition of Attack
+     2.1.  Protocol Diagram
+     2.2.  Definition of Attack
    3.  Responsibilities of Authors
      3.1.  Threat Model
      3.2.  Informal Security Goals
@@ -109,8 +110,7 @@ Table of Contents
 
    *  informal security goals, and
 
-   *  a protocol diagram highlighting the proposed changes to the
-      standard TLS protocol.
+   *  a protocol diagram (Section 2.1).
 
    Each one of these is summarized in Section 3.  Responsibilities of
    the verifier are summarized in Section 4.
@@ -118,7 +118,8 @@ Table of Contents
 1.1.  Motivation
 
    A clear separation of resposibilities would help UFMRG to train the
-   groups separately to fulfill their own responsibilities.
+   authors and verifiers separately to fulfill their own
+   responsibilities.
 
 2.  Conventions and Definitions
 
@@ -128,7 +129,13 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-2.1.  Definition of Attack
+2.1.  Protocol Diagram
+
+   In the context of this document, a protocol diagram specifies the
+   proposed cryptographically-relevant changes compared to the standard
+   TLS protocol [I-D.ietf-tls-rfc8446bis].
+
+2.2.  Definition of Attack
 
    Any ambiguity originating from the threat model, informal security
    goals, and a protocol diagram is to be considered as an attack.  The
@@ -136,19 +143,22 @@ Table of Contents
 
 3.  Responsibilities of Authors
 
+   This document proposes a new "Formal Analysis Considerations" section
+   where the authors provide the following three items:
+
 3.1.  Threat Model
 
    A threat model outlines the assumptions and known weaknesses of the
    proposed protocol.  The threat model could be the classical Dolev-Yao
-   adversary.  In addition, it could specify any keys which are assumed
-   to be available to the adversary.
+   adversary.  In addition, it could specify any keys (e.g., long-term
+   keys or session keys) which are assumed to be compromised (i.e.,
+   available to the adversary).
 
 3.2.  Informal Security Goals
 
    Knowing what you want is the first step toward achieving it.  Hence,
    informal security goals such as integrity, authentication, freshness,
-   etc. should be outlined in the Internet-Draft.  These goals could be
-   part of the security considerations or the Appendix.  If the informal
+   etc. should be outlined in the Internet-Draft.  If the informal
    security goals are not spelled out in the Internet-Draft, it is safe
    to assume that the goals are still unclear to the authors.  In such a
    case, the Internet-Draft should not be considered as ready for
@@ -156,9 +166,14 @@ Table of Contents
 
 3.3.  Protocol Diagram
 
-   A protocol diagram highlights the proposed changes compared to the
-   standard TLS protocol.  It should clearly mention the initial
-   knowledge of the protocol participants.
+   A protocol diagram highlights the proposed cryptographically-relevant
+   changes compared to the standard TLS protocol
+   [I-D.ietf-tls-rfc8446bis].  It should clearly mention the initial
+   knowledge of the protocol participants, e.g., which authentic public
+   keys are known to the protocol participants at the start of the
+   protocol.  An example of a protocol diagram for
+   [I-D.fossati-tls-attestation-08] is provided in Section 3 of
+   [Example-Protocol-Diagram].
 
 4.  Responsibilities of Verifier
 
@@ -188,6 +203,28 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 7.2.  Informative References
+
+   [Example-Protocol-Diagram]
+              Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
+              in Attested TLS for Confidential Computing", March 2025,
+              <https://datatracker.ietf.org/meeting/122/materials/
+              slides-122-tls-identity-crisis-00>.
+
+   [I-D.fossati-tls-attestation-08]
+              Tschofenig, H., Sheffer, Y., Howard, P., Mihalcea, I.,
+              Deshpande, Y., Niemi, A., and T. Fossati, "Using
+              Attestation in Transport Layer Security (TLS) and Datagram
+              Transport Layer Security (DTLS)", Work in Progress,
+              Internet-Draft, draft-fossati-tls-attestation-08, 21
+              October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-fossati-tls-attestation-08>.
+
+   [I-D.ietf-tls-rfc8446bis]
+              Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", Work in Progress, Internet-Draft, draft-
+              ietf-tls-rfc8446bis-12, 17 February 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
+              rfc8446bis-12>.
 
    [TLS-FATT] IETF TLS WG, "TLS FATT Process", June 2025,
               <https://github.com/tlswg/tls-fatt>.
