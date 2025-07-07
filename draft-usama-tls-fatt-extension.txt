@@ -83,7 +83,6 @@ Table of Contents
    7.  References
      7.1.  Normative References
      7.2.  Informative References
-   Acknowledgments
    Author's Address
 
 1.  Introduction
@@ -241,10 +240,6 @@ Table of Contents
 
    [TLS-FATT] IETF TLS WG, "TLS FATT Process", June 2025,
               <https://github.com/tlswg/tls-fatt>.
-
-Acknowledgments
-
-   TODO acknowledge.
 
 Author's Address
 
