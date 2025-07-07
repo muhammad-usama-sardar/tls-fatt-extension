@@ -126,7 +126,4 @@ This document has no IANA actions.
 
 --- back
 
-# Acknowledgments
-{:numbered="false"}
-
-TODO acknowledge.
+[comment]: <> (# Acknowledgments {:numbered="false"} TODO acknowledge.)
