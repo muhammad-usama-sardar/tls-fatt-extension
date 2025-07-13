@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-10T01:40:34.164407+00:00",
+  "timestamp": "2025-07-13T01:50:08.458954+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -49,6 +49,23 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOPHS9bs6_73lw",
+      "title": "Related Guideline docs",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/1",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- [draft-irtf-cfrg-cryptography-specification](https://datatracker.ietf.org/doc/draft-irtf-cfrg-cryptography-specification/)\n- RFC3552, particularly [Sec. 3](https://www.rfc-editor.org/rfc/rfc3552#section-3) for threat model",
+      "createdAt": "2025-07-10T17:34:16Z",
+      "updatedAt": "2025-07-10T17:34:16Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
