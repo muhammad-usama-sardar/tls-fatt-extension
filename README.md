@@ -30,3 +30,17 @@ $ make
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
+## Publishing Updated Version on Datatracker
+
+- Commit the final changes. 
+
+- Publish
+```sh
+$ git push origin main
+$ git tag -a draft-usama-tls-fatt-extension-02 -m "<msg>"
+$ git push origin draft-usama-tls-fatt-extension-02
+```
+
+- Confirm the email
+
+If it doesn't work, see [alternate methods](https://github.com/martinthomson/i-d-template/blob/main/doc/SUBMITTING.md).
