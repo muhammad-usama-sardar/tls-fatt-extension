@@ -97,6 +97,22 @@ Responsibilities of the verifier are summarized in {{sec-res-verifier}}.
 ## Motivation
 A clear separation of resposibilities would help IRTF UFMRG to train the authors and verifiers separately to fulfill their own responsibilities.
 
+
+# Conventions and Definitions
+
+{::boilerplate bcp14-tagged}
+
+## Protocol Diagram
+{: #sec-prot-diagram }
+
+In the context of this document, a protocol diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential.
+
+## Definition of Attack
+Any ambiguity originating from the threat model, informal security goals, and a protocol diagram is to be considered as an attack. The authors are, therefore, encouraged to be as precise as possible.
+
+## Verifier
+In this document, verifier refers to the person doing the formal analysis.
+
 # Pain Points of Verifier
 {: #sec-pain-points }
 
@@ -127,17 +143,6 @@ Formal analysis -- just like any other code development -- is an iterative proce
 
 
 
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
-
-## Protocol Diagram
-{: #sec-prot-diagram }
-
-In the context of this document, a protocol diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential.
-
-## Definition of Attack
-Any ambiguity originating from the threat model, informal security goals, and a protocol diagram is to be considered as an attack. The authors are, therefore, encouraged to be as precise as possible.
 
 # Responsibilities of Authors
 {: #sec-res-authors }
