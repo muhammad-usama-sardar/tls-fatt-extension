@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-01T02:24:27.356802+00:00",
+  "timestamp": "2026-02-03T02:06:15.364022+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -63,6 +63,22 @@
       "body": "- [draft-irtf-cfrg-cryptography-specification](https://datatracker.ietf.org/doc/draft-irtf-cfrg-cryptography-specification/)\n- RFC3552, particularly [Sec. 3](https://www.rfc-editor.org/rfc/rfc3552#section-3) for threat model",
       "createdAt": "2025-07-10T17:34:16Z",
       "updatedAt": "2025-07-10T17:34:16Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOPHS9bs7noqAI",
+      "title": "Add guidance structure",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/2",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/",
+      "createdAt": "2026-02-02T14:22:04Z",
+      "updatedAt": "2026-02-02T14:22:04Z",
       "closedAt": null,
       "comments": []
     }
