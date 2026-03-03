@@ -122,6 +122,7 @@ Table of Contents
      10.2.  Informative References
    Appendix
      Document History
+   Acknowledgments
    Author's Address
 
 1.  Introduction
@@ -414,8 +415,10 @@ Table of Contents
       and whatever the chairs believe (As a reminder, 'nothing required'
       is a perfectly valid outcome of initial FATT review.)
 
-   *  Explicitly indicate on a very prominent place, preferably
-      abstract, whether the draft has gone through FATT review or not.
+   *  Explicitly indicate in the document whether the draft has gone
+      through FATT review or not.  For example:
+
+   |  "This document did not go through the TLS FATT review process."
 
    *  Be more explicit on:
 
@@ -522,6 +525,13 @@ Table of Contents
 8.  Security Considerations
 
    The whole document is about improving security considerations.
+
+   Like all security proofs, formal analysis is only as strong as its
+   assumptions and model.  The scope is typically limited, and the model
+   does not necessarily capture real-world deployment complexity,
+   implementation details, operational constraints, or misuse scenarios.
+   Formal methods should be used as complementary and not as subtitute
+   of other analysis methods.
 
 9.  IANA Considerations
 
@@ -639,6 +649,10 @@ Appendix
 
 Document History
 
+   -03
+
+   *  Limitations of formal analysis
+
    -02
 
    *  Added document structure
@@ -652,6 +666,11 @@ Document History
    *  Pain points of Verifier Section 2.1
 
    *  Small adjustment of phrasing
+
+Acknowledgments
+
+   We thankfully acknowledge Eric Rescorla and John Mattsson for their
+   valuable input.
 
 Author's Address
 

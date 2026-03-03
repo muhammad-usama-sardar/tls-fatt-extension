@@ -1323,7 +1323,10 @@ We also briefly present a few pain points of the team doing the formal analysis 
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1613,17 +1616,21 @@ solutions.
     is a perfectly valid outcome of initial FATT review.)<a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.4">
-          <p id="section-4-2.4.1">Explicitly indicate on a very prominent place, preferably abstract,
-whether the draft has gone through FATT review or not.<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.4.1">Explicitly indicate in the document whether the draft has gone through FATT review or not. For example:<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.5">
-          <p id="section-4-2.5.1">Be more explicit on:<a href="#section-4-2.5.1" class="pilcrow">¶</a></p>
+      </ul>
+<blockquote id="section-4-3">
+        <p id="section-4-3.1">"This document did not go through the TLS FATT review process."<a href="#section-4-3.1" class="pilcrow">¶</a></p>
+</blockquote>
 <ul class="normal">
-<li class="normal" id="section-4-2.5.2.1">
-              <p id="section-4-2.5.2.1.1">what is the scope of FATT?<a href="#section-4-2.5.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4-4.1">
+          <p id="section-4-4.1.1">Be more explicit on:<a href="#section-4-4.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4-4.1.2.1">
+              <p id="section-4-4.1.2.1.1">what is the scope of FATT?<a href="#section-4-4.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4-2.5.2.2">
-              <p id="section-4-2.5.2.2.1">what kind of drafts need FATT review and why?<a href="#section-4-2.5.2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4-4.1.2.2">
+              <p id="section-4-4.1.2.2.1">what kind of drafts need FATT review and why?<a href="#section-4-4.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </li>
@@ -1785,6 +1792,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations-2" class="section-name selfRef">Security Considerations</a>
       </h2>
 <p id="section-8-1">The whole document is about improving security considerations.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-2">Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.<a href="#section-8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1894,33 +1902,47 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
         <h3 id="name-document-history">
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
         </h3>
-<p id="appendix-A.1-1">-02<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-1">-03<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-2.1">
-            <p id="appendix-A.1-2.1.1">Added document structure<a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.1-2.2">
-            <p id="appendix-A.1-2.2.1">FATT-bypass by Other TLS-related WGs<a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.1-2.3">
-            <p id="appendix-A.1-2.3.1">FATT process not being followed<a href="#appendix-A.1-2.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-2.1.1">Limitations of formal analysis<a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-3">-01<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-3">-02<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-4.1">
-            <p id="appendix-A.1-4.1.1">Pain points of Verifier <a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a><a href="#appendix-A.1-4.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.1.1">Added document structure<a href="#appendix-A.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-4.2">
-            <p id="appendix-A.1-4.2.1">Small adjustment of phrasing<a href="#appendix-A.1-4.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.2.1">FATT-bypass by Other TLS-related WGs<a href="#appendix-A.1-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-4.3">
+            <p id="appendix-A.1-4.3.1">FATT process not being followed<a href="#appendix-A.1-4.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="appendix-A.1-5">-01<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-A.1-6.1">
+            <p id="appendix-A.1-6.1.1">Pain points of Verifier <a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a><a href="#appendix-A.1-6.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-6.2">
+            <p id="appendix-A.1-6.2.1">Small adjustment of phrasing<a href="#appendix-A.1-6.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-B">
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-B-1">We thankfully acknowledge Eric Rescorla and John Mattsson for their valuable input.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-authors-address">
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
