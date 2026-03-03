@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-01T02:20:58.504555+00:00",
+  "timestamp": "2026-03-03T02:06:31.899822+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -71,16 +71,24 @@
       "id": "I_kwDOPHS9bs7noqAI",
       "title": "Add guidance structure",
       "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/",
       "createdAt": "2026-02-02T14:22:04Z",
-      "updatedAt": "2026-02-02T14:22:04Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-03-02T23:55:41Z",
+      "closedAt": "2026-03-02T23:55:41Z",
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "Addressed in https://github.com/muhammad-usama-sardar/tls-fatt-extension/commit/187facd0157aa3d48bc568fe9dda515446eb4582",
+          "createdAt": "2026-03-02T23:55:41Z",
+          "updatedAt": "2026-03-02T23:55:41Z"
+        }
+      ]
     }
   ],
   "pulls": []
