@@ -264,9 +264,12 @@ In addition to those mentioned inline in the previous section, we propose the fo
     ones do need to go to FATT, regardless of the nature of the draft
     and whatever the chairs believe (As a reminder, 'nothing required'
     is a perfectly valid outcome of initial FATT review.)
-  * Explicitly indicate on a very prominent place, preferably abstract,
-    whether the draft has gone through FATT review or not.
-  * Be more explicit on:
+  * Explicitly indicate in the document whether the draft has gone through FATT review or not. For example:
+
+{:quote}
+>  "This document did not go through the TLS FATT review process."
+
+   * Be more explicit on:
       * what is the scope of FATT?
       * what kind of drafts need FATT review and why?
 
@@ -337,6 +340,8 @@ When the authors declare the version as ready for formal analysis, the Verifier 
 
 The whole document is about improving security considerations.
 
+Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.
+
 
 # IANA Considerations
 
@@ -351,6 +356,10 @@ This document has no IANA actions.
 ## Document History
 {:unnumbered}
 
+-03
+
+* Limitations of formal analysis
+
 -02
 
 * Added document structure
@@ -362,4 +371,6 @@ This document has no IANA actions.
 * Pain points of Verifier {{sec-prot-diagram}}
 * Small adjustment of phrasing
 
-[comment]: <> (# Acknowledgments {:numbered="false"} TODO acknowledge.)
+# Acknowledgments
+{:numbered="false"}
+We thankfully acknowledge Eric Rescorla and John Mattsson for their valuable input.
