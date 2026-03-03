@@ -105,7 +105,7 @@ Responsibilities of the Verifier are summarized in {{sec-res-verifier}}.
 ## Motivation
 A clear separation of responsibilities would help IRTF UFMRG to train the authors and verifiers separately to fulfill their own responsibilities.
 
-Moreover, we believe that the experiences can help improve the FATT process.
+Moreover, we believe that the experiences can help improve the FATT process. The goal is to document the identified gaps with concrete examples, discuss those and mutually find the best way forward.
 
 ## Scope
 The scope of this document is only non-trivial extensions of TLS, which require formal analysis.
@@ -121,6 +121,7 @@ In the context of this document, a Protocol Diagram specifies the proposed crypt
 
 ## Verifier
 In this document, the Verifier refers to the person (team) doing the formal analysis.
+Note that it is not a new formal role in the WG process.
 
 ## Definition of Attack
 Any ambiguity originating from the threat model, informal security goals, and a Protocol Diagram is to be considered as an attack.
@@ -249,6 +250,25 @@ So at least some time should be allocated in the meetings for discussion of form
 * If the authors are doing the formal analysis themselves, they should also present the current state of formal analysis for discussion. This will help the Verifier give any feedback and avoid any repititive effort.
 
 [comment]: <> (The goal of authors of Internet-Draft is to ...)
+
+# Proposed solutions
+In addition to those mentioned inline in the previous section, we propose the following:
+
+  * The process should be as transparent to the WG as possible.
+   * It should be the **WG** (and not the chairs) that deems whether some FATT analysis is
+   required. At the very least, WG should be given the right to argue against the decision of the
+    chairs regarding whether FATT analysis is required. We believe the opinions of those who are doing the
+    formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
+   in the past, OR have reasonably good knowledge of it, OR have relevant expertise should be heard.
+   * Surely not every draft needs to go to FATT but the controversial
+    ones do need to go to FATT, regardless of the nature of the draft
+    and whatever the chairs believe (As a reminder, 'nothing required'
+    is a perfectly valid outcome of initial FATT review.)
+  * Explicitly indicate on a very prominent place, preferably abstract,
+    whether the draft has gone through FATT review or not.
+  * Be more explicit on:
+      * what is the scope of FATT?
+      * what kind of drafts need FATT review and why?
 
 # Responsibilities of Authors
 {: #sec-res-authors }
