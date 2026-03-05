@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-03T02:06:31.899822+00:00",
+  "timestamp": "2026-03-05T02:03:44.498090+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -89,7 +89,82 @@
           "updatedAt": "2026-03-02T23:55:41Z"
         }
       ]
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOPHS9bs7vSwHe",
+      "title": "Ekr feedback on -02",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/3",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/tls/uCFORHNcQE3Bw3I0bkv2j7rpJ1A/)\n\n> TBH, I don't find this draft that helpful. While there are some parts\n> of it that seem like they might be unobjectionable, way too much of it\n> seems to be concerned with litigating various disputes about specific\n> past events. That's not a good starting point for reform.\n> \n> More generally, this draft seems to envision some defined role in the\n> WG process for \"Verifiers\" other than through the FATT. For example:\n> \n>>    The FATT process restricts the Verifier from contacting the FATT\n>>    directly.  We argue that the Verifier should be allowed to contact\n>>    the FATT (at least the FATT person for a specific draft) because of\n>>    the following reasons:\n> \n> I don't think this is advisable. In general, the IETF convention is\n> that people participate as individuals and if they are to have\n> specific roles (e.g., author), those roles are provided by the\n> WG process, not by the nature of the person's work. I don't think\n> we need the concept of a separate \"Verifier\" role any more than\n> we have the concept of a separate \"Implementor\" role. We are all\n> WG members.\n> \n> From my perspective, the purpose of having a separate FATT is to\n> ensure that in cases where the WG deems some formal analysis is\n> needed, we have a structure for getting that. It does not, however,\n> empower FATT members with extra authority, and that process takes\n> place within the broad overall management of the chairs.",
+      "createdAt": "2026-03-03T04:40:04Z",
+      "updatedAt": "2026-03-03T16:08:19Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "[Response](https://mailarchive.ietf.org/arch/msg/tls/KrtlaSghLAWRvkPbRSABJxpQzus/)",
+          "createdAt": "2026-03-03T16:08:19Z",
+          "updatedAt": "2026-03-03T16:08:19Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOPHS9bs7va87u",
+      "title": "John feedback on -02",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/5",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/tls/IxP0WVCggttufbn2U6E1bzLu3aI/)\n\n>  Good with a discussion on formal analysis.\n> \n> >explicitly indicate on a very prominent place, preferably abstract, whether the draft has gone through FATT review or not,\n> \n> I think formal analysis should be treated like any other form of analysis and referenced where appropriate, for example in the Security Considerations section.\n> \n> While I think it is excellent that the IETF is using formal analysis as a tool, I am seeing a tendency toward placing too much faith in it. Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios.\n> \n> The public formal verification effort around RFC 8446 was highly valuable and resulted in a number of publicly accessible papers and improved understanding of the protocol. However, my impression is that the experience with the current FATT process has been more mixed.",
+      "createdAt": "2026-03-03T13:56:44Z",
+      "updatedAt": "2026-03-03T16:08:45Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "[Response](https://mailarchive.ietf.org/arch/msg/tls/2IjGZ4e2zpK82KjLSUwAeNLytmM/)",
+          "createdAt": "2026-03-03T16:08:45Z",
+          "updatedAt": "2026-03-03T16:08:45Z"
+        }
+      ]
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 4,
+      "id": "PR_kwDOPHS9bs7Hk_dd",
+      "title": "Proposed solutions (partly addresses Issue #3)",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/4",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://mailarchive.ietf.org/arch/msg/tls/uCFORHNcQE3Bw3I0bkv2j7rpJ1A/\r\n\r\nhttps://mailarchive.ietf.org/arch/msg/tls/KrtlaSghLAWRvkPbRSABJxpQzus/",
+      "createdAt": "2026-03-03T11:12:49Z",
+      "updatedAt": "2026-03-03T15:22:58Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "187facd0157aa3d48bc568fe9dda515446eb4582",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "ekr-feedback",
+      "headRefOid": "19f4f408491b0102f6a5151a7968cd22df37c6d4",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
