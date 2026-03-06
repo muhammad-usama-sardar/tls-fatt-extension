@@ -105,7 +105,7 @@ Responsibilities of the Verifier are summarized in {{sec-res-verifier}}.
 ## Motivation
 A clear separation of responsibilities would help IRTF UFMRG to train the authors and verifiers separately to fulfill their own responsibilities.
 
-Moreover, we believe that the experiences can help improve the FATT process.
+Moreover, we believe that the experiences can help improve the FATT process. The goal is to document the identified gaps with concrete examples, discuss those and mutually find the best way forward.
 
 ## Scope
 The scope of this document is only non-trivial extensions of TLS, which require formal analysis.
@@ -121,6 +121,7 @@ In the context of this document, a Protocol Diagram specifies the proposed crypt
 
 ## Verifier
 In this document, the Verifier refers to the person (team) doing the formal analysis.
+Note that it is not a new formal role in the WG process.
 
 ## Definition of Attack
 Any ambiguity originating from the threat model, informal security goals, and a Protocol Diagram is to be considered as an attack.
@@ -225,13 +226,8 @@ In particular, some topics like remote attestation need more precise specificati
 
 [comment]: <> (We also argue that in the current process, the stakeholder at most disadvantage is . We all have a shared goal of producing high-quality specifications.)
 
-## No Response from Some Authors
-Some authors of adopted drafts do not respond for several months, despite repeated reminders {{FormalAnalysisPAKE}}.
-
-~~~
-If any authors would like us not to do the analysis, it's
-absolutely fine to clearly say so.
-~~~
+## Response within reasonable time frame
+If authors do not respond to our questions within a reasonable time frame, we may not pursue formal analysis of their draft.
 
 ## Slots at Meeting
 
@@ -244,11 +240,27 @@ solutions.
 
 So at least some time should be allocated in the meetings for discussion of formal analysis.
 
-* We requested a slot for 10 minutes (and 5 minutes if tight on schedule) for discussion of our questions about {{I-D.ietf-tls-extended-key-update}} at IETF 124. It seemed that the slots were spread over the meeting time to show that there is no time left for our topic. In the end, the meeting ended one hour earlier where 10 minutes from that could have been utilized for discussion on formal analysis of {{I-D.ietf-tls-extended-key-update}}. Given that the authors were informed {{FormalAnalysisKeyUpdate}} about the issues, what the authors presented was not very helpful in terms of progressing the formal analysis work and proposing some solutions. Key schedule is a subtle topic and not something we can talk effectively on the mic without a proper diagram on display. It is unclear why formal analysis is such a low priority to the chairs.
-
 * If the authors are doing the formal analysis themselves, they should also present the current state of formal analysis for discussion. This will help the Verifier give any feedback and avoid any repititive effort.
 
 [comment]: <> (The goal of authors of Internet-Draft is to ...)
+
+# Proposed solutions
+In addition to those mentioned inline in the previous section, we propose the following:
+
+  * The process should be as transparent to the WG as possible.
+   * It should be the **WG** (and not the chairs) that deems whether some FATT analysis is
+   required. At the very least, WG should be given the right to argue against the decision of the
+    chairs regarding whether FATT analysis is required. We believe the opinions of those who are doing the
+    formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
+   in the past, OR have reasonably good knowledge of it, OR have relevant expertise should be heard.
+   * Surely not every draft needs to go to FATT but the controversial
+    ones do need to go to FATT, regardless of the nature of the draft
+    and whatever the chairs believe (As a reminder, 'nothing required'
+    is a perfectly valid outcome of initial FATT review.)
+
+   * Be more explicit on:
+      * what is the scope of FATT?
+      * what kind of drafts need FATT review and why?
 
 # Responsibilities of Authors
 {: #sec-res-authors }
@@ -317,6 +329,8 @@ When the authors declare the version as ready for formal analysis, the Verifier 
 
 The whole document is about improving security considerations.
 
+Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.
+
 
 # IANA Considerations
 
@@ -331,6 +345,10 @@ This document has no IANA actions.
 ## Document History
 {:unnumbered}
 
+-03
+
+* Limitations of formal analysis
+
 -02
 
 * Added document structure
@@ -342,4 +360,6 @@ This document has no IANA actions.
 * Pain points of Verifier {{sec-prot-diagram}}
 * Small adjustment of phrasing
 
-[comment]: <> (# Acknowledgments {:numbered="false"} TODO acknowledge.)
+# Acknowledgments
+{:numbered="false"}
+We thankfully acknowledge Eric Rescorla and John Mattsson for their valuable input.
