@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                              3 March 2026
-Expires: 4 September 2026
+Intended status: Informational                              6 March 2026
+Expires: 7 September 2026
 
 
                      Extensions to TLS FATT Process
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2026.
+   This Internet-Draft will expire on 7 September 2026.
 
 Copyright Notice
 
@@ -97,7 +97,7 @@ Table of Contents
        3.2.2.  Key Update
      3.3.  Contacting FATT
      3.4.  Understanding the Opposing Goals
-     3.5.  No Response from Some Authors
+     3.5.  Response within reasonable time frame
      3.6.  Slots at Meeting
    4.  Proposed solutions
    5.  Responsibilities of Authors
@@ -356,13 +356,10 @@ Table of Contents
    specifications because small changes or ambiguites may make a big
    difference.
 
-3.5.  No Response from Some Authors
+3.5.  Response within reasonable time frame
 
-   Some authors of adopted drafts do not respond for several months,
-   despite repeated reminders [FormalAnalysisPAKE].
-
-   If any authors would like us not to do the analysis, it's
-   absolutely fine to clearly say so.
+   If authors do not respond to our questions within a reasonable time
+   frame, we may not pursue formal analysis of their draft.
 
 3.6.  Slots at Meeting
 
@@ -373,21 +370,6 @@ Table of Contents
 
    So at least some time should be allocated in the meetings for
    discussion of formal analysis.
-
-   *  We requested a slot for 10 minutes (and 5 minutes if tight on
-      schedule) for discussion of our questions about
-      [I-D.ietf-tls-extended-key-update] at IETF 124.  It seemed that
-      the slots were spread over the meeting time to show that there is
-      no time left for our topic.  In the end, the meeting ended one
-      hour earlier where 10 minutes from that could have been utilized
-      for discussion on formal analysis of
-      [I-D.ietf-tls-extended-key-update].  Given that the authors were
-      informed [FormalAnalysisKeyUpdate] about the issues, what the
-      authors presented was not very helpful in terms of progressing the
-      formal analysis work and proposing some solutions.  Key schedule
-      is a subtle topic and not something we can talk effectively on the
-      mic without a proper diagram on display.  It is unclear why formal
-      analysis is such a low priority to the chairs.
 
    *  If the authors are doing the formal analysis themselves, they
       should also present the current state of formal analysis for
@@ -414,11 +396,6 @@ Table of Contents
       ones do need to go to FATT, regardless of the nature of the draft
       and whatever the chairs believe (As a reminder, 'nothing required'
       is a perfectly valid outcome of initial FATT review.)
-
-   *  Explicitly indicate in the document whether the draft has gone
-      through FATT review or not.  For example:
-
-   |  "This document did not go through the TLS FATT review process."
 
    *  Be more explicit on:
 
