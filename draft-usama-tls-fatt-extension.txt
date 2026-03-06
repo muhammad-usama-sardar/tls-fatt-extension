@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                              2 March 2026
-Expires: 3 September 2026
+Intended status: Informational                              6 March 2026
+Expires: 7 September 2026
 
 
                      Extensions to TLS FATT Process
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2026.
+   This Internet-Draft will expire on 7 September 2026.
 
 Copyright Notice
 
@@ -97,30 +97,32 @@ Table of Contents
        3.2.2.  Key Update
      3.3.  Contacting FATT
      3.4.  Understanding the Opposing Goals
-     3.5.  No Response from Some Authors
+     3.5.  Response within reasonable time frame
      3.6.  Slots at Meeting
-   4.  Responsibilities of Authors
-     4.1.  Motivation
-     4.2.  Threat Model
-     4.3.  Informal Security Goals
-     4.4.  Protocol Diagram
-   5.  Document Structure
-     5.1.  Introduction
-     5.2.  Terminology
-     5.3.  Motivation and design rationale
-     5.4.  Proposed solution (one or more sections)
-     5.5.  Security considerations
-       5.5.1.  Threat model
-       5.5.2.  Desired security goals
-       5.5.3.  Other security implications/considerations
-   6.  Responsibilities of Verifier
-   7.  Security Considerations
-   8.  IANA Considerations
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   4.  Proposed solutions
+   5.  Responsibilities of Authors
+     5.1.  Motivation
+     5.2.  Threat Model
+     5.3.  Informal Security Goals
+     5.4.  Protocol Diagram
+   6.  Document Structure
+     6.1.  Introduction
+     6.2.  Terminology
+     6.3.  Motivation and design rationale
+     6.4.  Proposed solution (one or more sections)
+     6.5.  Security considerations
+       6.5.1.  Threat model
+       6.5.2.  Desired security goals
+       6.5.3.  Other security implications/considerations
+   7.  Responsibilities of Verifier
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Appendix
      Document History
+   Acknowledgments
    Author's Address
 
 1.  Introduction
@@ -166,10 +168,10 @@ Table of Contents
 
    *  a protocol diagram (Section 2.1).
 
-   Each one of these is summarized in Section 4.  Future versions of
+   Each one of these is summarized in Section 5.  Future versions of
    this draft will include concrete examples.
 
-   Responsibilities of the Verifier are summarized in Section 6.
+   Responsibilities of the Verifier are summarized in Section 7.
 
 1.1.  Motivation
 
@@ -178,7 +180,8 @@ Table of Contents
    responsibilities.
 
    Moreover, we believe that the experiences can help improve the FATT
-   process.
+   process.  The goal is to document the identified gaps with concrete
+   examples, discuss those and mutually find the best way forward.
 
 1.2.  Scope
 
@@ -204,7 +207,8 @@ Table of Contents
 2.2.  Verifier
 
    In this document, the Verifier refers to the person (team) doing the
-   formal analysis.
+   formal analysis.  Note that it is not a new formal role in the WG
+   process.
 
 2.3.  Definition of Attack
 
@@ -352,13 +356,10 @@ Table of Contents
    specifications because small changes or ambiguites may make a big
    difference.
 
-3.5.  No Response from Some Authors
+3.5.  Response within reasonable time frame
 
-   Some authors of adopted drafts do not respond for several months,
-   despite repeated reminders [FormalAnalysisPAKE].
-
-   If any authors would like us not to do the analysis, it's
-   absolutely fine to clearly say so.
+   If authors do not respond to our questions within a reasonable time
+   frame, we may not pursue formal analysis of their draft.
 
 3.6.  Slots at Meeting
 
@@ -370,38 +371,50 @@ Table of Contents
    So at least some time should be allocated in the meetings for
    discussion of formal analysis.
 
-   *  We requested a slot for 10 minutes (and 5 minutes if tight on
-      schedule) for discussion of our questions about
-      [I-D.ietf-tls-extended-key-update] at IETF 124.  It seemed that
-      the slots were spread over the meeting time to show that there is
-      no time left for our topic.  In the end, the meeting ended one
-      hour earlier where 10 minutes from that could have been utilized
-      for discussion on formal analysis of
-      [I-D.ietf-tls-extended-key-update].  Given that the authors were
-      informed [FormalAnalysisKeyUpdate] about the issues, what the
-      authors presented was not very helpful in terms of progressing the
-      formal analysis work and proposing some solutions.  Key schedule
-      is a subtle topic and not something we can talk effectively on the
-      mic without a proper diagram on display.  It is unclear why formal
-      analysis is such a low priority to the chairs.
-
    *  If the authors are doing the formal analysis themselves, they
       should also present the current state of formal analysis for
       discussion.  This will help the Verifier give any feedback and
       avoid any repititive effort.
 
-4.  Responsibilities of Authors
+4.  Proposed solutions
+
+   In addition to those mentioned inline in the previous section, we
+   propose the following:
+
+   *  The process should be as transparent to the WG as possible.
+
+   *  It should be the *WG* (and not the chairs) that deems whether some
+      FATT analysis is required.  At the very least, WG should be given
+      the right to argue against the decision of the chairs regarding
+      whether FATT analysis is required.  We believe the opinions of
+      those who are doing the formal analysis of the drafts of the WG,
+      OR actively contributing to it, OR have done formal analysis in
+      the past, OR have reasonably good knowledge of it, OR have
+      relevant expertise should be heard.
+
+   *  Surely not every draft needs to go to FATT but the controversial
+      ones do need to go to FATT, regardless of the nature of the draft
+      and whatever the chairs believe (As a reminder, 'nothing required'
+      is a perfectly valid outcome of initial FATT review.)
+
+   *  Be more explicit on:
+
+      -  what is the scope of FATT?
+
+      -  what kind of drafts need FATT review and why?
+
+5.  Responsibilities of Authors
 
    This document proposes that the authors provide the following four
    items:
 
-4.1.  Motivation
+5.1.  Motivation
 
    The motivation of the work (i.e., the proposed extension of TLS)
    needs to primarily come from the authors.  The Verifier can ask
    questions to improve it, but he cannot just cook it up.
 
-4.2.  Threat Model
+5.2.  Threat Model
 
    A threat model outlines the assumptions and known weaknesses of the
    proposed protocol.  The threat model could be the classical Dolev-Yao
@@ -409,7 +422,7 @@ Table of Contents
    keys or session keys) which may be compromised (i.e., available to
    the adversary).
 
-4.3.  Informal Security Goals
+5.3.  Informal Security Goals
 
    Knowing what you want is the first step toward achieving it.  Hence,
    informal security goals such as integrity, authentication, freshness,
@@ -417,7 +430,7 @@ Table of Contents
    security goals are not spelled out in the Internet-Draft, it is safe
    to assume that the goals are still unclear to the authors.
 
-4.4.  Protocol Diagram
+5.4.  Protocol Diagram
 
    A Protocol Diagram should clearly mention the initial knowledge of
    the protocol participants, e.g., which authentic public keys are
@@ -425,7 +438,7 @@ Table of Contents
    example of a Protocol Diagram for [I-D.fossati-tls-attestation-08] is
    provided in Figure 5 in [ID-Crisis].
 
-5.  Document Structure
+6.  Document Structure
 
    While the needs may differ for some drafts, we propose the following
    baseline template, with an example of
@@ -435,7 +448,7 @@ Table of Contents
    (https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-
    KPs/) to the authors.  We will add details in next version.
 
-5.1.  Introduction
+6.1.  Introduction
 
    *  Problem statement: Say in general what the problem is.
 
@@ -443,12 +456,12 @@ Table of Contents
       include CATS.  Anyone unfamiliar with CATS should be able to
       understand your problem.
 
-5.2.  Terminology
+6.2.  Terminology
 
    *  Define any terms not defined in RFC8446bis or point to other
       drafts from where the definition is used.
 
-5.3.  Motivation and design rationale
+6.3.  Motivation and design rationale
 
    *  We really like how Russ motivates the problem statement in
       [I-D.ietf-tls-8773bis].  Use it as a sample.
@@ -461,24 +474,24 @@ Table of Contents
    *  For [I-D.wang-tls-service-affinity], authors could put CATS here
       as a motivational use case.
 
-5.4.  Proposed solution (one or more sections)
+6.4.  Proposed solution (one or more sections)
 
    *  Protocol design with Protocol Diagram: we work on the formal
       analysis of TLS 1.3 exclusively.  Please contact someone else if
       your draft relates to older versions.
 
-5.5.  Security considerations
+6.5.  Security considerations
 
-5.5.1.  Threat model
+6.5.1.  Threat model
 
-5.5.2.  Desired security goals
+6.5.2.  Desired security goals
 
    As draft proceeds these desired security goals will become what the
    draft actually achieves.
 
-5.5.3.  Other security implications/considerations
+6.5.3.  Other security implications/considerations
 
-6.  Responsibilities of Verifier
+7.  Responsibilities of Verifier
 
    When the authors declare the version as ready for formal analysis,
    the Verifier takes the above inputs, performs the formal analysis,
@@ -486,17 +499,24 @@ Table of Contents
    analysis, the verifier may propose updates to the Security
    Considerations section or other sections of the Internet-Draft.
 
-7.  Security Considerations
+8.  Security Considerations
 
    The whole document is about improving security considerations.
 
-8.  IANA Considerations
+   Like all security proofs, formal analysis is only as strong as its
+   assumptions and model.  The scope is typically limited, and the model
+   does not necessarily capture real-world deployment complexity,
+   implementation details, operational constraints, or misuse scenarios.
+   Formal methods should be used as complementary and not as subtitute
+   of other analysis methods.
+
+9.  IANA Considerations
 
    This document has no IANA actions.
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -510,7 +530,7 @@ Table of Contents
    [TLS-FATT] IETF TLS WG, "TLS FATT Process", June 2025,
               <https://github.com/tlswg/tls-fatt>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [FormalAnalysisKeyUpdate]
               Sardar, M. U., "Comments on draft-ietf-tls-extended-key-
@@ -606,6 +626,10 @@ Appendix
 
 Document History
 
+   -03
+
+   *  Limitations of formal analysis
+
    -02
 
    *  Added document structure
@@ -619,6 +643,11 @@ Document History
    *  Pain points of Verifier Section 2.1
 
    *  Small adjustment of phrasing
+
+Acknowledgments
+
+   We thankfully acknowledge Eric Rescorla and John Mattsson for their
+   valuable input.
 
 Author's Address
 
