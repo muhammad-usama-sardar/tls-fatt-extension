@@ -226,13 +226,8 @@ In particular, some topics like remote attestation need more precise specificati
 
 [comment]: <> (We also argue that in the current process, the stakeholder at most disadvantage is . We all have a shared goal of producing high-quality specifications.)
 
-## No Response from Some Authors
-Some authors of adopted drafts do not respond for several months, despite repeated reminders {{FormalAnalysisPAKE}}.
-
-~~~
-If any authors would like us not to do the analysis, it's
-absolutely fine to clearly say so.
-~~~
+## Response within reasonable time frame
+If authors do not respond to our questions within a reasonable time frame, we may not pursue formal analysis of their draft.
 
 ## Slots at Meeting
 
@@ -244,8 +239,6 @@ solutions.
 ~~~
 
 So at least some time should be allocated in the meetings for discussion of formal analysis.
-
-* We requested a slot for 10 minutes (and 5 minutes if tight on schedule) for discussion of our questions about {{I-D.ietf-tls-extended-key-update}} at IETF 124. It seemed that the slots were spread over the meeting time to show that there is no time left for our topic. In the end, the meeting ended one hour earlier where 10 minutes from that could have been utilized for discussion on formal analysis of {{I-D.ietf-tls-extended-key-update}}. Given that the authors were informed {{FormalAnalysisKeyUpdate}} about the issues, what the authors presented was not very helpful in terms of progressing the formal analysis work and proposing some solutions. Key schedule is a subtle topic and not something we can talk effectively on the mic without a proper diagram on display. It is unclear why formal analysis is such a low priority to the chairs.
 
 * If the authors are doing the formal analysis themselves, they should also present the current state of formal analysis for discussion. This will help the Verifier give any feedback and avoid any repititive effort.
 
@@ -264,10 +257,6 @@ In addition to those mentioned inline in the previous section, we propose the fo
     ones do need to go to FATT, regardless of the nature of the draft
     and whatever the chairs believe (As a reminder, 'nothing required'
     is a perfectly valid outcome of initial FATT review.)
-  * Explicitly indicate in the document whether the draft has gone through FATT review or not. For example:
-
-{:quote}
->  "This document did not go through the TLS FATT review process."
 
    * Be more explicit on:
       * what is the scope of FATT?
