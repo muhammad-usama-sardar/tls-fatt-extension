@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-05T02:03:44.498090+00:00",
+  "timestamp": "2026-03-08T02:05:11.016737+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -119,15 +119,15 @@
       "id": "I_kwDOPHS9bs7va87u",
       "title": "John feedback on -02",
       "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/tls/IxP0WVCggttufbn2U6E1bzLu3aI/)\n\n>  Good with a discussion on formal analysis.\n> \n> >explicitly indicate on a very prominent place, preferably abstract, whether the draft has gone through FATT review or not,\n> \n> I think formal analysis should be treated like any other form of analysis and referenced where appropriate, for example in the Security Considerations section.\n> \n> While I think it is excellent that the IETF is using formal analysis as a tool, I am seeing a tendency toward placing too much faith in it. Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios.\n> \n> The public formal verification effort around RFC 8446 was highly valuable and resulted in a number of publicly accessible papers and improved understanding of the protocol. However, my impression is that the experience with the current FATT process has been more mixed.",
       "createdAt": "2026-03-03T13:56:44Z",
-      "updatedAt": "2026-03-03T16:08:45Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-06T07:34:20Z",
+      "closedAt": "2026-03-06T07:34:19Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -135,6 +135,13 @@
           "body": "[Response](https://mailarchive.ietf.org/arch/msg/tls/2IjGZ4e2zpK82KjLSUwAeNLytmM/)",
           "createdAt": "2026-03-03T16:08:45Z",
           "updatedAt": "2026-03-03T16:08:45Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "Addressed in #4 ",
+          "createdAt": "2026-03-06T07:34:19Z",
+          "updatedAt": "2026-03-06T07:34:19Z"
         }
       ]
     }
@@ -145,24 +152,26 @@
       "id": "PR_kwDOPHS9bs7Hk_dd",
       "title": "Proposed solutions (partly addresses Issue #3)",
       "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/4",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/tls/uCFORHNcQE3Bw3I0bkv2j7rpJ1A/\r\n\r\nhttps://mailarchive.ietf.org/arch/msg/tls/KrtlaSghLAWRvkPbRSABJxpQzus/",
       "createdAt": "2026-03-03T11:12:49Z",
-      "updatedAt": "2026-03-03T15:22:58Z",
+      "updatedAt": "2026-03-06T07:33:32Z",
       "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
       "baseRefName": "main",
       "baseRefOid": "187facd0157aa3d48bc568fe9dda515446eb4582",
       "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
       "headRefName": "ekr-feedback",
-      "headRefOid": "19f4f408491b0102f6a5151a7968cd22df37c6d4",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c059f93061068f7e61435cde77adeb5c4800e198",
+      "closedAt": "2026-03-06T07:33:32Z",
+      "mergedAt": "2026-03-06T07:33:32Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "a43dda5ab3ad53a98767cd32575dac026f93d0ca"
+      },
       "comments": [],
       "reviews": []
     }
