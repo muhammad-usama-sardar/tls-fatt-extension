@@ -286,7 +286,7 @@ Examples:
 
 * Integrity of message X holds unless some key Y is leaked.
 * Freshness of message X holds unless some key Y or some key Z is leaked.
-* Server Authentication of server holds unless some key Y or some key Z is leaked.
+* Server Authentication holds unless some key Y or some key Z is leaked.
 
 See Section 5.1 of {{ID-Crisis}} for concrete examples.
 
