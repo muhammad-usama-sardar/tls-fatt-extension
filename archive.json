@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-08T02:05:11.016737+00:00",
+  "timestamp": "2026-04-12T02:33:54.245834+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -144,6 +144,22 @@
           "updatedAt": "2026-03-06T07:34:19Z"
         }
       ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOPHS9bs79Fi0p",
+      "title": "Expand informal security goals",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/7",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/tls/EJac2n1cyZgaeTQaSN4DXENAZFg/)\n\n> Since we are not very familiar with security-related technologies, would you like to help us improve the content of security considerations?",
+      "createdAt": "2026-04-12T00:28:39Z",
+      "updatedAt": "2026-04-12T00:28:39Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -171,6 +187,34 @@
       "mergedBy": "muhammad-usama-sardar",
       "mergeCommit": {
         "oid": "a43dda5ab3ad53a98767cd32575dac026f93d0ca"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOPHS9bs7Rt0Wo",
+      "title": "minor polishing",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/6",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-04-12T00:19:16Z",
+      "updatedAt": "2026-04-12T00:19:52Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "3365eecff8bcd62b4593700e7f06ce38244e9a9f",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "ekr-feedback",
+      "headRefOid": "9faf215f2b773d31b1f9f9e747d75901d20245de",
+      "closedAt": "2026-04-12T00:19:52Z",
+      "mergedAt": "2026-04-12T00:19:52Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "962b3370cd504aba0bcde1de9cff2fdd07f6d3cf"
       },
       "comments": [],
       "reviews": []
