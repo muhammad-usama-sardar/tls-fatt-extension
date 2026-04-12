@@ -1690,16 +1690,16 @@ The Verifier can ask questions to improve it, but he cannot just cook it up.<a h
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-threat-model" class="section-name selfRef">Threat Model</a>
         </h3>
 <p id="section-5.2-1">A threat model outlines the assumptions and potential weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">In addition, it should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>. Alternatively, present as a table with the following entries for each key:<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">Moreover, this section should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>. Alternatively, present as a table with the following entries for each key:<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.2-3.1">
-            <p id="section-5.2-3.1.1">Name (or symbol) of key<a href="#section-5.2-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-5.2-3.1.1">Name (or symbol) of the key<a href="#section-5.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.2-3.2">
-            <p id="section-5.2-3.2.1">Purpose of key<a href="#section-5.2-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-5.2-3.2.1">Purpose of the key<a href="#section-5.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.2-3.3">
-            <p id="section-5.2-3.3.1">(optionally but perferably) Which software in the system has access to it?<a href="#section-5.2-3.3.1" class="pilcrow">¶</a></p>
+            <p id="section-5.2-3.3.1">(optionally but perferably) Which software in the system has access to the key?<a href="#section-5.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-5.2-4">If more than one servers are involved, the keys for servers should be distinguished in an unambiguous way.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
