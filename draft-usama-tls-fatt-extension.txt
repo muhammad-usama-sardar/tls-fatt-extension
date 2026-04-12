@@ -387,7 +387,8 @@ Table of Contents
 
 4.1.  Transparency
 
-   *  The process should be as transparent to the WG as possible.
+   *  The process should be as transparent to the WG as possible.  For
+      example, see PR#16 (https://github.com/tlswg/tls-fatt/pull/16).
 
 4.2.  WG consultation and information in decisions
 
@@ -395,18 +396,19 @@ Table of Contents
       FATT analysis is required.  At the very least, WG should be given
       the right to argue against the decision of the chairs regarding
       whether FATT analysis is required.  We believe the opinions of
-      those who are doing the formal analysis of the drafts of the WG,
-      OR actively contributing to it, OR have done formal analysis in
-      the past, OR have reasonably good knowledge of it, OR have
-      relevant expertise should be heard.
+      relevant stakeholders -- those who are doing the formal analysis
+      of the drafts of the WG, OR actively contributing to it, OR have
+      done formal analysis in the past, OR have reasonably good
+      knowledge of it, OR have relevant expertise -- should be heard.
 
 4.3.  Controversial drafts need FATT review
 
-   *  Surely not every draft needs to go to FATT but the controversial
-      ones do need to go to FATT, regardless of the nature of the draft
-      and whatever the chairs believe.  (As a reminder, 'nothing
-      required' is a perfectly valid outcome of initial FATT review.)
-      Formal methods may help resolve some of the controversies.
+   *  Surely not every draft needs to go to FATT but we believe the
+      controversial ones do need to go to FATT, regardless of the nature
+      of the draft and whatever the chairs believe.  As a reminder,
+      'nothing required' is a perfectly valid outcome of initial FATT
+      review.  Formal methods may help resolve some of the
+      controversies.
 
 4.4.  Scope of FATT
 
@@ -656,7 +658,7 @@ Document History
 
    -03
 
-   *  Limitations of formal analysis
+   *  Limitations of formal analysis in security considerations
 
    *  Proposed solutions section
 
