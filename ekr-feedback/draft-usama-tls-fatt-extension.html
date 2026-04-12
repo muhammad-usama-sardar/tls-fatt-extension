@@ -7,7 +7,7 @@
 <title>Extensions to TLS FATT Process</title>
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="
-       This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors provide a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
+       This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process: 
        
          
@@ -30,21 +30,21 @@ We also briefly present a few pain points of the team doing the formal analysis 
          
        
     " name="description">
-<meta content="xml2rfc 3.31.0" name="generator">
+<meta content="xml2rfc 3.32.0" name="generator">
 <meta content="draft-usama-tls-fatt-extension-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.31.0
+  xml2rfc 3.32.0
     Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.5.1
+    platformdirs 4.9.4
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.3.0
+    wcwidth 0.6.0
 -->
 <link href="draft-usama-tls-fatt-extension.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1065,11 +1065,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Extensions to TLS FATT Process</td>
-<td class="right">March 2026</td>
+<td class="right">April 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sardar</td>
-<td class="center">Expires 7 September 2026</td>
+<td class="center">Expires 14 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1082,12 +1082,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-usama-tls-fatt-extension-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-06" class="published">6 March 2026</time>
+<time datetime="2026-04-12" class="published">12 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-09-07">7 September 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-14">14 October 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1100,7 +1100,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Extensions to TLS FATT Process</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors provide a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
+<p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process:<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-abstract-2.1">
@@ -1158,7 +1158,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1245,6 +1245,20 @@ We also briefly present a few pain points of the team doing the formal analysis 
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-proposed-solutions" class="internal xref">Proposed solutions</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-transparency" class="internal xref">Transparency</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-wg-consultation-and-informa" class="internal xref">WG consultation and information in decisions</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-controversial-drafts-need-f" class="internal xref">Controversial drafts need FATT review</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-scope-of-fatt" class="internal xref">Scope of FATT</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-responsibilities-of-authors" class="internal xref">Responsibilities of Authors</a></p>
@@ -1348,7 +1362,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
           <p id="section-1-4.2.1">Even implementers may like to understand the security implications before blindly starting to implement it.<a href="#section-1-4.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-4.3">
-          <p id="section-1-4.3.1">With the FATT process, this argument is clearly invalid. The Verifier may not be the same as the implementer.<a href="#section-1-4.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-4.3.1">With the FATT process, this argument is clearly invalid. The Verifier may not be an implementer.<a href="#section-1-4.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-1-5">This document outlines the corresponding changes in the way Internet-Drafts are typically written.
@@ -1410,8 +1424,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-verifier">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-verifier" class="section-name selfRef">Verifier</a>
         </h3>
-<p id="section-2.2-1">In this document, the Verifier refers to the person (team) doing the formal analysis.
-Note that it is not a new formal role in the WG process.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">In this document, the Verifier refers to the team doing the formal analysis.
+Note that it is NOT a new formal role in the WG process.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="definition-of-attack">
@@ -1557,7 +1571,7 @@ there is little value of formal analysis.
         <h3 id="name-response-within-reasonable-">
 <a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-response-within-reasonable-" class="section-name selfRef">Response within reasonable time frame</a>
         </h3>
-<p id="section-3.5-1">If authors do not respond to our questions within a reasonable time frame, we may not pursue formal analysis of their draft.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.5-1">If authors do not respond to the Verifier's questions within a reasonable time frame, the Verifier may not pursue formal analysis of their draft.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="slots-at-meeting">
@@ -1589,35 +1603,70 @@ solutions.
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-proposed-solutions" class="section-name selfRef">Proposed solutions</a>
       </h2>
 <p id="section-4-1">In addition to those mentioned inline in the previous section, we propose the following:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="transparency">
+<section id="section-4.1">
+        <h3 id="name-transparency">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-transparency" class="section-name selfRef">Transparency</a>
+        </h3>
 <ul class="normal">
-<li class="normal" id="section-4-2.1">
-          <p id="section-4-2.1.1">The process should be as transparent to the WG as possible.<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1-1.1">
+            <p id="section-4.1-1.1.1">The process should be as transparent to the WG as possible.<a href="#section-4.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.2">
-          <p id="section-4-2.2.1">It should be the <strong>WG</strong> (and not the chairs) that deems whether some FATT analysis is
+        </ul>
+</section>
+</div>
+<div id="wg-consultation-and-information-in-decisions">
+<section id="section-4.2">
+        <h3 id="name-wg-consultation-and-informa">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-wg-consultation-and-informa" class="section-name selfRef">WG consultation and information in decisions</a>
+        </h3>
+<ul class="normal">
+<li class="normal" id="section-4.2-1.1">
+            <p id="section-4.2-1.1.1">It should be the <strong>WG</strong> (and not the chairs) that deems whether some FATT analysis is
    required. At the very least, WG should be given the right to argue against the decision of the
     chairs regarding whether FATT analysis is required. We believe the opinions of those who are doing the
     formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
-   in the past, OR have reasonably good knowledge of it, OR have relevant expertise should be heard.<a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
+   in the past, OR have reasonably good knowledge of it, OR have relevant expertise should be heard.<a href="#section-4.2-1.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.3">
-          <p id="section-4-2.3.1">Surely not every draft needs to go to FATT but the controversial
-    ones do need to go to FATT, regardless of the nature of the draft
-    and whatever the chairs believe (As a reminder, 'nothing required'
-    is a perfectly valid outcome of initial FATT review.)<a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-4-2.4">
-          <p id="section-4-2.4.1">Be more explicit on:<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
+        </ul>
+</section>
+</div>
+<div id="controversial-drafts-need-fatt-review">
+<section id="section-4.3">
+        <h3 id="name-controversial-drafts-need-f">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-controversial-drafts-need-f" class="section-name selfRef">Controversial drafts need FATT review</a>
+        </h3>
 <ul class="normal">
-<li class="normal" id="section-4-2.4.2.1">
-              <p id="section-4-2.4.2.1.1">what is the scope of FATT?<a href="#section-4-2.4.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.3-1.1">
+            <p id="section-4.3-1.1.1">Surely not every draft needs to go to FATT but the controversial
+    ones do need to go to FATT, regardless of the nature of the draft
+    and whatever the chairs believe. (As a reminder, 'nothing required'
+    is a perfectly valid outcome of initial FATT review.) Formal methods
+    may help resolve some of the controversies.<a href="#section-4.3-1.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4-2.4.2.2">
-              <p id="section-4-2.4.2.2.1">what kind of drafts need FATT review and why?<a href="#section-4-2.4.2.2.1" class="pilcrow">¶</a></p>
+        </ul>
+</section>
+</div>
+<div id="scope-of-fatt">
+<section id="section-4.4">
+        <h3 id="name-scope-of-fatt">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-scope-of-fatt" class="section-name selfRef">Scope of FATT</a>
+        </h3>
+<ul class="normal">
+<li class="normal" id="section-4.4-1.1">
+            <p id="section-4.4-1.1.1">Be more explicit on:<a href="#section-4.4-1.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.4-1.1.2.1">
+                <p id="section-4.4-1.1.2.1.1">what is the scope of FATT?<a href="#section-4.4-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-          </ul>
+              <li class="normal" id="section-4.4-1.1.2.2">
+                <p id="section-4.4-1.1.2.2.1">what kind of drafts need FATT review and why?<a href="#section-4.4-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
-      </ul>
+            </ul>
+</li>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="sec-res-authors">
@@ -1668,7 +1717,19 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-document-structure" class="section-name selfRef">Document Structure</a>
       </h2>
 <p id="section-6-1">While the needs may differ for some drafts, we propose the following baseline template, with an example of <span>[<a href="#I-D.wang-tls-service-affinity" class="cite xref">I-D.wang-tls-service-affinity</a>]</span>:<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">TODO: Currently it is almost a copy of the <a href="https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/">guidance email</a> to the authors. We will add details in next version.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-2">The template is:<a href="#section-6-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-3.1">
+          <p id="section-6-3.1.1">Easy for readers<a href="#section-6-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-3.2">
+          <p id="section-6-3.2.1">Easy for reviewers<a href="#section-6-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-3.3">
+          <p id="section-6-3.3.1">Easy for formal analysis<a href="#section-6-3.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-6-4">TODO: Currently it is almost a copy of the <a href="https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/">guidance email</a> to the authors. We will add details in next versions.<a href="#section-6-4" class="pilcrow">¶</a></p>
 <div id="introduction-1">
 <section id="section-6.1">
         <h3 id="name-introduction-2">
@@ -1840,7 +1901,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-extended-key-update">[I-D.ietf-tls-extended-key-update]</dt>
         <dd>
-<span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Reddy.K, T.</span>, <span class="refAuthor">Fries, S.</span>, and <span class="refAuthor">Y. Rosomakho</span>, <span class="refTitle">"Extended Key Update for Transport Layer Security (TLS) 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-extended-key-update-10</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update-10">https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update-10</a>&gt;</span>. </dd>
+<span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Reddy.K, T.</span>, <span class="refAuthor">Fries, S.</span>, and <span class="refAuthor">Y. Rosomakho</span>, <span class="refTitle">"Extended Key Update for Transport Layer Security (TLS) 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-extended-key-update-12</span>, <time datetime="2026-04-06" class="refDate">6 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update-12">https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update-12</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-mlkem">[I-D.ietf-tls-mlkem]</dt>
         <dd>
@@ -1856,7 +1917,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <dd class="break"></dd>
 <dt id="I-D.wang-tls-service-affinity">[I-D.wang-tls-service-affinity]</dt>
         <dd>
-<span class="refAuthor">Wang, W.</span>, <span class="refAuthor">Wang, A.</span>, <span class="refAuthor">Sahni, M.</span>, and <span class="refAuthor">K. Sheth</span>, <span class="refTitle">"Service Affinity Solution based on Transport Layer Security (TLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-wang-tls-service-affinity-00</span>, <time datetime="2025-10-17" class="refDate">17 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-00">https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-00</a>&gt;</span>. </dd>
+<span class="refAuthor">Wang, W.</span>, <span class="refAuthor">Wang, A.</span>, <span class="refAuthor">Sahni, M.</span>, and <span class="refAuthor">K. Sheth</span>, <span class="refTitle">"Service Affinity Solution based on Transport Layer Security (TLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-wang-tls-service-affinity-01</span>, <time datetime="2026-04-08" class="refDate">8 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-01">https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ID-Crisis">[ID-Crisis]</dt>
         <dd>
@@ -1889,6 +1950,9 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <ul class="normal">
 <li class="normal" id="appendix-A.1-2.1">
             <p id="appendix-A.1-2.1.1">Limitations of formal analysis<a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-2.2">
+            <p id="appendix-A.1-2.2.1">Proposed solutions section<a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-A.1-3">-02<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>

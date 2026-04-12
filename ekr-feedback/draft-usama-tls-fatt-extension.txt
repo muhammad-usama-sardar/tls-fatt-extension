@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                              6 March 2026
-Expires: 7 September 2026
+Intended status: Informational                             12 April 2026
+Expires: 14 October 2026
 
 
                      Extensions to TLS FATT Process
@@ -14,7 +14,7 @@ Expires: 7 September 2026
 Abstract
 
    This document applies only to non-trivial extensions of TLS, which
-   require formal analysis.  It proposes the authors provide a threat
+   require formal analysis.  It proposes the authors specify a threat
    model and informal security goals in the Security Considerations
    section, as well as motivation and a protocol diagram in the draft.
    We also briefly present a few pain points of the team doing the
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 September 2026.
+   This Internet-Draft will expire on 14 October 2026.
 
 Copyright Notice
 
@@ -100,6 +100,10 @@ Table of Contents
      3.5.  Response within reasonable time frame
      3.6.  Slots at Meeting
    4.  Proposed solutions
+     4.1.  Transparency
+     4.2.  WG consultation and information in decisions
+     4.3.  Controversial drafts need FATT review
+     4.4.  Scope of FATT
    5.  Responsibilities of Authors
      5.1.  Motivation
      5.2.  Threat Model
@@ -153,7 +157,7 @@ Table of Contents
       before blindly starting to implement it.
 
    *  With the FATT process, this argument is clearly invalid.  The
-      Verifier may not be the same as the implementer.
+      Verifier may not be an implementer.
 
    This document outlines the corresponding changes in the way Internet-
    Drafts are typically written.  For the Internet-Draft to be useful
@@ -206,9 +210,8 @@ Table of Contents
 
 2.2.  Verifier
 
-   In this document, the Verifier refers to the person (team) doing the
-   formal analysis.  Note that it is not a new formal role in the WG
-   process.
+   In this document, the Verifier refers to the team doing the formal
+   analysis.  Note that it is NOT a new formal role in the WG process.
 
 2.3.  Definition of Attack
 
@@ -358,8 +361,9 @@ Table of Contents
 
 3.5.  Response within reasonable time frame
 
-   If authors do not respond to our questions within a reasonable time
-   frame, we may not pursue formal analysis of their draft.
+   If authors do not respond to the Verifier's questions within a
+   reasonable time frame, the Verifier may not pursue formal analysis of
+   their draft.
 
 3.6.  Slots at Meeting
 
@@ -381,7 +385,11 @@ Table of Contents
    In addition to those mentioned inline in the previous section, we
    propose the following:
 
+4.1.  Transparency
+
    *  The process should be as transparent to the WG as possible.
+
+4.2.  WG consultation and information in decisions
 
    *  It should be the *WG* (and not the chairs) that deems whether some
       FATT analysis is required.  At the very least, WG should be given
@@ -392,10 +400,15 @@ Table of Contents
       the past, OR have reasonably good knowledge of it, OR have
       relevant expertise should be heard.
 
+4.3.  Controversial drafts need FATT review
+
    *  Surely not every draft needs to go to FATT but the controversial
       ones do need to go to FATT, regardless of the nature of the draft
-      and whatever the chairs believe (As a reminder, 'nothing required'
-      is a perfectly valid outcome of initial FATT review.)
+      and whatever the chairs believe.  (As a reminder, 'nothing
+      required' is a perfectly valid outcome of initial FATT review.)
+      Formal methods may help resolve some of the controversies.
+
+4.4.  Scope of FATT
 
    *  Be more explicit on:
 
@@ -444,9 +457,17 @@ Table of Contents
    baseline template, with an example of
    [I-D.wang-tls-service-affinity]:
 
+   The template is:
+
+   *  Easy for readers
+
+   *  Easy for reviewers
+
+   *  Easy for formal analysis
+
    TODO: Currently it is almost a copy of the guidance email
    (https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-
-   KPs/) to the authors.  We will add details in next version.
+   KPs/) to the authors.  We will add details in next versions.
 
 6.1.  Introduction
 
@@ -572,9 +593,9 @@ Table of Contents
               Tschofenig, H., Tüxen, M., Reddy.K, T., Fries, S., and Y.
               Rosomakho, "Extended Key Update for Transport Layer
               Security (TLS) 1.3", Work in Progress, Internet-Draft,
-              draft-ietf-tls-extended-key-update-10, 2 March 2026,
+              draft-ietf-tls-extended-key-update-12, 6 April 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              extended-key-update-10>.
+              extended-key-update-12>.
 
    [I-D.ietf-tls-mlkem]
               Connolly, D., "ML-KEM Post-Quantum Key Agreement for TLS
@@ -601,16 +622,15 @@ Table of Contents
               Wang, W., Wang, A., Sahni, M., and K. Sheth, "Service
               Affinity Solution based on Transport Layer Security
               (TLS)", Work in Progress, Internet-Draft, draft-wang-tls-
-              service-affinity-00, 17 October 2025,
+              service-affinity-01, 8 April 2026,
               <https://datatracker.ietf.org/doc/html/draft-wang-tls-
-              service-affinity-00>.
+              service-affinity-01>.
 
    [ID-Crisis]
               Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
               in Confidential Computing: Formal Analysis of Attested
-              TLS", November 2025, <https://www.researchgate.net/publica
-              tion/398839141_Identity_Crisis_in_Confidential_Computing_F
-              ormal_Analysis_of_Attested_TLS>.
+              TLS", November 2025, <https://www.researchgate.net/
+              publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS>.
 
    [RFC4101]  Rescorla, E. and IAB, "Writing Protocol Models", RFC 4101,
               DOI 10.17487/RFC4101, June 2005,
@@ -629,6 +649,8 @@ Document History
    -03
 
    *  Limitations of formal analysis
+
+   *  Proposed solutions section
 
    -02
 
