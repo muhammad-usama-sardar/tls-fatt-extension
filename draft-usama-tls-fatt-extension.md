@@ -45,20 +45,7 @@ informative:
       - ins: M. Moustafa
       - ins: T. Aura
   I-D.irtf-cfrg-cryptography-specification:
-  I-D.ietf-tls-extended-key-update:
   I-D.ietf-tls-8773bis:
-  FormalAnalysisPAKE:
-     title: "Formal analysis of draft-ietf-tls-pake"
-     date: 02 January 2026,
-     target: https://mailarchive.ietf.org/arch/msg/tls/igQGFE1INA6eR_Fdz8eTp74ffVc/
-     author:
-     - ins: M. U. Sardar
-  FormalAnalysisKeyUpdate:
-     title: "Comments on draft-ietf-tls-extended-key-update"
-     date: 03 October 2025,
-     target: https://mailarchive.ietf.org/arch/msg/tls/P_VdWSi20TZG0rJEaz7VCPKDIOg/
-     author:
-     - ins: M. U. Sardar
   I-D.fossati-seat-early-attestation-00:
   RFC8773bis:
   I-D.ietf-tls-mlkem:
@@ -279,7 +266,15 @@ The motivation of the work (i.e., the proposed extension of TLS) needs to primar
 The Verifier can ask questions to improve it, but he cannot just cook it up.
 
 ## Threat Model
-A threat model outlines the assumptions and known weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary. In addition, it could specify any keys (e.g., long-term keys or session keys) which may be compromised (i.e., available to the adversary).
+A threat model outlines the assumptions and potential weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary.
+
+Moreover, this section should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
+
+* Name (or symbol) of the key
+* Purpose of the key
+* (optionally but perferably) Which software in the system has access to the key?
+
+If more than one servers are involved, the keys for servers should be distinguished in an unambiguous way.
 
 ## Informal Security Goals
 Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. should be outlined in the Internet-Draft.
@@ -287,6 +282,13 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 
 [section]: <> (In such a case, the Internet-Draft should not be considered as ready for adoption. These goals could be part of the security considerations or the Appendix.)
 
+Examples:
+
+* Integrity of message X holds unless some key Y is leaked.
+* Freshness of message X holds unless some key Y or some key Z is leaked.
+* Server Authentication holds unless some key Y or some key Z is leaked.
+
+See Section 5.1 of {{ID-Crisis}} for concrete examples.
 
 ## Protocol Diagram
 A Protocol Diagram should clearly mention the initial knowledge of the protocol participants, e.g., which authentic public keys are known to the protocol participants at the start of the protocol. An example of a Protocol Diagram for {{I-D.fossati-tls-attestation-08}} is provided in Figure 5 in {{ID-Crisis}}.
@@ -362,6 +364,7 @@ This document has no IANA actions.
 
 * Limitations of formal analysis
 * Proposed solutions section
+* More guidance for authors: Threat Model and Informal Security Goals
 
 -02
 
@@ -377,3 +380,5 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 We thankfully acknowledge Eric Rescorla and John Mattsson for their valuable input.
+
+The research work is funded by Deutsche Forschungsgemeinschaft.
