@@ -66,7 +66,7 @@ informative:
 
 --- abstract
 
-This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors provide a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
+This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process:
 
 * Contacting FATT
@@ -88,7 +88,7 @@ An argument is often presented by the authors that an Internet-Draft is written 
 
 * Researchers and protocol designers are also stakeholders of such specifications {{I-D.irtf-cfrg-cryptography-specification}}.
 * Even implementers may like to understand the security implications before blindly starting to implement it.
-* With the FATT process, this argument is clearly invalid. The Verifier may not be the same as the implementer.
+* With the FATT process, this argument is clearly invalid. The Verifier may not be an implementer.
 
 This document outlines the corresponding changes in the way Internet-Drafts are typically written.
 For the Internet-Draft to be useful for the formal analysis, this document proposes that the draft should contain four main items, namely:
@@ -120,8 +120,8 @@ The scope of this document is only non-trivial extensions of TLS, which require 
 In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential.
 
 ## Verifier
-In this document, the Verifier refers to the person (team) doing the formal analysis.
-Note that it is not a new formal role in the WG process.
+In this document, the Verifier refers to the team doing the formal analysis.
+Note that it is NOT a new formal role in the WG process.
 
 ## Definition of Attack
 Any ambiguity originating from the threat model, informal security goals, and a Protocol Diagram is to be considered as an attack.
@@ -227,7 +227,7 @@ In particular, some topics like remote attestation need more precise specificati
 [comment]: <> (We also argue that in the current process, the stakeholder at most disadvantage is . We all have a shared goal of producing high-quality specifications.)
 
 ## Response within reasonable time frame
-If authors do not respond to our questions within a reasonable time frame, we may not pursue formal analysis of their draft.
+If authors do not respond to the Verifier's questions within a reasonable time frame, the Verifier may not pursue formal analysis of their draft.
 
 ## Slots at Meeting
 
@@ -247,17 +247,24 @@ So at least some time should be allocated in the meetings for discussion of form
 # Proposed solutions
 In addition to those mentioned inline in the previous section, we propose the following:
 
+## Transparency
   * The process should be as transparent to the WG as possible.
+
+## WG consultation and information in decisions
    * It should be the **WG** (and not the chairs) that deems whether some FATT analysis is
    required. At the very least, WG should be given the right to argue against the decision of the
     chairs regarding whether FATT analysis is required. We believe the opinions of those who are doing the
     formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
    in the past, OR have reasonably good knowledge of it, OR have relevant expertise should be heard.
+
+## Controversial drafts need FATT review
    * Surely not every draft needs to go to FATT but the controversial
     ones do need to go to FATT, regardless of the nature of the draft
-    and whatever the chairs believe (As a reminder, 'nothing required'
-    is a perfectly valid outcome of initial FATT review.)
+    and whatever the chairs believe. (As a reminder, 'nothing required'
+    is a perfectly valid outcome of initial FATT review.) Formal methods
+    may help resolve some of the controversies.
 
+## Scope of FATT
    * Be more explicit on:
       * what is the scope of FATT?
       * what kind of drafts need FATT review and why?
@@ -287,7 +294,13 @@ A Protocol Diagram should clearly mention the initial knowledge of the protocol 
 # Document Structure
 While the needs may differ for some drafts, we propose the following baseline template, with an example of {{I-D.wang-tls-service-affinity}}:
 
-TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/) to the authors. We will add details in next version.
+The template is:
+
+* Easy for readers
+* Easy for reviewers
+* Easy for formal analysis
+
+TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/) to the authors. We will add details in next versions.
 
 ## Introduction
    * Problem statement: Say in general what the problem is.
@@ -348,6 +361,7 @@ This document has no IANA actions.
 -03
 
 * Limitations of formal analysis
+* Proposed solutions section
 
 -02
 
