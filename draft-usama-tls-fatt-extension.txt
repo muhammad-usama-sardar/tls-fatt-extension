@@ -429,11 +429,26 @@ Table of Contents
 
 5.2.  Threat Model
 
-   A threat model outlines the assumptions and known weaknesses of the
-   proposed protocol.  The threat model could be the classical Dolev-Yao
-   adversary.  In addition, it could specify any keys (e.g., long-term
-   keys or session keys) which may be compromised (i.e., available to
-   the adversary).
+   A threat model outlines the assumptions and potential weaknesses of
+   the proposed protocol.  The threat model could be the classical
+   Dolev-Yao adversary.
+
+   Moreover, this section should specify any keys in the system (e.g.,
+   long-term keys of server) in addition to the standard TLS key
+   schedule.  Theoretically, any key may be compromised (i.e., become
+   available to the adversary).  For readability, we propose defining
+   each key clearly as in Section 4.1 of [ID-Crisis].  Alternatively,
+   present as a table with the following entries for each key:
+
+   *  Name (or symbol) of the key
+
+   *  Purpose of the key
+
+   *  (optionally but perferably) Which software in the system has
+      access to the key?
+
+   If more than one servers are involved, the keys for servers should be
+   distinguished in an unambiguous way.
 
 5.3.  Informal Security Goals
 
@@ -442,6 +457,18 @@ Table of Contents
    etc. should be outlined in the Internet-Draft.  If the informal
    security goals are not spelled out in the Internet-Draft, it is safe
    to assume that the goals are still unclear to the authors.
+
+   Examples:
+
+   *  Integrity of message X holds unless some key Y is leaked.
+
+   *  Freshness of message X holds unless some key Y or some key Z is
+      leaked.
+
+   *  Server Authentication holds unless some key Y or some key Z is
+      leaked.
+
+   See Section 5.1 of [ID-Crisis] for concrete examples.
 
 5.4.  Protocol Diagram
 
@@ -553,17 +580,6 @@ Table of Contents
 
 10.2.  Informative References
 
-   [FormalAnalysisKeyUpdate]
-              Sardar, M. U., "Comments on draft-ietf-tls-extended-key-
-              update", October 2025,
-              <https://mailarchive.ietf.org/arch/msg/tls/
-              P_VdWSi20TZG0rJEaz7VCPKDIOg/>.
-
-   [FormalAnalysisPAKE]
-              Sardar, M. U., "Formal analysis of draft-ietf-tls-pake",
-              January 2026, <https://mailarchive.ietf.org/arch/msg/tls/
-              igQGFE1INA6eR_Fdz8eTp74ffVc/>.
-
    [I-D.fossati-seat-early-attestation-00]
               Sheffer, Y., Mihalcea, I., Deshpande, Y., Fossati, T., and
               T. Reddy.K, "Using Attestation in Transport Layer Security
@@ -588,14 +604,6 @@ Table of Contents
               Internet-Draft, draft-ietf-tls-8773bis-13, 5 September
               2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
               tls-8773bis-13>.
-
-   [I-D.ietf-tls-extended-key-update]
-              Tschofenig, H., Tüxen, M., Reddy.K, T., Fries, S., and Y.
-              Rosomakho, "Extended Key Update for Transport Layer
-              Security (TLS) 1.3", Work in Progress, Internet-Draft,
-              draft-ietf-tls-extended-key-update-12, 6 April 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              extended-key-update-12>.
 
    [I-D.ietf-tls-mlkem]
               Connolly, D., "ML-KEM Post-Quantum Key Agreement for TLS
@@ -652,6 +660,9 @@ Document History
 
    *  Proposed solutions section
 
+   *  More guidance for authors: Threat Model and Informal Security
+      Goals
+
    -02
 
    *  Added document structure
@@ -670,6 +681,8 @@ Acknowledgments
 
    We thankfully acknowledge Eric Rescorla and John Mattsson for their
    valuable input.
+
+   The research work is funded by Deutsche Forschungsgemeinschaft.
 
 Author's Address
 

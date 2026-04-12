@@ -1689,7 +1689,20 @@ The Verifier can ask questions to improve it, but he cannot just cook it up.<a h
         <h3 id="name-threat-model">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-threat-model" class="section-name selfRef">Threat Model</a>
         </h3>
-<p id="section-5.2-1">A threat model outlines the assumptions and known weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary. In addition, it could specify any keys (e.g., long-term keys or session keys) which may be compromised (i.e., available to the adversary).<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">A threat model outlines the assumptions and potential weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">Moreover, this section should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>. Alternatively, present as a table with the following entries for each key:<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-3.1">
+            <p id="section-5.2-3.1.1">Name (or symbol) of the key<a href="#section-5.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.2">
+            <p id="section-5.2-3.2.1">Purpose of the key<a href="#section-5.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.3">
+            <p id="section-5.2-3.3.1">(optionally but perferably) Which software in the system has access to the key?<a href="#section-5.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.2-4">If more than one servers are involved, the keys for servers should be distinguished in an unambiguous way.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="informal-security-goals">
@@ -1699,6 +1712,19 @@ The Verifier can ask questions to improve it, but he cannot just cook it up.<a h
         </h3>
 <p id="section-5.3-1">Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. should be outlined in the Internet-Draft.
 If the informal security goals are not spelled out in the Internet-Draft, it is safe to assume that the goals are still unclear to the authors.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3-2">Examples:<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.3-3.1">
+            <p id="section-5.3-3.1.1">Integrity of message X holds unless some key Y is leaked.<a href="#section-5.3-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-3.2">
+            <p id="section-5.3-3.2.1">Freshness of message X holds unless some key Y or some key Z is leaked.<a href="#section-5.3-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-3.3">
+            <p id="section-5.3-3.3.1">Server Authentication holds unless some key Y or some key Z is leaked.<a href="#section-5.3-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.3-4">See Section 5.1 of <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span> for concrete examples.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="protocol-diagram">
@@ -1879,14 +1905,6 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="FormalAnalysisKeyUpdate">[FormalAnalysisKeyUpdate]</dt>
-        <dd>
-<span class="refAuthor">Sardar, M. U.</span>, <span class="refTitle">"Comments on draft-ietf-tls-extended-key-update"</span>, <time datetime="2025-10" class="refDate">October 2025</time>, <span>&lt;<a href="https://mailarchive.ietf.org/arch/msg/tls/P_VdWSi20TZG0rJEaz7VCPKDIOg/">https://mailarchive.ietf.org/arch/msg/tls/P_VdWSi20TZG0rJEaz7VCPKDIOg/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="FormalAnalysisPAKE">[FormalAnalysisPAKE]</dt>
-        <dd>
-<span class="refAuthor">Sardar, M. U.</span>, <span class="refTitle">"Formal analysis of draft-ietf-tls-pake"</span>, <time datetime="2026-01" class="refDate">January 2026</time>, <span>&lt;<a href="https://mailarchive.ietf.org/arch/msg/tls/igQGFE1INA6eR_Fdz8eTp74ffVc/">https://mailarchive.ietf.org/arch/msg/tls/igQGFE1INA6eR_Fdz8eTp74ffVc/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="I-D.fossati-seat-early-attestation-00">[I-D.fossati-seat-early-attestation-00]</dt>
         <dd>
 <span class="refAuthor">Sheffer, Y.</span>, <span class="refAuthor">Mihalcea, I.</span>, <span class="refAuthor">Deshpande, Y.</span>, <span class="refAuthor">Fossati, T.</span>, and <span class="refAuthor">T. Reddy.K</span>, <span class="refTitle">"Using Attestation in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-fossati-seat-early-attestation-00</span>, <time datetime="2026-01-09" class="refDate">9 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-fossati-seat-early-attestation-00">https://datatracker.ietf.org/doc/html/draft-fossati-seat-early-attestation-00</a>&gt;</span>. </dd>
@@ -1898,10 +1916,6 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <dt id="I-D.ietf-tls-8773bis">[I-D.ietf-tls-8773bis]</dt>
         <dd>
 <span class="refAuthor">Housley, R.</span>, <span class="refTitle">"TLS 1.3 Extension for Using Certificates with an External Pre-Shared Key"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-8773bis-13</span>, <time datetime="2025-09-05" class="refDate">5 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-8773bis-13">https://datatracker.ietf.org/doc/html/draft-ietf-tls-8773bis-13</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="I-D.ietf-tls-extended-key-update">[I-D.ietf-tls-extended-key-update]</dt>
-        <dd>
-<span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Reddy.K, T.</span>, <span class="refAuthor">Fries, S.</span>, and <span class="refAuthor">Y. Rosomakho</span>, <span class="refTitle">"Extended Key Update for Transport Layer Security (TLS) 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-extended-key-update-12</span>, <time datetime="2026-04-06" class="refDate">6 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update-12">https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update-12</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-mlkem">[I-D.ietf-tls-mlkem]</dt>
         <dd>
@@ -1954,6 +1968,9 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
           <li class="normal" id="appendix-A.1-2.2">
             <p id="appendix-A.1-2.2.1">Proposed solutions section<a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
+          <li class="normal" id="appendix-A.1-2.3">
+            <p id="appendix-A.1-2.3.1">More guidance for authors: Threat Model and Informal Security Goals<a href="#appendix-A.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
         </ul>
 <p id="appendix-A.1-3">-02<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1986,6 +2003,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
 <p id="appendix-B-1">We thankfully acknowledge Eric Rescorla and John Mattsson for their valuable input.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">The research work is funded by Deutsche Forschungsgemeinschaft.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
