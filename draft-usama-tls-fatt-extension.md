@@ -235,20 +235,20 @@ So at least some time should be allocated in the meetings for discussion of form
 In addition to those mentioned inline in the previous section, we propose the following:
 
 ## Transparency
-  * The process should be as transparent to the WG as possible.
+  * The process should be as transparent to the WG as possible. For example, see [PR#16](https://github.com/tlswg/tls-fatt/pull/16).
 
 ## WG consultation and information in decisions
    * It should be the **WG** (and not the chairs) that deems whether some FATT analysis is
    required. At the very least, WG should be given the right to argue against the decision of the
-    chairs regarding whether FATT analysis is required. We believe the opinions of those who are doing the
+    chairs regarding whether FATT analysis is required. We believe the opinions of relevant stakeholders -- those who are doing the
     formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
-   in the past, OR have reasonably good knowledge of it, OR have relevant expertise should be heard.
+   in the past, OR have reasonably good knowledge of it, OR have relevant expertise -- should be heard.
 
 ## Controversial drafts need FATT review
-   * Surely not every draft needs to go to FATT but the controversial
+   * Surely not every draft needs to go to FATT but we believe the controversial
     ones do need to go to FATT, regardless of the nature of the draft
-    and whatever the chairs believe. (As a reminder, 'nothing required'
-    is a perfectly valid outcome of initial FATT review.) Formal methods
+    and whatever the chairs believe. As a reminder, 'nothing required'
+    is a perfectly valid outcome of initial FATT review. Formal methods
     may help resolve some of the controversies.
 
 ## Scope of FATT
@@ -362,7 +362,7 @@ This document has no IANA actions.
 
 -03
 
-* Limitations of formal analysis
+* Limitations of formal analysis in security considerations
 * Proposed solutions section
 * More guidance for authors: Threat Model and Informal Security Goals
 
