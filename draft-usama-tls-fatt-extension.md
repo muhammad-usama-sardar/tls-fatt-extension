@@ -268,11 +268,11 @@ The Verifier can ask questions to improve it, but he cannot just cook it up.
 ## Threat Model
 A threat model outlines the assumptions and potential weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary.
 
-In addition, it should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
+Moreover, this section should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
 
-* Name (or symbol) of key
-* Purpose of key
-* (optionally but perferably) Which software in the system has access to it?
+* Name (or symbol) of the key
+* Purpose of the key
+* (optionally but perferably) Which software in the system has access to the key?
 
 If more than one servers are involved, the keys for servers should be distinguished in an unambiguous way.
 
