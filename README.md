@@ -34,11 +34,12 @@ Command line usage requires that you have the necessary software installed.  See
 
 - Commit the final changes. 
 
+s/00/<next version>
 - Publish
 ```sh
 $ git push origin main
-$ git tag -a draft-usama-tls-fatt-extension-02 -m "<msg>"
-$ git push origin draft-usama-tls-fatt-extension-02
+$ git tag -a draft-usama-tls-fatt-extension-00 -m "v00"
+$ git push origin draft-usama-tls-fatt-extension-00
 ```
 
 - Confirm the email
