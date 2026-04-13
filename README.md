@@ -34,7 +34,7 @@ Command line usage requires that you have the necessary software installed.  See
 
 - Commit the final changes. 
 
-s/00/<next version>
+s/00/next version
 - Publish
 ```sh
 $ git push origin main
