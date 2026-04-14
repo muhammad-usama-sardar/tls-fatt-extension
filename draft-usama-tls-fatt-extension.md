@@ -58,8 +58,8 @@ We also briefly present a few pain points of the team doing the formal analysis 
 
 * Contacting FATT
 * Understanding the opposing goals
-* No response from some authors
-* Slots at meeting
+* Response within reasonable time frame
+* Discussion at meeting
 * Provide protection against FATT-bypass by other TLS-related WGs
 * Process not being followed
 
@@ -146,6 +146,8 @@ The process {{TLS-FATT}} states:
 However, such information has not been provided to the WG for at least the following 2 documents:
 
 ### ML-KEM
+{: #sec-ml-kem }
+
 For the draft {{I-D.ietf-tls-mlkem}}, the [chairs acknowledge](https://mailarchive.ietf.org/arch/msg/tls/L2bWqpT3q8HVmACwD1Ta3NFimw0/) that the process was not followed:
 
 {:quote}
@@ -172,6 +174,12 @@ We have provided significant feedback during the two WGLCs. However,
 almost none of that is actually reflected in the updated editor's
 version.
 ~~~
+
+#### Formal analysis
+We have presented observation from our ongoing formal analysis (cf. limitations in {{sec-sec-cons}}) on the mailing list in [this email](https://mailarchive.ietf.org/arch/msg/tls/g4lCSltMQQY8xHdJdtjTvudTMes/).
+
+#### "Cost"
+"Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."
 
 ### Key Update
 
@@ -214,9 +222,11 @@ In particular, some topics like remote attestation need more precise specificati
 [comment]: <> (We also argue that in the current process, the stakeholder at most disadvantage is . We all have a shared goal of producing high-quality specifications.)
 
 ## Response within reasonable time frame
-If authors do not respond to the Verifier's questions within a reasonable time frame, the Verifier may not pursue formal analysis of their draft.
+If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.
 
-## Slots at Meeting
+## Discussion at Meeting
+{: #sec-discuss-meetings }
+
 
 ~~~
 Formal analysis -- just like any other code development -- is an
@@ -227,7 +237,13 @@ solutions.
 
 So at least some time should be allocated in the meetings for discussion of formal analysis.
 
-* If the authors are doing the formal analysis themselves, they should also present the current state of formal analysis for discussion. This will help the Verifier give any feedback and avoid any repititive effort.
+If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:
+
+* Approach used: symbolic or computational
+* Tool used: ProVerif, CryptoVerif etc.
+* Properties established
+
+This will help the Verifier give any feedback and avoid any repititive effort.
 
 [comment]: <> (The goal of authors of Internet-Draft is to ...)
 
@@ -266,15 +282,36 @@ The motivation of the work (i.e., the proposed extension of TLS) needs to primar
 The Verifier can ask questions to improve it, but he cannot just cook it up.
 
 ## Threat Model
-A threat model outlines the assumptions and potential weaknesses of the proposed protocol. The threat model could be the classical Dolev-Yao adversary.
+{: #sec-th-model }
 
-Moreover, this section should specify any keys in the system (e.g., long-term keys of server) in addition to the standard TLS key schedule. Theoretically, any key may be compromised (i.e., become available to the adversary). For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
+A threat model identifies which threats are in scope for the protocol design. So it should answer questions like:
+
+* What are the capabilities of the adversary? What can the adversary do?
+* Whether post-quantum threats are in scope?
+* What can go wrong in the system? etc.
+
+### Typical Dolev-Yao adversary
+A typical threat model assumes the classical Dolev-Yao adversary, who has full control over the communication channel.
+
+Any additional adversary capabilities and assumptions must be explicitly stated.
+
+### Potential Weaknesses of Cryptographic Primitives
+In general, it also outlines the potential weaknesses of the cryptographic primitives used in the proposed protocol extension. Examples include:
+
+* weak hash functions
+* weak Diffie-Hellman (DH) groups
+* weak elements within strong DH groups
+
+### Keys
+This section should specify any keys in the system (e.g., long-term keys of the server) in addition to the standard TLS key schedule. Theoretically and arguably practically, any key may be compromised (i.e., become available to the adversary).
+
+For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
 
 * Name (or symbol) of the key
 * Purpose of the key
-* (optionally but perferably) Which software in the system has access to the key?
+* (optionally but preferably -- particularly when the endpoint is not fully trusted) Which software in the system has access to the key?
 
-If more than one servers are involved, the keys for servers should be distinguished in an unambiguous way.
+If more than one servers are involved (such as migration cases), the keys for servers should be distinguished in an unambiguous way.
 
 ## Informal Security Goals
 Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. should be outlined in the Internet-Draft.
@@ -341,6 +378,7 @@ When the authors declare the version as ready for formal analysis, the Verifier 
 [comment]: <> (This most likely needs some coordination with the authors.)
 
 # Security Considerations
+{: #sec-sec-cons }
 
 The whole document is about improving security considerations.
 
@@ -359,6 +397,12 @@ This document has no IANA actions.
 
 ## Document History
 {:unnumbered}
+
+-04
+
+* Extended threat model {{sec-th-model}}
+* Helpful discussions on formal analysis in meetings in {{sec-discuss-meetings}}
+* Pointer to formal analysis and costs in {{sec-ml-kem}}
 
 -03
 
