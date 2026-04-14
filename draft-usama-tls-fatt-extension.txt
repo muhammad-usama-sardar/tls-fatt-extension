@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                             12 April 2026
-Expires: 14 October 2026
+Intended status: Informational                             14 April 2026
+Expires: 16 October 2026
 
 
                      Extensions to TLS FATT Process
@@ -24,9 +24,9 @@ Abstract
 
    *  Understanding the opposing goals
 
-   *  No response from some authors
+   *  Response within reasonable time frame
 
-   *  Slots at meeting
+   *  Discussion at meeting
 
    *  Provide protection against FATT-bypass by other TLS-related WGs
 
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 October 2026.
+   This Internet-Draft will expire on 16 October 2026.
 
 Copyright Notice
 
@@ -98,7 +98,7 @@ Table of Contents
      3.3.  Contacting FATT
      3.4.  Understanding the Opposing Goals
      3.5.  Response within reasonable time frame
-     3.6.  Slots at Meeting
+     3.6.  Discussion at Meeting
    4.  Proposed solutions
      4.1.  Transparency
      4.2.  WG consultation and information in decisions
@@ -107,6 +107,9 @@ Table of Contents
    5.  Responsibilities of Authors
      5.1.  Motivation
      5.2.  Threat Model
+       5.2.1.  Typical Dolev-Yao adversary
+       5.2.2.  Potential Weaknesses of Cryptographic Primitives
+       5.2.3.  Keys
      5.3.  Informal Security Goals
      5.4.  Protocol Diagram
    6.  Document Structure
@@ -312,6 +315,19 @@ Table of Contents
    almost none of that is actually reflected in the updated editor's
    version.
 
+3.2.1.1.  Formal analysis
+
+   We have presented observation from our ongoing formal analysis (cf.
+   limitations in Section 8) on the mailing list in this email
+   (https://mailarchive.ietf.org/arch/msg/tls/
+   g4lCSltMQQY8xHdJdtjTvudTMes/).
+
+3.2.1.2.  "Cost"
+
+   "Cost" has been presented on the list as the motivation for ML-KEM
+   but no authentic reference has yet been presented.  There seems to be
+   a need for a thorough study to understand the "cost."
+
 3.2.2.  Key Update
 
    The process [TLS-FATT] states:
@@ -362,10 +378,10 @@ Table of Contents
 3.5.  Response within reasonable time frame
 
    If authors do not respond to the Verifier's questions within a
-   reasonable time frame, the Verifier may not pursue formal analysis of
-   their draft.
+   reasonable time frame (say a few weeks but not months), the Verifier
+   may not pursue formal analysis of their draft.
 
-3.6.  Slots at Meeting
+3.6.  Discussion at Meeting
 
    Formal analysis -- just like any other code development -- is an
    iterative process and needs to be progressively discussed with
@@ -375,10 +391,18 @@ Table of Contents
    So at least some time should be allocated in the meetings for
    discussion of formal analysis.
 
-   *  If the authors are doing the formal analysis themselves, they
-      should also present the current state of formal analysis for
-      discussion.  This will help the Verifier give any feedback and
-      avoid any repititive effort.
+   If the authors are doing the formal analysis themselves, it would be
+   helpful to also present the current state of formal analysis in
+   meetings for discussion.  This may be a single slide describing:
+
+   *  Approach used: symbolic or computational
+
+   *  Tool used: ProVerif, CryptoVerif etc.
+
+   *  Properties established
+
+   This will help the Verifier give any feedback and avoid any
+   repititive effort.
 
 4.  Proposed solutions
 
@@ -431,26 +455,57 @@ Table of Contents
 
 5.2.  Threat Model
 
-   A threat model outlines the assumptions and potential weaknesses of
-   the proposed protocol.  The threat model could be the classical
-   Dolev-Yao adversary.
+   A threat model identifies which threats are in scope for the protocol
+   design.  So it should answer questions like:
 
-   Moreover, this section should specify any keys in the system (e.g.,
-   long-term keys of server) in addition to the standard TLS key
-   schedule.  Theoretically, any key may be compromised (i.e., become
-   available to the adversary).  For readability, we propose defining
-   each key clearly as in Section 4.1 of [ID-Crisis].  Alternatively,
-   present as a table with the following entries for each key:
+   *  What are the capabilities of the adversary?  What can the
+      adversary do?
+
+   *  Whether post-quantum threats are in scope?
+
+   *  What can go wrong in the system? etc.
+
+5.2.1.  Typical Dolev-Yao adversary
+
+   A typical threat model assumes the classical Dolev-Yao adversary, who
+   has full control over the communication channel.
+
+   Any additional adversary capabilities and assumptions must be
+   explicitly stated.
+
+5.2.2.  Potential Weaknesses of Cryptographic Primitives
+
+   In general, it also outlines the potential weaknesses of the
+   cryptographic primitives used in the proposed protocol extension.
+   Examples include:
+
+   *  weak hash functions
+
+   *  weak Diffie-Hellman (DH) groups
+
+   *  weak elements within strong DH groups
+
+5.2.3.  Keys
+
+   This section should specify any keys in the system (e.g., long-term
+   keys of the server) in addition to the standard TLS key schedule.
+   Theoretically and arguably practically, any key may be compromised
+   (i.e., become available to the adversary).
+
+   For readability, we propose defining each key clearly as in
+   Section 4.1 of [ID-Crisis].  Alternatively, present as a table with
+   the following entries for each key:
 
    *  Name (or symbol) of the key
 
    *  Purpose of the key
 
-   *  (optionally but perferably) Which software in the system has
-      access to the key?
+   *  (optionally but preferably -- particularly when the endpoint is
+      not fully trusted) Which software in the system has access to the
+      key?
 
-   If more than one servers are involved, the keys for servers should be
-   distinguished in an unambiguous way.
+   If more than one servers are involved (such as migration cases), the
+   keys for servers should be distinguished in an unambiguous way.
 
 5.3.  Informal Security Goals
 
@@ -655,6 +710,14 @@ Table of Contents
 Appendix
 
 Document History
+
+   -04
+
+   *  Extended threat model Section 5.2
+
+   *  Helpful discussions on formal analysis in meetings in Section 3.6
+
+   *  Pointer to formal analysis and costs in Section 3.2.1
 
    -03
 
