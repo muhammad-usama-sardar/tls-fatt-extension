@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-12T02:33:54.245834+00:00",
+  "timestamp": "2026-04-14T02:32:39.119629+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -150,16 +150,24 @@
       "id": "I_kwDOPHS9bs79Fi0p",
       "title": "Expand informal security goals",
       "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/tls/EJac2n1cyZgaeTQaSN4DXENAZFg/)\n\n> Since we are not very familiar with security-related technologies, would you like to help us improve the content of security considerations?",
       "createdAt": "2026-04-12T00:28:39Z",
-      "updatedAt": "2026-04-12T00:28:39Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-04-12T15:18:45Z",
+      "closedAt": "2026-04-12T15:18:45Z",
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "Addressed via https://github.com/muhammad-usama-sardar/tls-fatt-extension/commit/b239f2f0a53735f68844049cabebdb1fa47572f9",
+          "createdAt": "2026-04-12T15:18:45Z",
+          "updatedAt": "2026-04-12T15:18:45Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -215,6 +223,34 @@
       "mergedBy": "muhammad-usama-sardar",
       "mergeCommit": {
         "oid": "962b3370cd504aba0bcde1de9cff2fdd07f6d3cf"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOPHS9bs7Rx4Xq",
+      "title": "Clarifications based on Wei request",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/8",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-04-12T14:26:15Z",
+      "updatedAt": "2026-04-12T14:26:51Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "962b3370cd504aba0bcde1de9cff2fdd07f6d3cf",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "wei-request",
+      "headRefOid": "88585ea3bfd7841a24309802cf0f175d8f7c4748",
+      "closedAt": "2026-04-12T14:26:51Z",
+      "mergedAt": "2026-04-12T14:26:51Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "b239f2f0a53735f68844049cabebdb1fa47572f9"
       },
       "comments": [],
       "reviews": []
