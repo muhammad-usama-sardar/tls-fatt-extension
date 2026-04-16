@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-14T02:32:39.119629+00:00",
+  "timestamp": "2026-04-16T02:37:29.728075+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -102,7 +102,7 @@
       "labels": [],
       "body": "[Archive link](https://mailarchive.ietf.org/arch/msg/tls/uCFORHNcQE3Bw3I0bkv2j7rpJ1A/)\n\n> TBH, I don't find this draft that helpful. While there are some parts\n> of it that seem like they might be unobjectionable, way too much of it\n> seems to be concerned with litigating various disputes about specific\n> past events. That's not a good starting point for reform.\n> \n> More generally, this draft seems to envision some defined role in the\n> WG process for \"Verifiers\" other than through the FATT. For example:\n> \n>>    The FATT process restricts the Verifier from contacting the FATT\n>>    directly.  We argue that the Verifier should be allowed to contact\n>>    the FATT (at least the FATT person for a specific draft) because of\n>>    the following reasons:\n> \n> I don't think this is advisable. In general, the IETF convention is\n> that people participate as individuals and if they are to have\n> specific roles (e.g., author), those roles are provided by the\n> WG process, not by the nature of the person's work. I don't think\n> we need the concept of a separate \"Verifier\" role any more than\n> we have the concept of a separate \"Implementor\" role. We are all\n> WG members.\n> \n> From my perspective, the purpose of having a separate FATT is to\n> ensure that in cases where the WG deems some formal analysis is\n> needed, we have a structure for getting that. It does not, however,\n> empower FATT members with extra authority, and that process takes\n> place within the broad overall management of the chairs.",
       "createdAt": "2026-03-03T04:40:04Z",
-      "updatedAt": "2026-03-03T16:08:19Z",
+      "updatedAt": "2026-04-14T18:25:16Z",
       "closedAt": null,
       "comments": [
         {
@@ -111,6 +111,13 @@
           "body": "[Response](https://mailarchive.ietf.org/arch/msg/tls/KrtlaSghLAWRvkPbRSABJxpQzus/)",
           "createdAt": "2026-03-03T16:08:19Z",
           "updatedAt": "2026-03-03T16:08:19Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "> this draft seems to envision some defined role in the\nWG process for \"Verifiers\" other than through the FATT.\n\nClarified explicitly in [-03](https://www.ietf.org/archive/id/draft-usama-tls-fatt-extension-03.html#section-2.2) as follows:\n\n> Note that it is NOT a new formal role in the WG process.",
+          "createdAt": "2026-04-14T18:25:16Z",
+          "updatedAt": "2026-04-14T18:25:16Z"
         }
       ]
     },
