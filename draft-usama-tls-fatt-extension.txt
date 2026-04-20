@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                             14 April 2026
-Expires: 16 October 2026
+Intended status: Informational                             20 April 2026
+Expires: 22 October 2026
 
 
                      Extensions to TLS FATT Process
@@ -20,17 +20,15 @@ Abstract
    We also briefly present a few pain points of the team doing the
    formal analysis which -- we believe -- require refining the process:
 
+   *  Provide protection against FATT-bypass by other TLS-related WGs
+
    *  Contacting FATT
+
+   *  ML-KEM
 
    *  Understanding the opposing goals
 
    *  Response within reasonable time frame
-
-   *  Discussion at meeting
-
-   *  Provide protection against FATT-bypass by other TLS-related WGs
-
-   *  Process not being followed
 
 About This Document
 
@@ -64,7 +62,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2026.
+   This Internet-Draft will expire on 22 October 2026.
 
 Copyright Notice
 
@@ -92,18 +90,15 @@ Table of Contents
    3.  Pain Points of Verifier
      3.1.  Provide Protection Against FATT-bypass by Other TLS-related
            WGs
-     3.2.  Process not being followed
-       3.2.1.  ML-KEM
-       3.2.2.  Key Update
-     3.3.  Contacting FATT
+     3.2.  Contacting FATT
+     3.3.  ML-KEM
+       3.3.1.  Formal analysis (Work-in-progress)
+       3.3.2.  "Cost"
      3.4.  Understanding the Opposing Goals
      3.5.  Response within reasonable time frame
-     3.6.  Discussion at Meeting
    4.  Proposed solutions
-     4.1.  Transparency
-     4.2.  WG consultation and information in decisions
-     4.3.  Controversial drafts need FATT review
-     4.4.  Scope of FATT
+     4.1.  Scope of FATT
+     4.2.  Discussion at Meeting
    5.  Responsibilities of Authors
      5.1.  Motivation
      5.2.  Threat Model
@@ -262,85 +257,7 @@ Table of Contents
    schedule level changes, breaks the SEAT WG charter and SEAT WG has no
    formal FATT-like process.
 
-3.2.  Process not being followed
-
-   The process [TLS-FATT] states:
-
-   |  When a document is adopted by the working group the chairs will
-   |  make a determination whether the change proposed by the document
-   |  requires review by the FATT to determine if formal protocol
-   |  analysis is necessary for the change.  For example a proposal that
-   |  modifies the TLS key schedule or the authentication process or any
-   |  other part of the cryptographic protocol that has been formally
-   |  modeled and analyzed in the past would likely result in asking the
-   |  FATT, whereas a change such as modifying the SSLKEYLOG format
-   |  would not.  The working group chairs will inform the working group
-   |  of this decision.
-
-   However, such information has not been provided to the WG for at
-   least the following 2 documents:
-
-3.2.1.  ML-KEM
-
-   For the draft [I-D.ietf-tls-mlkem], the chairs acknowledge
-   (https://mailarchive.ietf.org/arch/msg/tls/
-   L2bWqpT3q8HVmACwD1Ta3NFimw0/) that the process was not followed:
-
-   |  Unfortunately, the chairs did not announce this decision on the
-   |  list (this is something that should be corrected in the process).
-
-   However:
-
-   It remains unclear what exactly "corrected in the process" entails.
-
-   The chairs further say (https://mailarchive.ietf.org/arch/msg/tls/
-   L2bWqpT3q8HVmACwD1Ta3NFimw0/) :
-
-   |  The chairs made this decision because the mechanism in this draft
-   |  fits into a well defined place in the TLS protocol and does not
-   |  change the protocol itself.
-
-   We believe this argument does not stand, given the single data point
-   that has gone through the FATT process -- [RFC8773bis].  Both of the
-   mentioned conditions apply equally to [RFC8773bis] which indeed went
-   through FATT process.  The mechanism defined in [RFC8773bis] "fits
-   into a well defined place in the TLS protocol" and "did not change
-   the protocol itself".  So we request clarification of the matter in
-   comparison to [RFC8773bis].
-
-   We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
-   insufficient. We also believe FATT review could have significantly
-   improved it, including but not limited to the key reuse ambiguity.
-   We have provided significant feedback during the two WGLCs. However,
-   almost none of that is actually reflected in the updated editor's
-   version.
-
-3.2.1.1.  Formal analysis
-
-   We have presented observation from our ongoing formal analysis (cf.
-   limitations in Section 8) on the mailing list in this email
-   (https://mailarchive.ietf.org/arch/msg/tls/
-   g4lCSltMQQY8xHdJdtjTvudTMes/).
-
-3.2.1.2.  "Cost"
-
-   "Cost" has been presented on the list as the motivation for ML-KEM
-   but no authentic reference has yet been presented.  There seems to be
-   a need for a thorough study to understand the "cost."
-
-3.2.2.  Key Update
-
-   The process [TLS-FATT] states:
-
-   |  The output of the FATT is posted to the working group by the FATT
-   |  point person.
-
-   Based on authors' email (https://mailarchive.ietf.org/arch/msg/tls/
-   KFUD3FPcrUlJmnXSyb3s25UFbdo/), while it is great that FATT could find
-   some threat, in our observation, the FATT process does not seem to be
-   followed in spirit.
-
-3.3.  Contacting FATT
+3.2.  Contacting FATT
 
    The FATT process restricts the Verifier from contacting the FATT
    directly.  We argue that the Verifier should be allowed to contact
@@ -360,6 +277,64 @@ Table of Contents
    *  Communication via chairs is a source of misunderstandings, as it
       has already happened with the chairs summarizing the intent of
       "Tamarin-like" to just "Tamarin".
+
+   FATT is a 'design team' as per {{RFC2418}}. We kindly request
+   clarification under which regulation chairs can stop the
+   Verifier from talking to a design team?
+
+3.3.  ML-KEM
+
+   We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
+   insufficient. We also believe FATT review could have significantly
+   improved it, including but not limited to the preference of hybrids.
+   We have provided significant feedback during the two WGLCs. However,
+   almost none of that is actually reflected in the updated editor's
+   version.
+
+3.3.1.  Formal analysis (Work-in-progress)
+
+   We have presented observation from our ongoing symbolic security
+   analysis (cf. limitations in Section 8) using ProVerif on the mailing
+   list.
+
+   We argue that in general:
+
+   1.  Migration from ECDHE to hybrid is security improvement.
+
+   2.  Migration from hybrid to pure ML-KEM is security regression.
+
+3.3.1.1.  Hybrid PQ/T
+
+   More formally, the property hybrid PQ/T should provide is:
+
+   Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
+
+   Hybrid preserves ECDHE, and adds ML-KEM as an additional factor.  So
+   as long as one of them is not broken, the system is secure.  In
+   particular, even if ML-KEM is completely broken, the system retains
+   the security level of ECDHE.
+
+3.3.1.2.  Non-hybrid PQ
+
+   On the other hand, the formal property non-hybrid PQ provides is:
+
+   Non-hybrid PQ is secure unless ML-KEM is broken.
+
+   If ML-KEM is broken, the whole system is broken.
+
+3.3.1.3.  Comparison
+
+   Leak out the ECDHE key from hybrid PQ/T and you get a pure ML-KEM.
+   Clearly, hybrid is in general more secure, unless ECDHE is fully
+   broken, in which case it still falls equivalent to pure ML-KEM, or in
+   the hypothetical scenario that there is an implementation bug in the
+   ECDHE part which is triggered only in composition.
+
+3.3.2.  "Cost"
+
+   "Cost" has been presented on the list as the motivation for ML-KEM
+   but no authentic reference has yet been presented.  There seems to be
+   a need for a thorough study to understand the "cost."
 
 3.4.  Understanding the Opposing Goals
 
@@ -381,7 +356,22 @@ Table of Contents
    reasonable time frame (say a few weeks but not months), the Verifier
    may not pursue formal analysis of their draft.
 
-3.6.  Discussion at Meeting
+4.  Proposed solutions
+
+   In addition to those mentioned inline in the previous section, we
+   propose the following:
+
+4.1.  Scope of FATT
+
+   *  Be more explicit on:
+
+      -  what is the scope of FATT?
+
+      -  what kind of drafts need FATT review and why?  Discussion on
+         this is happening in issue 19 (https://github.com/tlswg/tls-
+         fatt/issues/19).
+
+4.2.  Discussion at Meeting
 
    Formal analysis -- just like any other code development -- is an
    iterative process and needs to be progressively discussed with
@@ -403,44 +393,6 @@ Table of Contents
 
    This will help the Verifier give any feedback and avoid any
    repititive effort.
-
-4.  Proposed solutions
-
-   In addition to those mentioned inline in the previous section, we
-   propose the following:
-
-4.1.  Transparency
-
-   *  The process should be as transparent to the WG as possible.  For
-      example, see PR#16 (https://github.com/tlswg/tls-fatt/pull/16).
-
-4.2.  WG consultation and information in decisions
-
-   *  It should be the *WG* (and not the chairs) that deems whether some
-      FATT analysis is required.  At the very least, WG should be given
-      the right to argue against the decision of the chairs regarding
-      whether FATT analysis is required.  We believe the opinions of
-      relevant stakeholders -- those who are doing the formal analysis
-      of the drafts of the WG, OR actively contributing to it, OR have
-      done formal analysis in the past, OR have reasonably good
-      knowledge of it, OR have relevant expertise -- should be heard.
-
-4.3.  Controversial drafts need FATT review
-
-   *  Surely not every draft needs to go to FATT but we believe the
-      controversial ones do need to go to FATT, regardless of the nature
-      of the draft and whatever the chairs believe.  As a reminder,
-      'nothing required' is a perfectly valid outcome of initial FATT
-      review.  Formal methods may help resolve some of the
-      controversies.
-
-4.4.  Scope of FATT
-
-   *  Be more explicit on:
-
-      -  what is the scope of FATT?
-
-      -  what kind of drafts need FATT review and why?
 
 5.  Responsibilities of Authors
 
@@ -697,6 +649,10 @@ Table of Contents
               TLS", November 2025, <https://www.researchgate.net/
               publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS>.
 
+   [RFC2418]  Bradner, S., "IETF Working Group Guidelines and
+              Procedures", BCP 25, RFC 2418, DOI 10.17487/RFC2418,
+              September 1998, <https://www.rfc-editor.org/rfc/rfc2418>.
+
    [RFC4101]  Rescorla, E. and IAB, "Writing Protocol Models", RFC 4101,
               DOI 10.17487/RFC4101, June 2005,
               <https://www.rfc-editor.org/rfc/rfc4101>.
@@ -711,13 +667,21 @@ Appendix
 
 Document History
 
+   -05
+
+   *  Removed process-related stuff
+
+   *  Moved discussion at meeting to solutions
+
+   *  Added ML-KEM
+
    -04
 
    *  Extended threat model Section 5.2
 
-   *  Helpful discussions on formal analysis in meetings in Section 3.6
+   *  Helpful discussions on formal analysis in meetings in Section 4.2
 
-   *  Pointer to formal analysis and costs in Section 3.2.1
+   *  Pointer to formal analysis and costs in Section 3.3
 
    -03
 

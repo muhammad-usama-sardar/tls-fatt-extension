@@ -11,7 +11,13 @@
 We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process: 
        
          
+           Provide protection against FATT-bypass by other TLS-related WGs 
+         
+         
            Contacting FATT 
+         
+         
+           ML-KEM 
          
          
            Understanding the opposing goals 
@@ -19,28 +25,19 @@ We also briefly present a few pain points of the team doing the formal analysis 
          
            Response within reasonable time frame 
          
-         
-           Discussion at meeting 
-         
-         
-           Provide protection against FATT-bypass by other TLS-related WGs 
-         
-         
-           Process not being followed 
-         
        
     " name="description">
-<meta content="xml2rfc 3.32.0" name="generator">
+<meta content="xml2rfc 3.33.0" name="generator">
 <meta content="draft-usama-tls-fatt-extension-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.32.0
-    Python 3.12.12
+  xml2rfc 3.33.0
+    Python 3.12.13
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.9.4
+    platformdirs 4.9.6
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.32.5
@@ -1069,7 +1066,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sardar</td>
-<td class="center">Expires 16 October 2026</td>
+<td class="center">Expires 22 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1082,12 +1079,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-usama-tls-fatt-extension-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-04-14" class="published">14 April 2026</time>
+<time datetime="2026-04-20" class="published">20 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-16">16 October 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-22">22 October 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1104,22 +1101,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
 We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process:<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-abstract-2.1">
-          <p id="section-abstract-2.1.1">Contacting FATT<a href="#section-abstract-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-abstract-2.1.1">Provide protection against FATT-bypass by other TLS-related WGs<a href="#section-abstract-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-abstract-2.2">
-          <p id="section-abstract-2.2.1">Understanding the opposing goals<a href="#section-abstract-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-abstract-2.2.1">Contacting FATT<a href="#section-abstract-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-abstract-2.3">
-          <p id="section-abstract-2.3.1">Response within reasonable time frame<a href="#section-abstract-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-abstract-2.3.1">ML-KEM<a href="#section-abstract-2.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-abstract-2.4">
-          <p id="section-abstract-2.4.1">Discussion at meeting<a href="#section-abstract-2.4.1" class="pilcrow">¶</a></p>
+          <p id="section-abstract-2.4.1">Understanding the opposing goals<a href="#section-abstract-2.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-abstract-2.5">
-          <p id="section-abstract-2.5.1">Provide protection against FATT-bypass by other TLS-related WGs<a href="#section-abstract-2.5.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-abstract-2.6">
-          <p id="section-abstract-2.6.1">Process not being followed<a href="#section-abstract-2.6.1" class="pilcrow">¶</a></p>
+          <p id="section-abstract-2.5.1">Response within reasonable time frame<a href="#section-abstract-2.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
@@ -1158,7 +1152,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1219,18 +1213,18 @@ We also briefly present a few pain points of the team doing the formal analysis 
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-provide-protection-against-" class="internal xref">Provide Protection Against FATT-bypass by Other TLS-related WGs</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-process-not-being-followed" class="internal xref">Process not being followed</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-ml-kem" class="internal xref">ML-KEM</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-key-update" class="internal xref">Key Update</a></p>
-</li>
-                </ul>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-contacting-fatt" class="internal xref">Contacting FATT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-contacting-fatt" class="internal xref">Contacting FATT</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-ml-kem" class="internal xref">ML-KEM</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-formal-analysis-work-in-pro" class="internal xref">Formal analysis (Work-in-progress)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
+                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-cost" class="internal xref">"Cost"</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
                 <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-understanding-the-opposing-" class="internal xref">Understanding the Opposing Goals</a></p>
@@ -1238,25 +1232,16 @@ We also briefly present a few pain points of the team doing the formal analysis 
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-response-within-reasonable-" class="internal xref">Response within reasonable time frame</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-discussion-at-meeting" class="internal xref">Discussion at Meeting</a></p>
-</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-proposed-solutions" class="internal xref">Proposed solutions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-transparency" class="internal xref">Transparency</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-scope-of-fatt" class="internal xref">Scope of FATT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-wg-consultation-and-informa" class="internal xref">WG consultation and information in decisions</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-controversial-drafts-need-f" class="internal xref">Controversial drafts need FATT review</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-scope-of-fatt" class="internal xref">Scope of FATT</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-discussion-at-meeting" class="internal xref">Discussion at Meeting</a></p>
 </li>
             </ul>
 </li>
@@ -1475,106 +1460,125 @@ can simply bypass this process to make key schedule level changes?
 <p id="section-3.1-5">For example, <span>[<a href="#I-D.fossati-seat-early-attestation-00" class="cite xref">I-D.fossati-seat-early-attestation-00</a>]</span> makes key schedule level changes, breaks the SEAT WG charter and SEAT WG has no formal FATT-like process.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="process-not-being-followed">
-<section id="section-3.2">
-        <h3 id="name-process-not-being-followed">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-process-not-being-followed" class="section-name selfRef">Process not being followed</a>
-        </h3>
-<p id="section-3.2-1">The process <span>[<a href="#TLS-FATT" class="cite xref">TLS-FATT</a>]</span> states:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<blockquote id="section-3.2-2">
-          <p id="section-3.2-2.1">When a document is adopted by the working group the chairs will make a determination whether the change proposed by the document requires review by the FATT to determine if formal protocol analysis is necessary for the change. For example a proposal that modifies the TLS key schedule or the authentication process or any other part of the cryptographic protocol that has been formally modeled and analyzed in the past would likely result in asking the FATT, whereas a change such as modifying the SSLKEYLOG format would not. The working group chairs will inform the working group of this decision.<a href="#section-3.2-2.1" class="pilcrow">¶</a></p>
-</blockquote>
-<p id="section-3.2-3">However, such information has not been provided to the WG for at least the following 2 documents:<a href="#section-3.2-3" class="pilcrow">¶</a></p>
-<div id="sec-ml-kem">
-<section id="section-3.2.1">
-          <h4 id="name-ml-kem">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-ml-kem" class="section-name selfRef">ML-KEM</a>
-          </h4>
-<p id="section-3.2.1-1">For the draft <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span>, the <a href="https://mailarchive.ietf.org/arch/msg/tls/L2bWqpT3q8HVmACwD1Ta3NFimw0/">chairs acknowledge</a> that the process was not followed:<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
-<blockquote id="section-3.2.1-2">
-            <p id="section-3.2.1-2.1">Unfortunately, the chairs did not announce this decision on the list (this is something that should be corrected in the process).<a href="#section-3.2.1-2.1" class="pilcrow">¶</a></p>
-</blockquote>
-<p id="section-3.2.1-3">However:<a href="#section-3.2.1-3" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.2.1-4">
-<pre>
-It remains unclear what exactly "corrected in the process" entails.
-</pre><a href="#section-3.2.1-4" class="pilcrow">¶</a>
-</div>
-<p id="section-3.2.1-5"><a href="https://mailarchive.ietf.org/arch/msg/tls/L2bWqpT3q8HVmACwD1Ta3NFimw0/">The chairs further say</a> :<a href="#section-3.2.1-5" class="pilcrow">¶</a></p>
-<blockquote id="section-3.2.1-6">
-            <p id="section-3.2.1-6.1">The chairs made this decision because the mechanism in this draft fits into a well defined place in the TLS protocol and does not change the protocol itself.<a href="#section-3.2.1-6.1" class="pilcrow">¶</a></p>
-</blockquote>
-<p id="section-3.2.1-7">We believe this argument does not stand, given the single data point that has gone through the FATT process -- <span>[<a href="#RFC8773bis" class="cite xref">RFC8773bis</a>]</span>. Both of the mentioned conditions apply equally to <span>[<a href="#RFC8773bis" class="cite xref">RFC8773bis</a>]</span> which indeed went through FATT process. The mechanism defined in <span>[<a href="#RFC8773bis" class="cite xref">RFC8773bis</a>]</span> "fits into a well defined place in the TLS protocol" and "did not change the protocol itself". So we request clarification of the matter in comparison to <span>[<a href="#RFC8773bis" class="cite xref">RFC8773bis</a>]</span>.<a href="#section-3.2.1-7" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.2.1-8">
-<pre>
-We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
-insufficient. We also believe FATT review could have significantly
-improved it, including but not limited to the key reuse ambiguity.
-We have provided significant feedback during the two WGLCs. However,
-almost none of that is actually reflected in the updated editor's
-version.
-</pre><a href="#section-3.2.1-8" class="pilcrow">¶</a>
-</div>
-<div id="formal-analysis">
-<section id="section-3.2.1.1">
-            <h5 id="name-formal-analysis">
-<a href="#section-3.2.1.1" class="section-number selfRef">3.2.1.1. </a><a href="#name-formal-analysis" class="section-name selfRef">Formal analysis</a>
-            </h5>
-<p id="section-3.2.1.1-1">We have presented observation from our ongoing formal analysis (cf. limitations in <a href="#sec-sec-cons" class="auto internal xref">Section 8</a>) on the mailing list in <a href="https://mailarchive.ietf.org/arch/msg/tls/g4lCSltMQQY8xHdJdtjTvudTMes/">this email</a>.<a href="#section-3.2.1.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="cost">
-<section id="section-3.2.1.2">
-            <h5 id="name-cost">
-<a href="#section-3.2.1.2" class="section-number selfRef">3.2.1.2. </a><a href="#name-cost" class="section-name selfRef">"Cost"</a>
-            </h5>
-<p id="section-3.2.1.2-1">"Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."<a href="#section-3.2.1.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="key-update">
-<section id="section-3.2.2">
-          <h4 id="name-key-update">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-key-update" class="section-name selfRef">Key Update</a>
-          </h4>
-<p id="section-3.2.2-1">The process <span>[<a href="#TLS-FATT" class="cite xref">TLS-FATT</a>]</span> states:<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
-<blockquote id="section-3.2.2-2">
-            <p id="section-3.2.2-2.1">The output of the FATT is posted to the working group by the FATT point person.<a href="#section-3.2.2-2.1" class="pilcrow">¶</a></p>
-</blockquote>
-<p id="section-3.2.2-3">Based on <a href="https://mailarchive.ietf.org/arch/msg/tls/KFUD3FPcrUlJmnXSyb3s25UFbdo/">authors' email</a>, while it is great that FATT could find some threat, in our observation, the FATT process does not seem to be followed in spirit.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
 <div id="contacting-fatt">
-<section id="section-3.3">
+<section id="section-3.2">
         <h3 id="name-contacting-fatt">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-contacting-fatt" class="section-name selfRef">Contacting FATT</a>
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-contacting-fatt" class="section-name selfRef">Contacting FATT</a>
         </h3>
-<p id="section-3.3-1">The FATT process restricts the Verifier from contacting the FATT directly.
-We argue that the Verifier should be allowed to contact the FATT (at least the FATT person for a specific draft) because of the following reasons:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The FATT process restricts the Verifier from contacting the FATT directly.
+We argue that the Verifier should be allowed to contact the FATT (at least the FATT person for a specific draft) because of the following reasons:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.3-2.1">
-            <p id="section-3.3-2.1.1">Formal methods community is small and within this small community, those with deep knowledge of TLS are quite limited.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.2-2.1">
+            <p id="section-3.2-2.1.1">Formal methods community is small and within this small community, those with deep knowledge of TLS are quite limited.<a href="#section-3.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<div class="alignLeft art-text artwork" id="section-3.3-3">
+<div class="alignLeft art-text artwork" id="section-3.2-3">
 <pre>
 Such a restriction would not have been there if the Verifier
 were not a member of the TLS WG and analyzing the same draft
 and free to contact the same FATT for advice. Being a member
 of the TLS WG actually puts the Verifier at unnecessary disadvantage.
-</pre><a href="#section-3.3-3" class="pilcrow">¶</a>
+</pre><a href="#section-3.2-3" class="pilcrow">¶</a>
 </div>
 <ul class="normal">
-<li class="normal" id="section-3.3-4.1">
-            <p id="section-3.3-4.1.1">The feedback we receive on the list is really limited.<a href="#section-3.3-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.2-4.1">
+            <p id="section-3.2-4.1.1">The feedback we receive on the list is really limited.<a href="#section-3.2-4.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.3-4.2">
-            <p id="section-3.3-4.2.1">Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".<a href="#section-3.3-4.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.2-4.2">
+            <p id="section-3.2-4.2.1">Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".<a href="#section-3.2-4.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
+<div class="alignLeft art-text artwork" id="section-3.2-5">
+<pre>
+FATT is a 'design team' as per {{RFC2418}}. We kindly request
+clarification under which regulation chairs can stop the
+Verifier from talking to a design team?
+</pre><a href="#section-3.2-5" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="sec-ml-kem">
+<section id="section-3.3">
+        <h3 id="name-ml-kem">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-ml-kem" class="section-name selfRef">ML-KEM</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="section-3.3-1">
+<pre>
+We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
+insufficient. We also believe FATT review could have significantly
+improved it, including but not limited to the preference of hybrids.
+We have provided significant feedback during the two WGLCs. However,
+almost none of that is actually reflected in the updated editor's
+version.
+</pre><a href="#section-3.3-1" class="pilcrow">¶</a>
+</div>
+<div id="formal-analysis-work-in-progress">
+<section id="section-3.3.1">
+          <h4 id="name-formal-analysis-work-in-pro">
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-formal-analysis-work-in-pro" class="section-name selfRef">Formal analysis (Work-in-progress)</a>
+          </h4>
+<p id="section-3.3.1-1">We have presented observation from our ongoing symbolic security analysis
+(cf. limitations in <a href="#sec-sec-cons" class="auto internal xref">Section 8</a>) using ProVerif on the mailing list.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-2">We argue that in general:<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-3.3.1-3">
+<li id="section-3.3.1-3.1">
+              <p id="section-3.3.1-3.1.1">Migration from ECDHE to hybrid is security improvement.<a href="#section-3.3.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-3.3.1-3.2">
+              <p id="section-3.3.1-3.2.1">Migration from hybrid to pure ML-KEM is security regression.<a href="#section-3.3.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+<div id="hybrid-pqt">
+<section id="section-3.3.1.1">
+            <h5 id="name-hybrid-pq-t">
+<a href="#section-3.3.1.1" class="section-number selfRef">3.3.1.1. </a><a href="#name-hybrid-pq-t" class="section-name selfRef">Hybrid PQ/T</a>
+            </h5>
+<p id="section-3.3.1.1-1">More formally, the property hybrid PQ/T should provide is:<a href="#section-3.3.1.1-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.3.1.1-2">
+<pre>
+Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
+</pre><a href="#section-3.3.1.1-2" class="pilcrow">¶</a>
+</div>
+<p id="section-3.3.1.1-3">Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
+long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
+completely broken, the system retains the security level of ECDHE.<a href="#section-3.3.1.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="non-hybrid-pq">
+<section id="section-3.3.1.2">
+            <h5 id="name-non-hybrid-pq">
+<a href="#section-3.3.1.2" class="section-number selfRef">3.3.1.2. </a><a href="#name-non-hybrid-pq" class="section-name selfRef">Non-hybrid PQ</a>
+            </h5>
+<p id="section-3.3.1.2-1">On the other hand, the formal property non-hybrid PQ provides is:<a href="#section-3.3.1.2-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.3.1.2-2">
+<pre>
+Non-hybrid PQ is secure unless ML-KEM is broken.
+</pre><a href="#section-3.3.1.2-2" class="pilcrow">¶</a>
+</div>
+<p id="section-3.3.1.2-3">If ML-KEM is broken, the whole system is broken.<a href="#section-3.3.1.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="comparison">
+<section id="section-3.3.1.3">
+            <h5 id="name-comparison">
+<a href="#section-3.3.1.3" class="section-number selfRef">3.3.1.3. </a><a href="#name-comparison" class="section-name selfRef">Comparison</a>
+            </h5>
+<p id="section-3.3.1.3-1">Leak out the ECDHE key from hybrid PQ/T and you get a pure ML-KEM. Clearly, hybrid is
+in general more secure, unless ECDHE is fully broken, in which case it still falls
+equivalent to pure ML-KEM, or in the hypothetical scenario that there is an implementation
+bug in the ECDHE part which is triggered only in composition.<a href="#section-3.3.1.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="cost">
+<section id="section-3.3.2">
+          <h4 id="name-cost">
+<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-cost" class="section-name selfRef">"Cost"</a>
+          </h4>
+<p id="section-3.3.2-1">"Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="understanding-the-opposing-goals">
@@ -1601,35 +1605,6 @@ there is little value of formal analysis.
 <p id="section-3.5-1">If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sec-discuss-meetings">
-<section id="section-3.6">
-        <h3 id="name-discussion-at-meeting">
-<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-discussion-at-meeting" class="section-name selfRef">Discussion at Meeting</a>
-        </h3>
-<div class="alignLeft art-text artwork" id="section-3.6-1">
-<pre>
-Formal analysis -- just like any other code development -- is an
-iterative process and needs to be progressively discussed with
-the WG (and not just authors!) to be able to propose secure
-solutions.
-</pre><a href="#section-3.6-1" class="pilcrow">¶</a>
-</div>
-<p id="section-3.6-2">So at least some time should be allocated in the meetings for discussion of formal analysis.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
-<p id="section-3.6-3">If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:<a href="#section-3.6-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.6-4.1">
-            <p id="section-3.6-4.1.1">Approach used: symbolic or computational<a href="#section-3.6-4.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.6-4.2">
-            <p id="section-3.6-4.2.1">Tool used: ProVerif, CryptoVerif etc.<a href="#section-3.6-4.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.6-4.3">
-            <p id="section-3.6-4.3.1">Properties established<a href="#section-3.6-4.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.6-5">This will help the Verifier give any feedback and avoid any repititive effort.<a href="#section-3.6-5" class="pilcrow">¶</a></p>
-</section>
-</div>
 </section>
 </div>
 <div id="proposed-solutions">
@@ -1638,68 +1613,54 @@ solutions.
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-proposed-solutions" class="section-name selfRef">Proposed solutions</a>
       </h2>
 <p id="section-4-1">In addition to those mentioned inline in the previous section, we propose the following:<a href="#section-4-1" class="pilcrow">¶</a></p>
-<div id="transparency">
+<div id="scope-of-fatt">
 <section id="section-4.1">
-        <h3 id="name-transparency">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-transparency" class="section-name selfRef">Transparency</a>
+        <h3 id="name-scope-of-fatt">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-scope-of-fatt" class="section-name selfRef">Scope of FATT</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-4.1-1.1">
-            <p id="section-4.1-1.1.1">The process should be as transparent to the WG as possible. For example, see <a href="https://github.com/tlswg/tls-fatt/pull/16">PR#16</a>.<a href="#section-4.1-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-</section>
-</div>
-<div id="wg-consultation-and-information-in-decisions">
-<section id="section-4.2">
-        <h3 id="name-wg-consultation-and-informa">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-wg-consultation-and-informa" class="section-name selfRef">WG consultation and information in decisions</a>
-        </h3>
+            <p id="section-4.1-1.1.1">Be more explicit on:<a href="#section-4.1-1.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.2-1.1">
-            <p id="section-4.2-1.1.1">It should be the <strong>WG</strong> (and not the chairs) that deems whether some FATT analysis is
-   required. At the very least, WG should be given the right to argue against the decision of the
-    chairs regarding whether FATT analysis is required. We believe the opinions of relevant stakeholders -- those who are doing the
-    formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
-   in the past, OR have reasonably good knowledge of it, OR have relevant expertise -- should be heard.<a href="#section-4.2-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1-1.1.2.1">
+                <p id="section-4.1-1.1.2.1.1">what is the scope of FATT?<a href="#section-4.1-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-        </ul>
-</section>
-</div>
-<div id="controversial-drafts-need-fatt-review">
-<section id="section-4.3">
-        <h3 id="name-controversial-drafts-need-f">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-controversial-drafts-need-f" class="section-name selfRef">Controversial drafts need FATT review</a>
-        </h3>
-<ul class="normal">
-<li class="normal" id="section-4.3-1.1">
-            <p id="section-4.3-1.1.1">Surely not every draft needs to go to FATT but we believe the controversial
-    ones do need to go to FATT, regardless of the nature of the draft
-    and whatever the chairs believe. As a reminder, 'nothing required'
-    is a perfectly valid outcome of initial FATT review. Formal methods
-    may help resolve some of the controversies.<a href="#section-4.3-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-</section>
-</div>
-<div id="scope-of-fatt">
-<section id="section-4.4">
-        <h3 id="name-scope-of-fatt">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-scope-of-fatt" class="section-name selfRef">Scope of FATT</a>
-        </h3>
-<ul class="normal">
-<li class="normal" id="section-4.4-1.1">
-            <p id="section-4.4-1.1.1">Be more explicit on:<a href="#section-4.4-1.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-4.4-1.1.2.1">
-                <p id="section-4.4-1.1.2.1.1">what is the scope of FATT?<a href="#section-4.4-1.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="normal" id="section-4.4-1.1.2.2">
-                <p id="section-4.4-1.1.2.2.1">what kind of drafts need FATT review and why?<a href="#section-4.4-1.1.2.2.1" class="pilcrow">¶</a></p>
+              <li class="normal" id="section-4.1-1.1.2.2">
+                <p id="section-4.1-1.1.2.2.1">what kind of drafts need FATT review and why?
+Discussion on this is happening in <a href="https://github.com/tlswg/tls-fatt/issues/19">issue 19</a>.<a href="#section-4.1-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
         </ul>
+</section>
+</div>
+<div id="sec-discuss-meetings">
+<section id="section-4.2">
+        <h3 id="name-discussion-at-meeting">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-discussion-at-meeting" class="section-name selfRef">Discussion at Meeting</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="section-4.2-1">
+<pre>
+Formal analysis -- just like any other code development -- is an
+iterative process and needs to be progressively discussed with
+the WG (and not just authors!) to be able to propose secure
+solutions.
+</pre><a href="#section-4.2-1" class="pilcrow">¶</a>
+</div>
+<p id="section-4.2-2">So at least some time should be allocated in the meetings for discussion of formal analysis.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.2-4.1">
+            <p id="section-4.2-4.1.1">Approach used: symbolic or computational<a href="#section-4.2-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-4.2">
+            <p id="section-4.2-4.2.1">Tool used: ProVerif, CryptoVerif etc.<a href="#section-4.2-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-4.3">
+            <p id="section-4.2-4.3.1">Properties established<a href="#section-4.2-4.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-4.2-5">This will help the Verifier give any feedback and avoid any repititive effort.<a href="#section-4.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2019,6 +1980,10 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
         <dd>
 <span class="refAuthor">Sardar, M. U.</span>, <span class="refAuthor">Moustafa, M.</span>, and <span class="refAuthor">T. Aura</span>, <span class="refTitle">"Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS">https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC2418">[RFC2418]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"IETF Working Group Guidelines and Procedures"</span>, <span class="seriesInfo">BCP 25</span>, <span class="seriesInfo">RFC 2418</span>, <span class="seriesInfo">DOI 10.17487/RFC2418</span>, <time datetime="1998-09" class="refDate">September 1998</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2418">https://www.rfc-editor.org/rfc/rfc2418</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC4101">[RFC4101]</dt>
         <dd>
 <span class="refAuthor">Rescorla, E.</span> and <span class="refAuthor">IAB</span>, <span class="refTitle">"Writing Protocol Models"</span>, <span class="seriesInfo">RFC 4101</span>, <span class="seriesInfo">DOI 10.17487/RFC4101</span>, <time datetime="2005-06" class="refDate">June 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4101">https://www.rfc-editor.org/rfc/rfc4101</a>&gt;</span>. </dd>
@@ -2042,49 +2007,61 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
         <h3 id="name-document-history">
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
         </h3>
-<p id="appendix-A.1-1">-04<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-1">-05<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-2.1">
-            <p id="appendix-A.1-2.1.1">Extended threat model <a href="#sec-th-model" class="auto internal xref">Section 5.2</a><a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-2.1.1">Removed process-related stuff<a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-2.2">
-            <p id="appendix-A.1-2.2.1">Helpful discussions on formal analysis in meetings in <a href="#sec-discuss-meetings" class="auto internal xref">Section 3.6</a><a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-2.2.1">Moved discussion at meeting to solutions<a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-2.3">
-            <p id="appendix-A.1-2.3.1">Pointer to formal analysis and costs in <a href="#sec-ml-kem" class="auto internal xref">Section 3.2.1</a><a href="#appendix-A.1-2.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-2.3.1">Added ML-KEM<a href="#appendix-A.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-3">-03<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-3">-04<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-4.1">
-            <p id="appendix-A.1-4.1.1">Limitations of formal analysis in security considerations<a href="#appendix-A.1-4.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.1.1">Extended threat model <a href="#sec-th-model" class="auto internal xref">Section 5.2</a><a href="#appendix-A.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-4.2">
-            <p id="appendix-A.1-4.2.1">Proposed solutions section<a href="#appendix-A.1-4.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.2.1">Helpful discussions on formal analysis in meetings in <a href="#sec-discuss-meetings" class="auto internal xref">Section 4.2</a><a href="#appendix-A.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-4.3">
-            <p id="appendix-A.1-4.3.1">More guidance for authors: Threat Model and Informal Security Goals<a href="#appendix-A.1-4.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.3.1">Pointer to formal analysis and costs in <a href="#sec-ml-kem" class="auto internal xref">Section 3.3</a><a href="#appendix-A.1-4.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-5">-02<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-5">-03<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-6.1">
-            <p id="appendix-A.1-6.1.1">Added document structure<a href="#appendix-A.1-6.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-6.1.1">Limitations of formal analysis in security considerations<a href="#appendix-A.1-6.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-6.2">
-            <p id="appendix-A.1-6.2.1">FATT-bypass by Other TLS-related WGs<a href="#appendix-A.1-6.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-6.2.1">Proposed solutions section<a href="#appendix-A.1-6.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-6.3">
-            <p id="appendix-A.1-6.3.1">FATT process not being followed<a href="#appendix-A.1-6.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-6.3.1">More guidance for authors: Threat Model and Informal Security Goals<a href="#appendix-A.1-6.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-7">-01<a href="#appendix-A.1-7" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-7">-02<a href="#appendix-A.1-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-8.1">
-            <p id="appendix-A.1-8.1.1">Pain points of Verifier <a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a><a href="#appendix-A.1-8.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-8.1.1">Added document structure<a href="#appendix-A.1-8.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-8.2">
-            <p id="appendix-A.1-8.2.1">Small adjustment of phrasing<a href="#appendix-A.1-8.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-8.2.1">FATT-bypass by Other TLS-related WGs<a href="#appendix-A.1-8.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-8.3">
+            <p id="appendix-A.1-8.3.1">FATT process not being followed<a href="#appendix-A.1-8.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="appendix-A.1-9">-01<a href="#appendix-A.1-9" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-A.1-10.1">
+            <p id="appendix-A.1-10.1.1">Pain points of Verifier <a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a><a href="#appendix-A.1-10.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-10.2">
+            <p id="appendix-A.1-10.2.1">Small adjustment of phrasing<a href="#appendix-A.1-10.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
