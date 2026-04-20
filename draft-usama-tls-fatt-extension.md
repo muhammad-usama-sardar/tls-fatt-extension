@@ -61,8 +61,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
 * Response within reasonable time frame
 * Discussion at meeting
 * Provide protection against FATT-bypass by other TLS-related WGs
-* Process not being followed
-
+* ML-KEM
 
 --- middle
 
@@ -136,35 +135,8 @@ can simply bypass this process to make key schedule level changes?
 
 For example, {{I-D.fossati-seat-early-attestation-00}} makes key schedule level changes, breaks the SEAT WG charter and SEAT WG has no formal FATT-like process.
 
-## Process not being followed
-
-The process {{TLS-FATT}} states:
-
-{:quote}
->  When a document is adopted by the working group the chairs will make a determination whether the change proposed by the document requires review by the FATT to determine if formal protocol analysis is necessary for the change. For example a proposal that modifies the TLS key schedule or the authentication process or any other part of the cryptographic protocol that has been formally modeled and analyzed in the past would likely result in asking the FATT, whereas a change such as modifying the SSLKEYLOG format would not. The working group chairs will inform the working group of this decision.
-
-However, such information has not been provided to the WG for at least the following 2 documents:
-
-### ML-KEM
+## ML-KEM
 {: #sec-ml-kem }
-
-For the draft {{I-D.ietf-tls-mlkem}}, the [chairs acknowledge](https://mailarchive.ietf.org/arch/msg/tls/L2bWqpT3q8HVmACwD1Ta3NFimw0/) that the process was not followed:
-
-{:quote}
->  Unfortunately, the chairs did not announce this decision on the list (this is something that should be corrected in the process).
-
-However:
-
-~~~
-It remains unclear what exactly "corrected in the process" entails.
-~~~
-
-[The chairs further say](https://mailarchive.ietf.org/arch/msg/tls/L2bWqpT3q8HVmACwD1Ta3NFimw0/) :
-
-{:quote}
->  The chairs made this decision because the mechanism in this draft fits into a well defined place in the TLS protocol and does not change the protocol itself.
-
-We believe this argument does not stand, given the single data point that has gone through the FATT process -- {{RFC8773bis}}. Both of the mentioned conditions apply equally to {{RFC8773bis}} which indeed went through FATT process. The mechanism defined in {{RFC8773bis}} "fits into a well defined place in the TLS protocol" and "did not change the protocol itself". So we request clarification of the matter in comparison to {{RFC8773bis}}.
 
 ~~~
 We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
@@ -175,21 +147,11 @@ almost none of that is actually reflected in the updated editor's
 version.
 ~~~
 
-#### Formal analysis
+### Formal analysis
 We have presented observation from our ongoing formal analysis (cf. limitations in {{sec-sec-cons}}) on the mailing list in [this email](https://mailarchive.ietf.org/arch/msg/tls/g4lCSltMQQY8xHdJdtjTvudTMes/).
 
-#### "Cost"
+### "Cost"
 "Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."
-
-### Key Update
-
-The process {{TLS-FATT}} states:
-
-{:quote}
->  The output of the FATT is posted to the working group by the FATT point person.
-
-Based on [authors' email](https://mailarchive.ietf.org/arch/msg/tls/KFUD3FPcrUlJmnXSyb3s25UFbdo/), while it is great that FATT could find some threat, in our observation, the FATT process does not seem to be followed in spirit.
-
 
 ## Contacting FATT
 The FATT process restricts the Verifier from contacting the FATT directly.
@@ -249,16 +211,6 @@ This will help the Verifier give any feedback and avoid any repititive effort.
 
 # Proposed solutions
 In addition to those mentioned inline in the previous section, we propose the following:
-
-## Transparency
-  * The process should be as transparent to the WG as possible. For example, see [PR#16](https://github.com/tlswg/tls-fatt/pull/16).
-
-## WG consultation and information in decisions
-   * It should be the **WG** (and not the chairs) that deems whether some FATT analysis is
-   required. At the very least, WG should be given the right to argue against the decision of the
-    chairs regarding whether FATT analysis is required. We believe the opinions of relevant stakeholders -- those who are doing the
-    formal analysis of the drafts of the WG, OR actively contributing to it, OR have done formal analysis
-   in the past, OR have reasonably good knowledge of it, OR have relevant expertise -- should be heard.
 
 ## Controversial drafts need FATT review
    * Surely not every draft needs to go to FATT but we believe the controversial
@@ -397,6 +349,9 @@ This document has no IANA actions.
 
 ## Document History
 {:unnumbered}
+
+-05
+* Removed process-related stuff
 
 -04
 
