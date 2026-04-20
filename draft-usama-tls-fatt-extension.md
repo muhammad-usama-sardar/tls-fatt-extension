@@ -50,18 +50,18 @@ informative:
   RFC8773bis:
   I-D.ietf-tls-mlkem:
   I-D.wang-tls-service-affinity:
+  RFC2418:
 
 --- abstract
 
 This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process:
 
+* Provide protection against FATT-bypass by other TLS-related WGs
 * Contacting FATT
+* ML-KEM
 * Understanding the opposing goals
 * Response within reasonable time frame
-* Discussion at meeting
-* Provide protection against FATT-bypass by other TLS-related WGs
-* ML-KEM
 
 --- middle
 
@@ -135,24 +135,6 @@ can simply bypass this process to make key schedule level changes?
 
 For example, {{I-D.fossati-seat-early-attestation-00}} makes key schedule level changes, breaks the SEAT WG charter and SEAT WG has no formal FATT-like process.
 
-## ML-KEM
-{: #sec-ml-kem }
-
-~~~
-We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
-insufficient. We also believe FATT review could have significantly
-improved it, including but not limited to the key reuse ambiguity.
-We have provided significant feedback during the two WGLCs. However,
-almost none of that is actually reflected in the updated editor's
-version.
-~~~
-
-### Formal analysis
-We have presented observation from our ongoing formal analysis (cf. limitations in {{sec-sec-cons}}) on the mailing list in [this email](https://mailarchive.ietf.org/arch/msg/tls/g4lCSltMQQY8xHdJdtjTvudTMes/).
-
-### "Cost"
-"Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."
-
 ## Contacting FATT
 The FATT process restricts the Verifier from contacting the FATT directly.
 We argue that the Verifier should be allowed to contact the FATT (at least the FATT person for a specific draft) because of the following reasons:
@@ -170,6 +152,67 @@ of the TLS WG actually puts the Verifier at unnecessary disadvantage.
 
 * Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".
 
+~~~
+FATT is a 'design team' as per {{RFC2418}}. We kindly request
+clarification under which regulation chairs can stop the
+Verifier from talking to a design team?
+~~~
+
+## ML-KEM
+{: #sec-ml-kem }
+
+~~~
+We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
+insufficient. We also believe FATT review could have significantly
+improved it, including but not limited to the preference of hybrids.
+We have provided significant feedback during the two WGLCs. However,
+almost none of that is actually reflected in the updated editor's
+version.
+~~~
+
+### Formal analysis (Work-in-progress)
+We have presented observation from our ongoing symbolic security analysis
+(cf. limitations in {{sec-sec-cons}}) using ProVerif on the mailing list.
+
+We argue that in general:
+
+1. Migration from ECDHE to hybrid is security improvement.
+2. Migration from hybrid to pure ML-KEM is security regression.
+
+
+#### Hybrid PQ/T
+
+More formally, the property hybrid PQ/T should provide is:
+
+~~~
+Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
+~~~
+
+Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
+long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
+completely broken, the system retains the security level of ECDHE.
+
+#### Non-hybrid PQ
+
+On the other hand, the formal property non-hybrid PQ provides is:
+
+~~~
+Non-hybrid PQ is secure unless ML-KEM is broken.
+~~~
+
+If ML-KEM is broken, the whole system is broken.
+
+#### Comparison
+Leak out the ECDHE key from hybrid PQ/T and you get a pure ML-KEM. Clearly, hybrid is
+in general more secure, unless ECDHE is fully broken, in which case it still falls
+equivalent to pure ML-KEM, or in the hypothetical scenario that there is an implementation
+bug in the ECDHE part which is triggered only in composition.
+
+
+### "Cost"
+"Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."
+
+
 ## Understanding the Opposing Goals
 The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
 This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.
@@ -185,6 +228,19 @@ In particular, some topics like remote attestation need more precise specificati
 
 ## Response within reasonable time frame
 If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.
+
+
+[comment]: <> (The goal of authors of Internet-Draft is to ...)
+
+# Proposed solutions
+In addition to those mentioned inline in the previous section, we propose the following:
+
+
+## Scope of FATT
+   * Be more explicit on:
+      * what is the scope of FATT?
+      * what kind of drafts need FATT review and why?
+Discussion on this is happening in [issue 19](https://github.com/tlswg/tls-fatt/issues/19).
 
 ## Discussion at Meeting
 {: #sec-discuss-meetings }
@@ -206,23 +262,6 @@ If the authors are doing the formal analysis themselves, it would be helpful to 
 * Properties established
 
 This will help the Verifier give any feedback and avoid any repititive effort.
-
-[comment]: <> (The goal of authors of Internet-Draft is to ...)
-
-# Proposed solutions
-In addition to those mentioned inline in the previous section, we propose the following:
-
-## Controversial drafts need FATT review
-   * Surely not every draft needs to go to FATT but we believe the controversial
-    ones do need to go to FATT, regardless of the nature of the draft
-    and whatever the chairs believe. As a reminder, 'nothing required'
-    is a perfectly valid outcome of initial FATT review. Formal methods
-    may help resolve some of the controversies.
-
-## Scope of FATT
-   * Be more explicit on:
-      * what is the scope of FATT?
-      * what kind of drafts need FATT review and why?
 
 # Responsibilities of Authors
 {: #sec-res-authors }
@@ -351,7 +390,10 @@ This document has no IANA actions.
 {:unnumbered}
 
 -05
+
 * Removed process-related stuff
+* Moved discussion at meeting to solutions
+* Added ML-KEM
 
 -04
 
