@@ -47,7 +47,6 @@ informative:
   I-D.irtf-cfrg-cryptography-specification:
   I-D.ietf-tls-8773bis:
   I-D.fossati-seat-early-attestation-00:
-  RFC8773bis:
   I-D.ietf-tls-mlkem:
   I-D.wang-tls-service-affinity:
   RFC2418:
@@ -68,7 +67,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
 # Introduction
 While the TLS FATT process {{TLS-FATT}} marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group (WG) process, the current FATT process has some practical limitations. Given a relatively smaller formal methods community, and a steep learning curve as well as very low consideration of usability in the existing formal analysis tools, this document proposes some solutions to make the FATT process sustainable.
 
-Specifically, the TLS FATT process does not outline the division of responsibility between the authors and the team doing the formal analysis (the latter is hereafter referred to as the "Verifier"). This document aims to propose some solutions without putting an extensive burden on either party.
+Specifically, the TLS FATT process does not outline the division of formal analysis work between the authors and the WG members doing the formal analysis (the latter is hereafter referred to as the "Verifier" for convenience). This document aims to propose some solutions without putting an extensive burden on either party.
 
 An argument is often presented by the authors that an Internet-Draft is written for the implementers. We make several counter-arguments here:
 
@@ -86,10 +85,10 @@ For the Internet-Draft to be useful for the formal analysis, this document propo
 
 Each one of these is summarized in {{sec-res-authors}}. Future versions of this draft will include concrete examples.
 
-Responsibilities of the Verifier are summarized in {{sec-res-verifier}}.
+Expected contributions of the Verifier are summarized in {{sec-res-verifier}}.
 
 ## Motivation
-A clear separation of responsibilities would help IRTF UFMRG to train the authors and verifiers separately to fulfill their own responsibilities.
+A clear separation of expected contributions would help IRTF UFMRG to train the authors and Verifiers separately to fulfill their own formal analysis work.
 
 Moreover, we believe that the experiences can help improve the FATT process. The goal is to document the identified gaps with concrete examples, discuss those and mutually find the best way forward.
 
@@ -106,8 +105,8 @@ The scope of this document is only non-trivial extensions of TLS, which require 
 In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential.
 
 ## Verifier
-In this document, the Verifier refers to the team doing the formal analysis.
-Note that it is NOT a new formal role in the WG process.
+In this document, the Verifier refers to the **WG members** doing the formal analysis.
+Note that it is **NOT** a new formal role in the WG process.
 
 ## Definition of Attack
 Any ambiguity originating from the threat model, informal security goals, and a Protocol Diagram is to be considered as an attack.
@@ -136,8 +135,11 @@ can simply bypass this process to make key schedule level changes?
 For example, {{I-D.fossati-seat-early-attestation-00}} makes key schedule level changes, breaks the SEAT WG charter and SEAT WG has no formal FATT-like process.
 
 ## Contacting FATT
-The FATT process restricts the Verifier from contacting the FATT directly.
-We argue that the Verifier should be allowed to contact the FATT (at least the FATT person for a specific draft) because of the following reasons:
+According to FATT process {{TLS-FATT}}, FATT is a 'design team' as per {{RFC2418}} (also see [this](https://datatracker.ietf.org/doc/statement-iesg-on-design-teams-20011221/)).
+
+The FATT process restricts the WG members -- except for **authors** -- from contacting the FATT directly.
+This creates an unjustified situation where the authors have an **exclusive** access to FATT.
+We argue that WG members -- including the Verifier -- should also be allowed to contact the FATT because of the following reasons:
 
 * Formal methods community is small and within this small community, those with deep knowledge of TLS are quite limited.
 
@@ -152,11 +154,7 @@ of the TLS WG actually puts the Verifier at unnecessary disadvantage.
 
 * Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".
 
-~~~
-FATT is a 'design team' as per {{RFC2418}}. We kindly request
-clarification under which regulation chairs can stop the
-Verifier from talking to a design team?
-~~~
+Our proposed solution for this point is in {{sec-contact-fatt}}.
 
 ## ML-KEM
 {: #sec-ml-kem }
@@ -170,6 +168,8 @@ almost none of that is actually reflected in the updated editor's
 version.
 ~~~
 
+Our proposed solution for this point is in {{sec-sol-ml-kem}}.
+
 ### Formal analysis (Work-in-progress)
 We have presented observation from our ongoing symbolic security analysis
 (cf. limitations in {{sec-sec-cons}}) using ProVerif on the mailing list.
@@ -177,7 +177,7 @@ We have presented observation from our ongoing symbolic security analysis
 We argue that in general:
 
 1. Migration from ECDHE to hybrid is security improvement.
-2. Migration from hybrid to pure ML-KEM is security regression.
+2. Migration from hybrid to non-hybrid ML-KEM is security regression.
 
 
 #### Hybrid PQ/T
@@ -203,9 +203,9 @@ Non-hybrid PQ is secure unless ML-KEM is broken.
 If ML-KEM is broken, the whole system is broken.
 
 #### Comparison
-Leak out the ECDHE key from hybrid PQ/T and you get a pure ML-KEM. Clearly, hybrid is
+Leak out the ECDHE key from hybrid PQ/T and you get a non-hybrid ML-KEM. Clearly, hybrid is
 in general more secure, unless ECDHE is fully broken, in which case it still falls
-equivalent to pure ML-KEM, or in the hypothetical scenario that there is an implementation
+equivalent to non-hybrid ML-KEM, or in the hypothetical scenario that there is an implementation
 bug in the ECDHE part which is triggered only in composition.
 
 
@@ -235,6 +235,58 @@ If authors do not respond to the Verifier's questions within a reasonable time f
 # Proposed solutions
 In addition to those mentioned inline in the previous section, we propose the following:
 
+## Contacting FATT: Separate List for FATT and WG members
+{: #sec-contact-fatt }
+
+We propose creating a public mailing list (something like tls-fatt) for discussions between interested WG members and FATT.
+
+In our understanding, the idea -- in a nutshell -- is something like **hybrid** design team, i.e.,:
+
+* FATT continues to use whatever they currently use for their internal communication ("closed")
+* The proposed list additionally allows public FATT-WG engagement ("open") for questions and discussion of WG members or FATT
+
+
+### Potential need of FATT-WG engagement
+
+In addition to the questions from the WG for the FATT, FATT also needs to engage with the WG:
+
+* At **initial** FATT review (just after adoption), FATT may have questions from authors as well as Verifiers. For the former, to understand better the threat model and desired security goals, etc. to be able to suggest which approach is best-suited. For the latter, to better understand what formal analysis approach and tool is being planned/currently used (if any).
+* During **final** FATT review (just before WGLC), FATT may have questions on what the Verifier has done, especially in cases where a peer-reviewed publication is not yet available. We believe evaluating someone else's code is not easy, or at least if FATT has the opportunity to talk to the Verifier, it will decrease the brain cycles that they will have to spend on it.
+
+### Design goals
+
+* **minimal process change**: some private discussions typically happen between authors and FATT; move them to public list for transparency. Keep intra-FATT communication private as it is.
+* **balanced workload**: not to increase anyone's workload on average over a finite period of time (say lifetime of one document): joining list is voluntary; responding to list questions is voluntary
+* **all stakeholders benefit**: ensure all stakeholders (FATT, authors, WG members, chairs) benefit compared to current process
+
+### Benefits
+In addition to transparency where this removes the current situation where only the authors have an exclusive access to FATT, we think the proposal has merits where all stakeholders benefit:
+
+* **Chairs** get relief from carrying messages back and forth between WG and FATT.
+* **FATT** gets involved early in the process and has to do lesser work later on (e.g., checking artifacts before WGLC).
+* **Interested WG members** get a direct contact with experts.
+* **Uninterested WG members** get lesser noise on TLS list. They can check the public archives by searching for a specific draft if they would like to.
+
+### Risks
+
+* We acknowledge the risk of '**no response from FATT**' identified on list. In such cases, WG can continue with its best judgement based on its understanding of the available literature.
+
+### Open questions
+
+Opinion of FATT is critical in this proposal whether the middle ground of hybrid is acceptable to (some of) them.
+
+## ML-KEM: FATT review
+{: #sec-sol-ml-kem }
+
+We have formally requested the chairs to initiate the FATT process for {{I-D.ietf-tls-mlkem}}.
+See [this](https://mailarchive.ietf.org/arch/msg/tls/rClgrWm2hnhESXHx56U8InbwQQs/) and [this](https://mailarchive.ietf.org/arch/msg/tls/7lj6fYAweMBwNMxFerNl7xhY0pk/).
+
+We believe formal methods can provide additional value for security considerations of this draft in order to maintain the high cryptographic assurance of TLS.
+
+* As an example, it can help justify design choices, such as the preference for hybrids.
+It can also help identify ways in which ML-KEM can break.
+* As a relevant data point in the context of standardization, LAKE WG has done formal analysis for EDHOC-PSK with KEM ([ref](https://mailarchive.ietf.org/arch/msg/lake/2XGOI9OCwylJUfSCasvvwM2FXmw/)).
+
 
 ## Scope of FATT
    * Be more explicit on:
@@ -261,16 +313,17 @@ If the authors are doing the formal analysis themselves, it would be helpful to 
 * Tool used: ProVerif, CryptoVerif etc.
 * Properties established
 
-This will help the Verifier give any feedback and avoid any repititive effort.
+This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.
 
-# Responsibilities of Authors
+
+# Contribution of Authors
 {: #sec-res-authors }
 
-This document proposes that the authors provide the following four items:
+The following contributions are expected from the authors:
 
-## Motivation
-The motivation of the work (i.e., the proposed extension of TLS) needs to primarily come from the authors.
-The Verifier can ask questions to improve it, but he cannot just cook it up.
+## Real Motivation
+Authors are expected to provide the real motivation of the work (i.e., the proposed extension of TLS).
+The Verifier can then ask questions to improve it.
 
 ## Threat Model
 {: #sec-th-model }
@@ -313,6 +366,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 Examples:
 
 * Integrity of message X holds unless some key Y is leaked.
+* (stated differently) Integrity of message X holds as long as some key Y is protected.
 * Freshness of message X holds unless some key Y or some key Z is leaked.
 * Server Authentication holds unless some key Y or some key Z is leaked.
 
@@ -361,7 +415,7 @@ As draft proceeds these desired security goals will become what the draft actual
 
 ### Other security implications/considerations
 
-# Responsibilities of Verifier
+# Contribution of Verifier
 {: #sec-res-verifier }
 
 When the authors declare the version as ready for formal analysis, the Verifier takes the above inputs, performs the formal analysis, and brings the results back to the authors and the WG. Based on the analysis, the verifier may propose updates to the Security Considerations section or other sections of the Internet-Draft.
@@ -388,6 +442,14 @@ This document has no IANA actions.
 
 ## Document History
 {:unnumbered}
+
+-06
+
+* Solution for ML-KEM: FATT analysis
+* Solution for FATT contact: new mailing list
+* Replaced responsibilities by expected contributions
+* Clarified Verifier even further that it is just a WG member; no formal role
+* s/pure/non-hybrid
 
 -05
 
@@ -420,6 +482,10 @@ This document has no IANA actions.
 
 # Acknowledgments
 {:numbered="false"}
-We thankfully acknowledge Eric Rescorla and John Mattsson for their valuable input.
+We thankfully acknowledge the following for their valuable input:
 
-The research work is funded by Deutsche Forschungsgemeinschaft.
+* Eric Rescorla for review of -02 and -05. Not all the feedback has yet been applied.
+* John Mattsson for proposing text for security considerations.
+* S. Moonesamy for identifying the 'no response' risk in the proposal for new list.
+
+The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
