@@ -494,8 +494,9 @@ Table of Contents
    cryptographic assurance of TLS.
 
    *  As an example, it can help justify design choices, such as the
-      preference for hybrids.  It can also help identify ways in which
-      ML-KEM can break.
+      preference for hybrids.  It can help identify ways in which ML-KEM
+      can break.  It can also help identify all the assumptions under
+      which the properties hold.
 
    *  As a relevant data point in the context of standardization, LAKE
       WG has done formal analysis for EDHOC-PSK with KEM (ref
