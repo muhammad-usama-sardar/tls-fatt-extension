@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                             26 April 2026
-Expires: 28 October 2026
+Intended status: Informational                                1 May 2026
+Expires: 2 November 2026
 
 
                      Extensions to TLS FATT Process
@@ -62,7 +62,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 October 2026.
+   This Internet-Draft will expire on 2 November 2026.
 
 Copyright Notice
 
@@ -91,18 +91,17 @@ Table of Contents
      3.1.  Provide Protection Against FATT-bypass by Other TLS-related
            WGs
      3.2.  Contacting FATT
+       3.2.1.  Failure of current process
      3.3.  ML-KEM
        3.3.1.  Formal analysis (Work-in-progress)
        3.3.2.  "Cost"
      3.4.  Understanding the Opposing Goals
      3.5.  Response within reasonable time frame
    4.  Proposed solutions
-     4.1.  Contacting FATT: Separate List for FATT and WG members
-       4.1.1.  Potential need of FATT-WG engagement
-       4.1.2.  Design goals
-       4.1.3.  Benefits
-       4.1.4.  Risks
-       4.1.5.  Open questions
+     4.1.  Contacting FATT
+       4.1.1.  Separate List for FATT and WG members
+       4.1.2.  Lead FATT Person for Contact
+       4.1.3.  Students/researchers of FATT
      4.2.  ML-KEM: FATT review
      4.3.  Scope of FATT
      4.4.  Discussion at Meeting
@@ -147,8 +146,8 @@ Table of Contents
 
    Specifically, the TLS FATT process does not outline the division of
    formal analysis work between the authors and the WG members doing the
-   formal analysis (the latter is hereafter referred to as the
-   "Verifier" for convenience).  This document aims to propose some
+   formal analysis; the latter is hereafter referred to as the
+   "Verifier" for convenience.  This document aims to propose some
    solutions without putting an extensive burden on either party.
 
    An argument is often presented by the authors that an Internet-Draft
@@ -271,11 +270,13 @@ Table of Contents
    [RFC2418] (also see this (https://datatracker.ietf.org/doc/statement-
    iesg-on-design-teams-20011221/)).
 
-   The FATT process restricts the WG members -- except for *authors* --
-   from contacting the FATT directly.  This creates an unjustified
-   situation where the authors have an *exclusive* access to FATT.  We
-   argue that WG members -- including the Verifier -- should also be
-   allowed to contact the FATT because of the following reasons:
+   The FATT process restricts the WG members -- except for *authors*
+   (see for example this (https://mailarchive.ietf.org/arch/msg/tls/
+   pYmjTTlYd11FnjdYoOL6RdGk0sk/))-- from contacting the FATT directly.
+   This creates an unjustified situation where the authors have an
+   *exclusive* access to FATT.  We argue that WG members -- including
+   the Verifier -- should also be allowed to contact the FATT because of
+   the following reasons:
 
    *  Formal methods community is small and within this small community,
       those with deep knowledge of TLS are quite limited.
@@ -291,7 +292,20 @@ Table of Contents
       has already happened with the chairs summarizing the intent of
       "Tamarin-like" to just "Tamarin".
 
+   *  The process has to be *inclusive* of WG members who are willing to
+      help but don't work in formal methods research groups.
+
    Our proposed solution for this point is in Section 4.1.
+
+3.2.1.  Failure of current process
+
+   The FATT process assigns a "FATT point person" [TLS-FATT] after
+   adoption.  However, until FATT person is assigned for a draft,
+   Verifier has essentially no one to talk to.  Note that it could mean
+   (almost) the whole lifetime of the draft.  A practical example is the
+   PAKE draft.  While the PAKE authors announced in meeting 125 that
+   they are ready for WGLC, no FATT person has been announced at the
+   time of writing.
 
 3.3.  ML-KEM
 
@@ -314,7 +328,7 @@ Table of Contents
 
    1.  Migration from ECDHE to hybrid is security improvement.
 
-   2.  Migration from hybrid to non-hybrid ML-KEM is security
+   2.  Migration from hybrid to standalone ML-KEM is security
        regression.
 
 3.3.1.1.  Hybrid PQ/T
@@ -338,9 +352,9 @@ Table of Contents
 
 3.3.1.3.  Comparison
 
-   Leak out the ECDHE key from hybrid PQ/T and you get a non-hybrid ML-
+   Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-
    KEM.  Clearly, hybrid is in general more secure, unless ECDHE is
-   fully broken, in which case it still falls equivalent to non-hybrid
+   fully broken, in which case it still falls equivalent to standalone
    ML-KEM, or in the hypothetical scenario that there is an
    implementation bug in the ECDHE part which is triggered only in
    composition.
@@ -376,7 +390,9 @@ Table of Contents
    In addition to those mentioned inline in the previous section, we
    propose the following:
 
-4.1.  Contacting FATT: Separate List for FATT and WG members
+4.1.  Contacting FATT
+
+4.1.1.  Separate List for FATT and WG members
 
    We propose creating a public mailing list (something like tls-fatt)
    for discussions between interested WG members and FATT.
@@ -390,7 +406,7 @@ Table of Contents
    *  The proposed list additionally allows public FATT-WG engagement
       ("open") for questions and discussion of WG members or FATT
 
-4.1.1.  Potential need of FATT-WG engagement
+4.1.1.1.  Potential need of FATT-WG engagement
 
    In addition to the questions from the WG for the FATT, FATT also
    needs to engage with the WG:
@@ -409,7 +425,7 @@ Table of Contents
       has the opportunity to talk to the Verifier, it will decrease the
       brain cycles that they will have to spend on it.
 
-4.1.2.  Design goals
+4.1.1.2.  Design goals
 
    *  *minimal process change*: some private discussions typically
       happen between authors and FATT; move them to public list for
@@ -423,7 +439,7 @@ Table of Contents
    *  *all stakeholders benefit*: ensure all stakeholders (FATT,
       authors, WG members, chairs) benefit compared to current process
 
-4.1.3.  Benefits
+4.1.1.3.  Benefits
 
    In addition to transparency where this removes the current situation
    where only the authors have an exclusive access to FATT, we think the
@@ -437,20 +453,32 @@ Table of Contents
 
    *  *Interested WG members* get a direct contact with experts.
 
-   *  *Uninterested WG members* get lesser noise on TLS list.  They can
-      check the public archives by searching for a specific draft if
+   *  *Uninterested WG members* get lesser noise on the TLS list.  They
+      can check the public archives by searching for a specific draft if
       they would like to.
 
-4.1.4.  Risks
+4.1.1.4.  Risks
 
    *  We acknowledge the risk of '*no response from FATT*' identified on
       list.  In such cases, WG can continue with its best judgement
       based on its understanding of the available literature.
 
-4.1.5.  Open questions
+4.1.1.5.  Open questions
 
    Opinion of FATT is critical in this proposal whether the middle
    ground of hybrid is acceptable to (some of) them.
+
+4.1.2.  Lead FATT Person for Contact
+
+   This proposal assigns a single FATT person -- referred to as Lead
+   FATT Person -- who the WG group members and authors can contact for
+   general queries.  It can keep rotating after certain time, such as
+   one month.
+
+4.1.3.  Students/researchers of FATT
+
+   Most of FATT persons are from academia.  WG can request FATT to use
+   their own students/researchers to do the formal analysis.
 
 4.2.  ML-KEM: FATT review
 
@@ -473,6 +501,11 @@ Table of Contents
       WG has done formal analysis for EDHOC-PSK with KEM (ref
       (https://mailarchive.ietf.org/arch/msg/
       lake/2XGOI9OCwylJUfSCasvvwM2FXmw/)).
+
+   *  _Computational_ analysis (cf. SoK
+      (https://eprint.iacr.org/2019/1393.pdf))-- using tools such as
+      CryptoVerif -- seems like a reasonable approach to ensure security
+      of ML-KEM.
 
 4.3.  Scope of FATT
 
@@ -528,6 +561,9 @@ Table of Contents
    *  Whether post-quantum threats are in scope?
 
    *  What can go wrong in the system? etc.
+
+   *  What are the computational and memory resources available to the
+      adversary?
 
 5.2.1.  Typical Dolev-Yao adversary
 
@@ -775,6 +811,14 @@ Table of Contents
 Appendix
 
 Document History
+
+   -07
+
+   *  Failure of current process in Section 3.2.1
+
+   *  Students of FATT in Section 4.1.3
+
+   *  Lead FATT Person for Contact in Section 4.1.2
 
    -06
 
