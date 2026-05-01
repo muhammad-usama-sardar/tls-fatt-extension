@@ -307,7 +307,8 @@ See [this](https://mailarchive.ietf.org/arch/msg/tls/rClgrWm2hnhESXHx56U8InbwQQs
 We believe formal methods can provide additional value for security considerations of this draft in order to maintain the high cryptographic assurance of TLS.
 
 * As an example, it can help justify design choices, such as the preference for hybrids.
-It can also help identify ways in which ML-KEM can break.
+It can help identify ways in which ML-KEM can break.
+It can also help identify all the assumptions under which the properties hold.
 * As a relevant data point in the context of standardization, LAKE WG has done formal analysis for EDHOC-PSK with KEM ([ref](https://mailarchive.ietf.org/arch/msg/lake/2XGOI9OCwylJUfSCasvvwM2FXmw/)).
 * *Computational* analysis (cf. [SoK](https://eprint.iacr.org/2019/1393.pdf))-- using tools such as CryptoVerif -- seems like a reasonable approach to ensure security of ML-KEM.
 
