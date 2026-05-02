@@ -50,6 +50,7 @@ informative:
   I-D.ietf-tls-mlkem:
   I-D.wang-tls-service-affinity:
   RFC2418:
+  I-D.ietf-tls-pake:
 
 --- abstract
 
@@ -76,7 +77,7 @@ An argument is often presented by the authors that an Internet-Draft is written 
 * With the FATT process, this argument is clearly invalid. The Verifier may not be an implementer.
 
 This document outlines the corresponding changes in the way Internet-Drafts are typically written.
-For the Internet-Draft to be useful for the formal analysis, this document proposes that the draft should contain four main items, namely:
+For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:
 
 * motivation,
 * a threat model,
@@ -88,7 +89,7 @@ Each one of these is summarized in {{sec-res-authors}}. Future versions of this 
 Expected contributions of the Verifier are summarized in {{sec-res-verifier}}.
 
 ## Motivation
-A clear separation of expected contributions would help IRTF UFMRG to train the authors and Verifiers separately to fulfill their own formal analysis work.
+A clear separation of expected contributions would help IRTF UFMRG to train the authors and Verifiers separately to make their own contributions to the formal analysis.
 
 Moreover, we believe that the experiences can help improve the FATT process. The goal is to document the identified gaps with concrete examples, discuss those and mutually find the best way forward.
 
@@ -158,22 +159,30 @@ of the TLS WG actually puts the Verifier at unnecessary disadvantage.
 
 Our proposed solution for this point is in {{sec-contact-fatt}}.
 
-### Failure of current process
+### Failure of Current Process
 {: #fail-proc }
 
 The FATT process assigns a "FATT point person" {{TLS-FATT}} after adoption.
-However, until FATT person is assigned for a draft, Verifier has essentially no one to talk to.
+However, until FATT point person is assigned for a draft, Verifier is essentially not allowed to talk to any one in FATT.
 Note that it could mean (almost) the whole lifetime of the draft.
-A practical example is the PAKE draft.
-While the PAKE authors announced in meeting 125 that they are ready for WGLC, no FATT person has been announced at the time of writing.
+A practical example is the PAKE draft {{I-D.ietf-tls-pake}}.
+While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has been announced at the time of publishing this draft.
 
 ## ML-KEM
 {: #sec-ml-kem }
 
+While ML-KEM {{I-D.ietf-tls-mlkem}} looks like just a "trivial" addition, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:
+
+* Continue tabletop discussions on subjective calculation of risks, costs, tradeoffs, etc., and keep burning WG energy.
+* Do some technical analysis using formal methods (such as symbolic and computational) to get a confirmation and offer a statement for security considerations, and move on to more critical works like hybrid authentication.
+
+We believe the former cannot resolve the dispute. We believe the latter *may* help.
+
 ~~~
 We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
 insufficient. We also believe FATT review could have significantly
-improved it, including but not limited to the preference of hybrids.
+improved it, including but not limited to the preference of hybrids,
+and potential issues regarding KEM binding in TLS.
 We have provided significant feedback during the two WGLCs. However,
 almost none of that is actually reflected in the updated editor's
 version.
@@ -181,7 +190,7 @@ version.
 
 Our proposed solution for this point is in {{sec-sol-ml-kem}}.
 
-### Formal analysis (Work-in-progress)
+### Formal Analysis (Work-in-progress)
 We have presented observation from our ongoing symbolic security analysis
 (cf. limitations in {{sec-sec-cons}}) using ProVerif on the mailing list.
 
@@ -221,7 +230,9 @@ bug in the ECDHE part which is triggered only in composition.
 
 
 ### "Cost"
-"Cost" has been presented on the list as the motivation for ML-KEM but no authentic reference has yet been presented. There seems to be a need for a thorough study to understand the "cost."
+"Cost" has been presented on the list as the motivation for ML-KEM but no reference has yet been presented.
+We believe costs will depend on several factors and it is quite subjective.
+There seems to be a need for a thorough study to understand the "cost."
 
 
 ## Understanding the Opposing Goals
@@ -237,19 +248,19 @@ In particular, some topics like remote attestation need more precise specificati
 
 [comment]: <> (We also argue that in the current process, the stakeholder at most disadvantage is . We all have a shared goal of producing high-quality specifications.)
 
-## Response within reasonable time frame
+## Response Within Reasonable Time Frame
 If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.
 
 
 [comment]: <> (The goal of authors of Internet-Draft is to ...)
 
-# Proposed solutions
+# Proposed Solutions
 In addition to those mentioned inline in the previous section, we propose the following:
 
 ## Contacting FATT
 {: #sec-contact-fatt }
 
-### Separate List for FATT and WG members
+### Separate List for FATT and WG Members
 
 We propose creating a public mailing list (something like tls-fatt) for discussions between interested WG members and FATT.
 
@@ -259,14 +270,14 @@ In our understanding, the idea -- in a nutshell -- is something like **hybrid** 
 * The proposed list additionally allows public FATT-WG engagement ("open") for questions and discussion of WG members or FATT
 
 
-#### Potential need of FATT-WG engagement
+#### Potential Need of FATT-WG Engagement
 
 In addition to the questions from the WG for the FATT, FATT also needs to engage with the WG:
 
 * At **initial** FATT review (just after adoption), FATT may have questions from authors as well as Verifiers. For the former, to understand better the threat model and desired security goals, etc. to be able to suggest which approach is best-suited. For the latter, to better understand what formal analysis approach and tool is being planned/currently used (if any).
 * During **final** FATT review (just before WGLC), FATT may have questions on what the Verifier has done, especially in cases where a peer-reviewed publication is not yet available. We believe evaluating someone else's code is not easy, or at least if FATT has the opportunity to talk to the Verifier, it will decrease the brain cycles that they will have to spend on it.
 
-#### Design goals
+#### Design Goals
 
 * **minimal process change**: some private discussions typically happen between authors and FATT; move them to public list for transparency. Keep intra-FATT communication private as it is.
 * **balanced workload**: not to increase anyone's workload on average over a finite period of time (say lifetime of one document): joining list is voluntary; responding to list questions is voluntary
@@ -284,7 +295,7 @@ In addition to transparency where this removes the current situation where only 
 
 * We acknowledge the risk of '**no response from FATT**' identified on list. In such cases, WG can continue with its best judgement based on its understanding of the available literature.
 
-#### Open questions
+#### Open Questions
 
 Opinion of FATT is critical in this proposal whether the middle ground of hybrid is acceptable to (some of) them.
 
@@ -293,24 +304,25 @@ Opinion of FATT is critical in this proposal whether the middle ground of hybrid
 
 This proposal assigns a single FATT person -- referred to as Lead FATT Person -- who the WG group members and authors can contact for general queries. It can keep rotating after certain time, such as one month.
 
-### Students/researchers of FATT
+### Students/Researchers of FATT
 {: #stud-fatt }
 
 Most of FATT persons are from academia. WG can request FATT to use their own students/researchers to do the formal analysis.
 
-## ML-KEM: FATT review
+## ML-KEM: FATT Review
 {: #sec-sol-ml-kem }
 
 We have formally requested the chairs to initiate the FATT process for {{I-D.ietf-tls-mlkem}}.
 See [this](https://mailarchive.ietf.org/arch/msg/tls/rClgrWm2hnhESXHx56U8InbwQQs/) and [this](https://mailarchive.ietf.org/arch/msg/tls/7lj6fYAweMBwNMxFerNl7xhY0pk/).
 
-We believe formal methods can provide additional value for security considerations of this draft in order to maintain the high cryptographic assurance of TLS.
+### Expected Learning
+We believe formal methods can provide additional value for security considerations of this draft in order to maintain the high cryptographic assurance of TLS. Since we have no guarantee on whether ECDHE will break before ML-KEM, it seems appropriate to do thorough cryptographic analysis. The Harvest Now, Decrypt Later (HNDL) attack applies equally well to non-hybrid ML-KEM. Adversary can record all traffic and decrypt it when ML-KEM is broken (or probably it is already broken; who knows?)
 
 * As an example, it can help justify design choices, such as the preference for hybrids.
 It can help identify ways in which ML-KEM can break.
 It can also help identify all the assumptions under which the properties hold.
 * As a relevant data point in the context of standardization, LAKE WG has done formal analysis for EDHOC-PSK with KEM ([ref](https://mailarchive.ietf.org/arch/msg/lake/2XGOI9OCwylJUfSCasvvwM2FXmw/)).
-* *Computational* analysis (cf. [SoK](https://eprint.iacr.org/2019/1393.pdf))-- using tools such as CryptoVerif -- seems like a reasonable approach to ensure security of ML-KEM.
+* *Computational* analysis (cf. [SoK](https://eprint.iacr.org/2019/1393.pdf))-- using tools such as CryptoVerif -- seems like a reasonable approach to ensure security of ML-KEM in TLS, such as binding.
 
 ## Scope of FATT
    * Be more explicit on:
@@ -324,12 +336,12 @@ Discussion on this is happening in [issue 19](https://github.com/tlswg/tls-fatt/
 
 ~~~
 Formal analysis -- just like any other code development -- is an
-iterative process and needs to be progressively discussed with
+iterative process and needs to be **progressively** discussed with
 the WG (and not just authors!) to be able to propose secure
 solutions.
 ~~~
 
-So at least some time should be allocated in the meetings for discussion of formal analysis.
+So at least some time should be allocated in the meetings for discussion of ongoing formal analysis, rather than just the results.
 
 If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:
 
@@ -362,7 +374,7 @@ A threat model identifies which threats are in scope for the protocol design. So
 ### Typical Dolev-Yao adversary
 A typical threat model assumes the classical Dolev-Yao adversary, who has full control over the communication channel.
 
-Any additional adversary capabilities and assumptions must be explicitly stated.
+Any additional adversary capabilities and assumptions should be explicitly stated.
 
 ### Potential Weaknesses of Cryptographic Primitives
 In general, it also outlines the potential weaknesses of the cryptographic primitives used in the proposed protocol extension. Examples include:
@@ -473,6 +485,7 @@ This document has no IANA actions.
 * Failure of current process in {{fail-proc}}
 * Students of FATT in {{stud-fatt}}
 * Lead FATT Person for Contact in {{lead-fatt}}
+* Feedback from the WG
 
 
 -06
@@ -516,8 +529,9 @@ This document has no IANA actions.
 {:numbered="false"}
 We thankfully acknowledge the following for their valuable input:
 
-* Eric Rescorla for review of -02 and -05. Not all the feedback has yet been applied.
+* Eric Rescorla for review of -02, -05, and -06.
 * John Mattsson for proposing text for security considerations.
 * S. Moonesamy for identifying the 'no response' risk in the proposal for new list.
+* David Benjamin for review of -06.
 
 The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
