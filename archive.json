@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-03T02:51:58.824488+00:00",
+  "timestamp": "2026-05-12T02:54:47.279807+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -399,6 +399,32 @@
       "mergeCommit": {
         "oid": "b239f2f0a53735f68844049cabebdb1fa47572f9"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOPHS9bs7Z-9QT",
+      "title": "Reorganization and clarifications",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/15",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- Move proposals to solutions\r\n- Terminology refinement\r\n- ML-KEM clarification ",
+      "createdAt": "2026-05-10T11:11:12Z",
+      "updatedAt": "2026-05-10T11:11:12Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "dc35b26e3e485c6a8e1c73c5e7e4b9661c713e0e",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "clean-up",
+      "headRefOid": "fdee37c36f03fa7f7ec0596e7900a569202714e1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
