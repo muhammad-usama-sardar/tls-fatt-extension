@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                               10 May 2026
-Expires: 11 November 2026
+Intended status: Informational                               13 May 2026
+Expires: 14 November 2026
 
 
                      Extensions to TLS FATT Process
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 November 2026.
+   This Internet-Draft will expire on 14 November 2026.
 
 Copyright Notice
 
@@ -297,7 +297,8 @@ Table of Contents
       "Tamarin-like" to just "Tamarin".
 
    *  The process has to be *inclusive* of WG members who are willing to
-      help but don't work in formal methods research groups.
+      help in doing formal analysis but don't work in formal methods
+      research groups.
 
    Our proposed solution for this point is in Section 4.1.
 
@@ -929,6 +930,8 @@ Acknowledgments
       proposal for new list.
 
    *  David Benjamin for review of -06.
+
+   *  Mike Ounsworth for review of -07.
 
    The research work is funded by German Research Foundation ("Deutsche
    Forschungsgemeinschaft.")
