@@ -61,7 +61,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
 * Contacting FATT
 * ML-KEM
 
-We assert that the security considerations of {{I-D.ietf-tls-mlkem}} are insufficient. We believe that symbolic and computational analysis is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion.
+We assert that the security considerations of {{I-D.ietf-tls-mlkem}} are insufficient. We believe that symbolic and computational analysis of ML-KEM in the context of TLS is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion.
 
 --- middle
 
@@ -171,10 +171,14 @@ While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has 
 ## ML-KEM
 {: #sec-ml-kem }
 
-While ML-KEM {{I-D.ietf-tls-mlkem}} looks like just a "trivial" addition, it does changes as deep as the key schedule of TLS. Moreover, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:
+While ML-KEM {{I-D.ietf-tls-mlkem}} looks like just a "trivial" addition, it does changes as deep as the key schedule of TLS. It essentially replaces the *key exchange* by *key encapsulation*. While the former is symmetric, the latter is asymmetric. This symmetry is in terms of exchange of roles, and that the order does not matter. The proof in ProVerif is, therefore, based on the commutativity of the components g<sup>x</sup> and g<sup>y</sup>.
+
+Key encapsulation does not enjoy this property. There is essentially only one endpoint (say client) which generates the key pair `(dk,ek)` where `dk` represents the represents the secret decapsulation key and `ek` represents the public encapsulation key. As opposed to both endpoints sending their public keys in key exchange, only one of the endpoints (client in above example) sends the public encapsulation key. This asymmetry breaks the existing proofs of TLS 1.3 in ProVerif and requires a new proof.
+
+Moreover, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:
 
 * Continue tabletop discussions on subjective calculation of risks, costs, tradeoffs, etc., and keep burning WG energy.
-* Do some technical analysis using formal methods (such as symbolic and computational) to get a confirmation and offer a statement for security considerations, and move on to more critical works like hybrid authentication.
+* Do some technical analysis using formal methods (such as symbolic and computational) to get a confirmation on the security of ML-KEM in the context of TLS and offer a statement for security considerations, and move on to more critical works like hybrid authentication.
 
 We believe the former cannot resolve the dispute. We believe the latter *may* help.
 
@@ -192,6 +196,7 @@ version.
 "Cost" has been presented on the list as the motivation for ML-KEM but no reference has yet been presented.
 We believe costs will depend on several factors and it is quite subjective.
 There seems to be a need for a thorough study to understand the "cost."
+We invite the WG participants to perform this analysis and share the results with the WG.
 
 Our proposed solution for this point is in {{sec-sol-ml-kem}}.
 
