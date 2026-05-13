@@ -173,7 +173,7 @@ While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has 
 
 While ML-KEM {{I-D.ietf-tls-mlkem}} looks like just a "trivial" addition, it does changes as deep as the key schedule of TLS. It essentially replaces the *key exchange* by *key encapsulation*. While the former is symmetric, the latter is asymmetric. This symmetry is in terms of exchange of roles, and that the order does not matter. The proof in ProVerif is, therefore, based on the commutativity of the components g<sup>x</sup> and g<sup>y</sup>.
 
-Key encapsulation does not enjoy this property. There is essentially only one endpoint (say client) which generates the key pair `(dk,ek)` where `dk` represents the represents the secret decapsulation key and `ek` represents the public encapsulation key. As opposed to both endpoints sending their public keys in key exchange, only one of the endpoints (client in above example) sends the public encapsulation key. This asymmetry breaks the existing proofs of TLS 1.3 in ProVerif and requires a new proof.
+Key encapsulation does not enjoy this property. There is essentially only one endpoint (say client) which generates the key pair `(dk,ek)` where `dk` represents the secret decapsulation key and `ek` represents the public encapsulation key. As opposed to both endpoints sending their public keys in key exchange, only one of the endpoints (client in above example) sends the public encapsulation key. This asymmetry breaks the existing proofs of TLS 1.3 in ProVerif and requires a new proof.
 
 Moreover, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:
 
