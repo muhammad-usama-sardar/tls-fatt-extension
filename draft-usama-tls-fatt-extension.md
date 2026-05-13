@@ -155,7 +155,7 @@ of the TLS WG actually puts the Verifier at unnecessary disadvantage.
 
 * Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".
 
-* The process has to be **inclusive** of WG members who are willing to help but don't work in formal methods research groups.
+* The process has to be **inclusive** of WG members who are willing to help in doing formal analysis but don't work in formal methods research groups.
 
 Our proposed solution for this point is in {{sec-contact-fatt}}.
 
@@ -530,5 +530,6 @@ We thankfully acknowledge the following for their valuable input:
 * John Mattsson for proposing text for security considerations.
 * S. Moonesamy for identifying the 'no response' risk in the proposal for new list.
 * David Benjamin for review of -06.
+* Mike Ounsworth for review of -07.
 
 The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
