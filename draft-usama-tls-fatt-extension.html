@@ -8,7 +8,7 @@
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="
        This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
-We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process: 
+We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require reforming the process: 
        
          
            Provide protection against FATT-bypass by other TLS-related WGs 
@@ -19,13 +19,8 @@ We also briefly present a few pain points of the team doing the formal analysis 
          
            ML-KEM 
          
-         
-           Understanding the opposing goals 
-         
-         
-           Response within reasonable time frame 
-         
        
+       We assert that the security considerations of   are insufficient. We believe that symbolic and computational analysis is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion. 
     " name="description">
 <meta content="xml2rfc 3.33.0" name="generator">
 <meta content="draft-usama-tls-fatt-extension-latest" name="ietf.draft">
@@ -40,8 +35,8 @@ We also briefly present a few pain points of the team doing the formal analysis 
     platformdirs 4.9.6
     pycountry 24.6.1
     PyYAML 6.0.3
-    requests 2.32.5
-    wcwidth 0.6.0
+    requests 2.33.1
+    wcwidth 0.7.0
 -->
 <link href="draft-usama-tls-fatt-extension.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1066,7 +1061,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sardar</td>
-<td class="center">Expires 3 November 2026</td>
+<td class="center">Expires 14 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1079,12 +1074,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-usama-tls-fatt-extension-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-02" class="published">2 May 2026</time>
+<time datetime="2026-05-13" class="published">13 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-03">3 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-14">14 November 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1098,7 +1093,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
-We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process:<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require reforming the process:<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-abstract-2.1">
           <p id="section-abstract-2.1.1">Provide protection against FATT-bypass by other TLS-related WGs<a href="#section-abstract-2.1.1" class="pilcrow">¶</a></p>
@@ -1109,13 +1104,8 @@ We also briefly present a few pain points of the team doing the formal analysis 
         <li class="normal" id="section-abstract-2.3">
           <p id="section-abstract-2.3.1">ML-KEM<a href="#section-abstract-2.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-abstract-2.4">
-          <p id="section-abstract-2.4.1">Understanding the opposing goals<a href="#section-abstract-2.4.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-abstract-2.5">
-          <p id="section-abstract-2.5.1">Response within reasonable time frame<a href="#section-abstract-2.5.1" class="pilcrow">¶</a></p>
-</li>
       </ul>
+<p id="section-abstract-3">We assert that the security considerations of <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span> are insufficient. We believe that symbolic and computational analysis is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1152,7 +1142,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1207,7 +1197,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-pain-points-of-verifier" class="internal xref">Pain Points of Verifier</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-need-for-reform" class="internal xref">Need for Reform</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-provide-protection-against-" class="internal xref">Provide Protection Against FATT-bypass by Other TLS-related WGs</a></p>
@@ -1224,18 +1214,9 @@ We also briefly present a few pain points of the team doing the formal analysis 
                 <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-ml-kem" class="internal xref">ML-KEM</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
-                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-formal-analysis-work-in-pro" class="internal xref">Formal Analysis (Work-in-progress)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
-                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-cost" class="internal xref">"Cost"</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-cost" class="internal xref">"Cost"</a></p>
 </li>
                 </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-understanding-the-opposing-" class="internal xref">Understanding the Opposing Goals</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-response-within-reasonable-" class="internal xref">Response Within Reasonable Time Frame</a></p>
 </li>
             </ul>
 </li>
@@ -1262,6 +1243,9 @@ We also briefly present a few pain points of the team doing the formal analysis 
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
                     <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-expected-learning" class="internal xref">Expected Learning</a></p>
 </li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-formal-analysis-work-in-pro" class="internal xref">Formal Analysis (Work-in-progress)</a></p>
+</li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
@@ -1269,6 +1253,12 @@ We also briefly present a few pain points of the team doing the formal analysis 
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
                 <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-discussion-at-meeting" class="internal xref">Discussion at Meeting</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-understanding-the-opposing-" class="internal xref">Understanding the Opposing Goals</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.6">
+                <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="auto internal xref">4.6</a>.  <a href="#name-response-within-reasonable-" class="internal xref">Response Within Reasonable Time Frame</a></p>
 </li>
             </ul>
 </li>
@@ -1465,11 +1455,11 @@ The Verifier may propose text for consideration by authors/WG to disambiguate or
 </div>
 <div id="sec-pain-points">
 <section id="section-3">
-      <h2 id="name-pain-points-of-verifier">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-pain-points-of-verifier" class="section-name selfRef">Pain Points of Verifier</a>
+      <h2 id="name-need-for-reform">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-need-for-reform" class="section-name selfRef">Need for Reform</a>
       </h2>
-<p id="section-3-1">From the two extremes -- <span>[<a href="#I-D.ietf-tls-8773bis" class="cite xref">I-D.ietf-tls-8773bis</a>]</span> where Russ kindly provided all requested inputs and we were able to get it through (with a <a href="https://mailarchive.ietf.org/arch/msg/tls/6Wk82oBGd61rTK23DgfYb7BmRKM/">small change</a>) without any formal analysis to <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> where formal analysis revealed vulnerabilities <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span> and resulted in a separate WG to tackle this problem -- we summarize the pain points of the Verifier with the hope that we can refine the process.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">Note that we are not at all asserting that the authors have no pain points. They very likely have their own -- that is another indication that the process needs a refinement.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-1">From the two extremes -- <span>[<a href="#I-D.ietf-tls-8773bis" class="cite xref">I-D.ietf-tls-8773bis</a>]</span> where the author kindly provided all requested inputs and we were able to get it through (with a <a href="https://mailarchive.ietf.org/arch/msg/tls/6Wk82oBGd61rTK23DgfYb7BmRKM/">small change</a>) without any formal analysis to <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> where formal analysis revealed vulnerabilities <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span> and resulted in a separate WG to tackle this problem -- we summarize the pain points of the Verifier with the hope that we can reform the process.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Note that we are not at all asserting that the authors have no pain points. They very likely have their own -- that is another indication that the process needs a reform.<a href="#section-3-2" class="pilcrow">¶</a></p>
 <div id="provide-protection-against-fatt-bypass-by-other-tls-related-wgs">
 <section id="section-3.1">
         <h3 id="name-provide-protection-against-">
@@ -1517,7 +1507,7 @@ of the TLS WG actually puts the Verifier at unnecessary disadvantage.
             <p id="section-3.2-5.2.1">Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".<a href="#section-3.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.2-5.3">
-            <p id="section-3.2-5.3.1">The process has to be <strong>inclusive</strong> of WG members who are willing to help but don't work in formal methods research groups.<a href="#section-3.2-5.3.1" class="pilcrow">¶</a></p>
+            <p id="section-3.2-5.3.1">The process has to be <strong>inclusive</strong> of WG members who are willing to help in doing formal analysis but don't work in formal methods research groups.<a href="#section-3.2-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-3.2-6">Our proposed solution for this point is in <a href="#sec-contact-fatt" class="auto internal xref">Section 4.1</a>.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
@@ -1540,7 +1530,7 @@ While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has 
         <h3 id="name-ml-kem">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-ml-kem" class="section-name selfRef">ML-KEM</a>
         </h3>
-<p id="section-3.3-1">While ML-KEM <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span> looks like just a "trivial" addition, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">While ML-KEM <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span> looks like just a "trivial" addition, it does changes as deep as the key schedule of TLS. Moreover, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-2.1">
             <p id="section-3.3-2.1.1">Continue tabletop discussions on subjective calculation of risks, costs, tradeoffs, etc., and keep burning WG energy.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
@@ -1561,100 +1551,17 @@ almost none of that is actually reflected in the updated editor's
 version.
 </pre><a href="#section-3.3-4" class="pilcrow">¶</a>
 </div>
-<p id="section-3.3-5">Our proposed solution for this point is in <a href="#sec-sol-ml-kem" class="auto internal xref">Section 4.2</a>.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
-<div id="formal-analysis-work-in-progress">
-<section id="section-3.3.1">
-          <h4 id="name-formal-analysis-work-in-pro">
-<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-formal-analysis-work-in-pro" class="section-name selfRef">Formal Analysis (Work-in-progress)</a>
-          </h4>
-<p id="section-3.3.1-1">We have presented observation from our ongoing symbolic security analysis
-(cf. limitations in <a href="#sec-sec-cons" class="auto internal xref">Section 8</a>) using ProVerif on the mailing list.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.1-2">We argue that in general:<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-3.3.1-3">
-<li id="section-3.3.1-3.1">
-              <p id="section-3.3.1-3.1.1">Migration from ECDHE to hybrid is security improvement.<a href="#section-3.3.1-3.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li id="section-3.3.1-3.2">
-              <p id="section-3.3.1-3.2.1">Migration from hybrid to standalone ML-KEM is security regression.<a href="#section-3.3.1-3.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ol>
-<div id="hybrid-pqt">
-<section id="section-3.3.1.1">
-            <h5 id="name-hybrid-pq-t">
-<a href="#section-3.3.1.1" class="section-number selfRef">3.3.1.1. </a><a href="#name-hybrid-pq-t" class="section-name selfRef">Hybrid PQ/T</a>
-            </h5>
-<p id="section-3.3.1.1-1">More formally, the property hybrid PQ/T should provide is:<a href="#section-3.3.1.1-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.3.1.1-2">
-<pre>
-Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
-</pre><a href="#section-3.3.1.1-2" class="pilcrow">¶</a>
-</div>
-<p id="section-3.3.1.1-3">Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
-long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
-completely broken, the system retains the security level of ECDHE.<a href="#section-3.3.1.1-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="non-hybrid-pq">
-<section id="section-3.3.1.2">
-            <h5 id="name-non-hybrid-pq">
-<a href="#section-3.3.1.2" class="section-number selfRef">3.3.1.2. </a><a href="#name-non-hybrid-pq" class="section-name selfRef">Non-hybrid PQ</a>
-            </h5>
-<p id="section-3.3.1.2-1">On the other hand, the formal property non-hybrid PQ provides is:<a href="#section-3.3.1.2-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.3.1.2-2">
-<pre>
-Non-hybrid PQ is secure unless ML-KEM is broken.
-</pre><a href="#section-3.3.1.2-2" class="pilcrow">¶</a>
-</div>
-<p id="section-3.3.1.2-3">If ML-KEM is broken, the whole system is broken.<a href="#section-3.3.1.2-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="comparison">
-<section id="section-3.3.1.3">
-            <h5 id="name-comparison">
-<a href="#section-3.3.1.3" class="section-number selfRef">3.3.1.3. </a><a href="#name-comparison" class="section-name selfRef">Comparison</a>
-            </h5>
-<p id="section-3.3.1.3-1">Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-KEM. Clearly, hybrid is
-in general more secure, unless ECDHE is fully broken, in which case it still falls
-equivalent to standalone ML-KEM, or in the hypothetical scenario that there is an implementation
-bug in the ECDHE part which is triggered only in composition.<a href="#section-3.3.1.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
 <div id="cost">
-<section id="section-3.3.2">
+<section id="section-3.3.1">
           <h4 id="name-cost">
-<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-cost" class="section-name selfRef">"Cost"</a>
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-cost" class="section-name selfRef">"Cost"</a>
           </h4>
-<p id="section-3.3.2-1">"Cost" has been presented on the list as the motivation for ML-KEM but no reference has yet been presented.
+<p id="section-3.3.1-1">"Cost" has been presented on the list as the motivation for ML-KEM but no reference has yet been presented.
 We believe costs will depend on several factors and it is quite subjective.
-There seems to be a need for a thorough study to understand the "cost."<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
+There seems to be a need for a thorough study to understand the "cost."<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-2">Our proposed solution for this point is in <a href="#sec-sol-ml-kem" class="auto internal xref">Section 4.2</a>.<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-</section>
-</div>
-<div id="understanding-the-opposing-goals">
-<section id="section-3.4">
-        <h3 id="name-understanding-the-opposing-">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-understanding-the-opposing-" class="section-name selfRef">Understanding the Opposing Goals</a>
-        </h3>
-<p id="section-3.4-1">The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
-This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.4-2">
-<pre>
-Unless the Verifier remains really focused on checking subtleties,
-there is little value of formal analysis.
-</pre><a href="#section-3.4-2" class="pilcrow">¶</a>
-</div>
-<p id="section-3.4-3">In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="response-within-reasonable-time-frame">
-<section id="section-3.5">
-        <h3 id="name-response-within-reasonable-">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-response-within-reasonable-" class="section-name selfRef">Response Within Reasonable Time Frame</a>
-        </h3>
-<p id="section-3.5-1">If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1809,6 +1716,65 @@ It can also help identify all the assumptions under which the properties hold.<a
           </ul>
 </section>
 </div>
+<div id="formal-analysis-work-in-progress">
+<section id="section-4.2.2">
+          <h4 id="name-formal-analysis-work-in-pro">
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-formal-analysis-work-in-pro" class="section-name selfRef">Formal Analysis (Work-in-progress)</a>
+          </h4>
+<p id="section-4.2.2-1">We have presented observation from our ongoing symbolic security analysis
+(cf. limitations in <a href="#sec-sec-cons" class="auto internal xref">Section 8</a>) using ProVerif on the mailing list.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-2">We argue that in general:<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-4.2.2-3">
+<li id="section-4.2.2-3.1">
+              <p id="section-4.2.2-3.1.1">Migration from ECDHE to hybrid is security improvement.<a href="#section-4.2.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-4.2.2-3.2">
+              <p id="section-4.2.2-3.2.1">Migration from hybrid to standalone ML-KEM is security regression.<a href="#section-4.2.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+<div id="hybrid-pqt">
+<section id="section-4.2.2.1">
+            <h5 id="name-hybrid-pq-t">
+<a href="#section-4.2.2.1" class="section-number selfRef">4.2.2.1. </a><a href="#name-hybrid-pq-t" class="section-name selfRef">Hybrid PQ/T</a>
+            </h5>
+<p id="section-4.2.2.1-1">More formally, the property hybrid PQ/T should provide is:<a href="#section-4.2.2.1-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.2.2.1-2">
+<pre>
+Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
+</pre><a href="#section-4.2.2.1-2" class="pilcrow">¶</a>
+</div>
+<p id="section-4.2.2.1-3">Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
+long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
+completely broken, the system retains the security level of ECDHE.<a href="#section-4.2.2.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="non-hybrid-pq">
+<section id="section-4.2.2.2">
+            <h5 id="name-non-hybrid-pq">
+<a href="#section-4.2.2.2" class="section-number selfRef">4.2.2.2. </a><a href="#name-non-hybrid-pq" class="section-name selfRef">Non-hybrid PQ</a>
+            </h5>
+<p id="section-4.2.2.2-1">On the other hand, the formal property non-hybrid PQ provides is:<a href="#section-4.2.2.2-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.2.2.2-2">
+<pre>
+Non-hybrid PQ is secure unless ML-KEM is broken.
+</pre><a href="#section-4.2.2.2-2" class="pilcrow">¶</a>
+</div>
+<p id="section-4.2.2.2-3">If ML-KEM is broken, the whole system is broken.<a href="#section-4.2.2.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="comparison">
+<section id="section-4.2.2.3">
+            <h5 id="name-comparison">
+<a href="#section-4.2.2.3" class="section-number selfRef">4.2.2.3. </a><a href="#name-comparison" class="section-name selfRef">Comparison</a>
+            </h5>
+<p id="section-4.2.2.3-1">Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-KEM. Clearly, hybrid is
+in general more secure, unless ECDHE is fully broken, in which case it still falls
+equivalent to standalone ML-KEM, or in the hypothetical scenario that there is an implementation
+bug in the ECDHE part which is triggered only in composition.<a href="#section-4.2.2.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="scope-of-fatt">
@@ -1837,28 +1803,53 @@ Discussion on this is happening in <a href="https://github.com/tlswg/tls-fatt/is
         <h3 id="name-discussion-at-meeting">
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-discussion-at-meeting" class="section-name selfRef">Discussion at Meeting</a>
         </h3>
-<div class="alignLeft art-text artwork" id="section-4.4-1">
+<p id="section-4.4-1">Formal analysis is not set in stone. It's a piece of software. In our experience, it's most useful to guide an evolving design rather than verify a designed protocol.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.4-2">
 <pre>
 Formal analysis -- just like any other code development -- is an
 iterative process and needs to be **progressively** discussed with
 the WG (and not just authors!) to be able to propose secure
 solutions.
-</pre><a href="#section-4.4-1" class="pilcrow">¶</a>
+</pre><a href="#section-4.4-2" class="pilcrow">¶</a>
 </div>
-<p id="section-4.4-2">So at least some time should be allocated in the meetings for discussion of ongoing formal analysis, rather than just the results.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.4-3">If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<p id="section-4.4-3">So at least some time should be allocated in the meetings for discussion of ongoing formal analysis, rather than just the results.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<p id="section-4.4-4">If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:<a href="#section-4.4-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.4-4.1">
-            <p id="section-4.4-4.1.1">Approach used: symbolic or computational<a href="#section-4.4-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.4-5.1">
+            <p id="section-4.4-5.1.1">Approach used: symbolic or computational<a href="#section-4.4-5.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-4.2">
-            <p id="section-4.4-4.2.1">Tool used: ProVerif, CryptoVerif etc.<a href="#section-4.4-4.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.4-5.2">
+            <p id="section-4.4-5.2.1">Tool used: ProVerif, CryptoVerif etc.<a href="#section-4.4-5.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-4.3">
-            <p id="section-4.4-4.3.1">Properties established<a href="#section-4.4-4.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.4-5.3">
+            <p id="section-4.4-5.3.1">Properties established<a href="#section-4.4-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.4-5">This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.<a href="#section-4.4-5" class="pilcrow">¶</a></p>
+<p id="section-4.4-6">This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.<a href="#section-4.4-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="understanding-the-opposing-goals">
+<section id="section-4.5">
+        <h3 id="name-understanding-the-opposing-">
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-understanding-the-opposing-" class="section-name selfRef">Understanding the Opposing Goals</a>
+        </h3>
+<p id="section-4.5-1">The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
+This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.5-2">
+<pre>
+Unless the Verifier remains really focused on checking subtleties,
+there is little value of formal analysis.
+</pre><a href="#section-4.5-2" class="pilcrow">¶</a>
+</div>
+<p id="section-4.5-3">In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="response-within-reasonable-time-frame">
+<section id="section-4.6">
+        <h3 id="name-response-within-reasonable-">
+<a href="#section-4.6" class="section-number selfRef">4.6. </a><a href="#name-response-within-reasonable-" class="section-name selfRef">Response Within Reasonable Time Frame</a>
+        </h3>
+<p id="section-4.6-1">If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2039,7 +2030,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
         </h3>
 <ul class="normal">
 <li class="normal" id="section-6.3-1.1">
-            <p id="section-6.3-1.1.1">We really like how Russ motivates the problem statement in <span>[<a href="#I-D.ietf-tls-8773bis" class="cite xref">I-D.ietf-tls-8773bis</a>]</span>. Use it as a sample.<a href="#section-6.3-1.1.1" class="pilcrow">¶</a></p>
+            <p id="section-6.3-1.1.1">We really like how the author motivates the problem statement in <span>[<a href="#I-D.ietf-tls-8773bis" class="cite xref">I-D.ietf-tls-8773bis</a>]</span>. Use it as a sample.<a href="#section-6.3-1.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-6.3-1.2">
             <p id="section-6.3-1.2.1">Here authors should address all the concerns from WG, including
@@ -2323,6 +2314,9 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 </li>
         <li class="normal" id="appendix-B-2.4">
           <p id="appendix-B-2.4.1">David Benjamin for review of -06.<a href="#appendix-B-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-2.5">
+          <p id="appendix-B-2.5.1">Mike Ounsworth for review of -07.<a href="#appendix-B-2.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="appendix-B-3">The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")<a href="#appendix-B-3" class="pilcrow">¶</a></p>
