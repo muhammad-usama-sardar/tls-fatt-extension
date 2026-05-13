@@ -55,13 +55,13 @@ informative:
 --- abstract
 
 This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
-We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require refining the process:
+We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require reforming the process:
 
 * Provide protection against FATT-bypass by other TLS-related WGs
 * Contacting FATT
 * ML-KEM
-* Understanding the opposing goals
-* Response within reasonable time frame
+
+We assert that the security considerations of {{I-D.ietf-tls-mlkem}} are insufficient. We believe that symbolic and computational analysis is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion.
 
 --- middle
 
@@ -114,12 +114,12 @@ Any ambiguity originating from the threat model, informal security goals, and a 
 The authors are, therefore, encouraged to be as precise as possible.
 The Verifier may propose text for consideration by authors/WG to disambiguate or propose a fix to the attack.
 
-# Pain Points of Verifier
+# Need for Reform
 {: #sec-pain-points }
 
-From the two extremes -- {{I-D.ietf-tls-8773bis}} where Russ kindly provided all requested inputs and we were able to get it through (with a [small change](https://mailarchive.ietf.org/arch/msg/tls/6Wk82oBGd61rTK23DgfYb7BmRKM/)) without any formal analysis to {{I-D.fossati-tls-attestation-08}} where formal analysis revealed vulnerabilities {{ID-Crisis}} and resulted in a separate WG to tackle this problem -- we summarize the pain points of the Verifier with the hope that we can refine the process.
+From the two extremes -- {{I-D.ietf-tls-8773bis}} where the author kindly provided all requested inputs and we were able to get it through (with a [small change](https://mailarchive.ietf.org/arch/msg/tls/6Wk82oBGd61rTK23DgfYb7BmRKM/)) without any formal analysis to {{I-D.fossati-tls-attestation-08}} where formal analysis revealed vulnerabilities {{ID-Crisis}} and resulted in a separate WG to tackle this problem -- we summarize the pain points of the Verifier with the hope that we can reform the process.
 
-Note that we are not at all asserting that the authors have no pain points. They very likely have their own -- that is another indication that the process needs a refinement.
+Note that we are not at all asserting that the authors have no pain points. They very likely have their own -- that is another indication that the process needs a reform.
 
 ## Provide Protection Against FATT-bypass by Other TLS-related WGs
 TLS-related WGs in particular those where the representation of TLS WG is a minority -- including the one (SEAT WG) that the author has defended himself as one of the six proponents -- MUST NOT be allowed to make changes to the TLS protocol beyond what is explicitly allowed in their charter.
@@ -155,7 +155,7 @@ of the TLS WG actually puts the Verifier at unnecessary disadvantage.
 
 * Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".
 
-* The process has to be **inclusive** of WG members who are willing to help but don't work in formal methods research groups.
+* The process has to be **inclusive** of WG members who are willing to help in doing formal analysis but don't work in formal methods research groups.
 
 Our proposed solution for this point is in {{sec-contact-fatt}}.
 
@@ -171,7 +171,7 @@ While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has 
 ## ML-KEM
 {: #sec-ml-kem }
 
-While ML-KEM {{I-D.ietf-tls-mlkem}} looks like just a "trivial" addition, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:
+While ML-KEM {{I-D.ietf-tls-mlkem}} looks like just a "trivial" addition, it does changes as deep as the key schedule of TLS. Moreover, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:
 
 * Continue tabletop discussions on subjective calculation of risks, costs, tradeoffs, etc., and keep burning WG energy.
 * Do some technical analysis using formal methods (such as symbolic and computational) to get a confirmation and offer a statement for security considerations, and move on to more critical works like hybrid authentication.
@@ -188,69 +188,12 @@ almost none of that is actually reflected in the updated editor's
 version.
 ~~~
 
-Our proposed solution for this point is in {{sec-sol-ml-kem}}.
-
-### Formal Analysis (Work-in-progress)
-We have presented observation from our ongoing symbolic security analysis
-(cf. limitations in {{sec-sec-cons}}) using ProVerif on the mailing list.
-
-We argue that in general:
-
-1. Migration from ECDHE to hybrid is security improvement.
-2. Migration from hybrid to standalone ML-KEM is security regression.
-
-
-#### Hybrid PQ/T
-
-More formally, the property hybrid PQ/T should provide is:
-
-~~~
-Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
-~~~
-
-Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
-long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
-completely broken, the system retains the security level of ECDHE.
-
-#### Non-hybrid PQ
-
-On the other hand, the formal property non-hybrid PQ provides is:
-
-~~~
-Non-hybrid PQ is secure unless ML-KEM is broken.
-~~~
-
-If ML-KEM is broken, the whole system is broken.
-
-#### Comparison
-Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-KEM. Clearly, hybrid is
-in general more secure, unless ECDHE is fully broken, in which case it still falls
-equivalent to standalone ML-KEM, or in the hypothetical scenario that there is an implementation
-bug in the ECDHE part which is triggered only in composition.
-
-
 ### "Cost"
 "Cost" has been presented on the list as the motivation for ML-KEM but no reference has yet been presented.
 We believe costs will depend on several factors and it is quite subjective.
 There seems to be a need for a thorough study to understand the "cost."
 
-
-## Understanding the Opposing Goals
-The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
-This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.
-
-~~~
-Unless the Verifier remains really focused on checking subtleties,
-there is little value of formal analysis.
-~~~
-
-In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.
-
-[comment]: <> (We also argue that in the current process, the stakeholder at most disadvantage is . We all have a shared goal of producing high-quality specifications.)
-
-## Response Within Reasonable Time Frame
-If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.
-
+Our proposed solution for this point is in {{sec-sol-ml-kem}}.
 
 [comment]: <> (The goal of authors of Internet-Draft is to ...)
 
@@ -324,6 +267,45 @@ It can also help identify all the assumptions under which the properties hold.
 * As a relevant data point in the context of standardization, LAKE WG has done formal analysis for EDHOC-PSK with KEM ([ref](https://mailarchive.ietf.org/arch/msg/lake/2XGOI9OCwylJUfSCasvvwM2FXmw/)).
 * *Computational* analysis (cf. [SoK](https://eprint.iacr.org/2019/1393.pdf))-- using tools such as CryptoVerif -- seems like a reasonable approach to ensure security of ML-KEM in TLS, such as binding.
 
+### Formal Analysis (Work-in-progress)
+We have presented observation from our ongoing symbolic security analysis
+(cf. limitations in {{sec-sec-cons}}) using ProVerif on the mailing list.
+
+We argue that in general:
+
+1. Migration from ECDHE to hybrid is security improvement.
+2. Migration from hybrid to standalone ML-KEM is security regression.
+
+
+#### Hybrid PQ/T
+
+More formally, the property hybrid PQ/T should provide is:
+
+~~~
+Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
+~~~
+
+Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
+long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
+completely broken, the system retains the security level of ECDHE.
+
+#### Non-hybrid PQ
+
+On the other hand, the formal property non-hybrid PQ provides is:
+
+~~~
+Non-hybrid PQ is secure unless ML-KEM is broken.
+~~~
+
+If ML-KEM is broken, the whole system is broken.
+
+#### Comparison
+Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-KEM. Clearly, hybrid is
+in general more secure, unless ECDHE is fully broken, in which case it still falls
+equivalent to standalone ML-KEM, or in the hypothetical scenario that there is an implementation
+bug in the ECDHE part which is triggered only in composition.
+
+
 ## Scope of FATT
    * Be more explicit on:
       * what is the scope of FATT?
@@ -333,6 +315,7 @@ Discussion on this is happening in [issue 19](https://github.com/tlswg/tls-fatt/
 ## Discussion at Meeting
 {: #sec-discuss-meetings }
 
+Formal analysis is not set in stone. It's a piece of software. In our experience, it's most useful to guide an evolving design rather than verify a designed protocol.
 
 ~~~
 Formal analysis -- just like any other code development -- is an
@@ -350,6 +333,20 @@ If the authors are doing the formal analysis themselves, it would be helpful to 
 * Properties established
 
 This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.
+
+## Understanding the Opposing Goals
+The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
+This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.
+
+~~~
+Unless the Verifier remains really focused on checking subtleties,
+there is little value of formal analysis.
+~~~
+
+In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.
+
+## Response Within Reasonable Time Frame
+If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.
 
 
 # Contribution of Authors
@@ -433,7 +430,7 @@ TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.
    * Define any terms not defined in RFC8446bis or point to other drafts from where the definition is used.
 
 ## Motivation and design rationale
-   * We really like how Russ motivates the problem statement in {{I-D.ietf-tls-8773bis}}. Use it as a sample.
+   * We really like how the author motivates the problem statement in {{I-D.ietf-tls-8773bis}}. Use it as a sample.
    * Here authors should address all the concerns from WG, including
       justification with compelling arguments and authentic references
       why authors think it should be done within TLS WG (and within handshake).
@@ -533,5 +530,6 @@ We thankfully acknowledge the following for their valuable input:
 * John Mattsson for proposing text for security considerations.
 * S. Moonesamy for identifying the 'no response' risk in the proposal for new list.
 * David Benjamin for review of -06.
+* Mike Ounsworth for review of -07.
 
 The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
