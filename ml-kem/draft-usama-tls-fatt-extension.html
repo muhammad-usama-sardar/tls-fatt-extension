@@ -16,11 +16,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
          
            Contacting FATT 
          
-         
-           ML-KEM 
-         
        
-       We assert that the security considerations of   are insufficient. We believe that symbolic and computational analysis of ML-KEM in the context of TLS is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion. 
     " name="description">
 <meta content="xml2rfc 3.33.0" name="generator">
 <meta content="draft-usama-tls-fatt-extension-latest" name="ietf.draft">
@@ -1061,7 +1057,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sardar</td>
-<td class="center">Expires 14 November 2026</td>
+<td class="center">Expires 17 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1074,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-usama-tls-fatt-extension-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-13" class="published">13 May 2026</time>
+<time datetime="2026-05-16" class="published">16 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-14">14 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-17">17 November 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1101,11 +1097,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
         <li class="normal" id="section-abstract-2.2">
           <p id="section-abstract-2.2.1">Contacting FATT<a href="#section-abstract-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-abstract-2.3">
-          <p id="section-abstract-2.3.1">ML-KEM<a href="#section-abstract-2.3.1" class="pilcrow">¶</a></p>
-</li>
       </ul>
-<p id="section-abstract-3">We assert that the security considerations of <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span> are insufficient. We believe that symbolic and computational analysis of ML-KEM in the context of TLS is helpful here. We also request that if the author has done any formal analysis, it would be helpful to present the current state of formal analysis in the next meeting for discussion.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1142,7 +1134,7 @@ We also briefly present a few pain points of the team doing the formal analysis 
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 14 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 17 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1210,14 +1202,6 @@ We also briefly present a few pain points of the team doing the formal analysis 
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-ml-kem" class="internal xref">ML-KEM</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
-                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-cost" class="internal xref">"Cost"</a></p>
-</li>
-                </ul>
-</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
@@ -1238,27 +1222,16 @@ We also briefly present a few pain points of the team doing the formal analysis 
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-ml-kem-fatt-review" class="internal xref">ML-KEM: FATT Review</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-expected-learning" class="internal xref">Expected Learning</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-formal-analysis-work-in-pro" class="internal xref">Formal Analysis (Work-in-progress)</a></p>
-</li>
-                </ul>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-scope-of-fatt" class="internal xref">Scope of FATT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-scope-of-fatt" class="internal xref">Scope of FATT</a></p>
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-discussion-at-meeting" class="internal xref">Discussion at Meeting</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-discussion-at-meeting" class="internal xref">Discussion at Meeting</a></p>
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-understanding-the-opposing-" class="internal xref">Understanding the Opposing Goals</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
-                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-understanding-the-opposing-" class="internal xref">Understanding the Opposing Goals</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.6">
-                <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="auto internal xref">4.6</a>.  <a href="#name-response-within-reasonable-" class="internal xref">Response Within Reasonable Time Frame</a></p>
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-response-within-reasonable-" class="internal xref">Response Within Reasonable Time Frame</a></p>
 </li>
             </ul>
 </li>
@@ -1525,48 +1498,6 @@ While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has 
 </div>
 </section>
 </div>
-<div id="sec-ml-kem">
-<section id="section-3.3">
-        <h3 id="name-ml-kem">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-ml-kem" class="section-name selfRef">ML-KEM</a>
-        </h3>
-<p id="section-3.3-1">While ML-KEM <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span> looks like just a "trivial" addition, it does changes as deep as the key schedule of TLS. It essentially replaces the <em>key exchange</em> by <em>key encapsulation</em>. While the former is symmetric, the latter is asymmetric. This symmetry is in terms of exchange of roles, and that the order does not matter. The proof in ProVerif is, therefore, based on the commutativity of the components g<sup>x</sup> and g<sup>y</sup>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">Key encapsulation does not enjoy this property. There is essentially only one endpoint (say client) which generates the key pair <code>(dk,ek)</code> where <code>dk</code> represents the secret decapsulation key and <code>ek</code> represents the public encapsulation key. As opposed to both endpoints sending their public keys in key exchange, only one of the endpoints (client in above example) sends the public encapsulation key. This asymmetry breaks the existing proofs of TLS 1.3 in ProVerif and requires a new proof.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
-<p id="section-3.3-3">Moreover, it had an opposition of several (ca. 25 in our understanding) WG members in the last WGLC. We see 2 possible options:<a href="#section-3.3-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3-4.1">
-            <p id="section-3.3-4.1.1">Continue tabletop discussions on subjective calculation of risks, costs, tradeoffs, etc., and keep burning WG energy.<a href="#section-3.3-4.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-4.2">
-            <p id="section-3.3-4.2.1">Do some technical analysis using formal methods (such as symbolic and computational) to get a confirmation on the security of ML-KEM in the context of TLS and offer a statement for security considerations, and move on to more critical works like hybrid authentication.<a href="#section-3.3-4.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.3-5">We believe the former cannot resolve the dispute. We believe the latter <em>may</em> help.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.3-6">
-<pre>
-We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
-insufficient. We also believe FATT review could have significantly
-improved it, including but not limited to the preference of hybrids,
-and potential issues regarding KEM binding in TLS.
-We have provided significant feedback during the two WGLCs. However,
-almost none of that is actually reflected in the updated editor's
-version.
-</pre><a href="#section-3.3-6" class="pilcrow">¶</a>
-</div>
-<div id="cost">
-<section id="section-3.3.1">
-          <h4 id="name-cost">
-<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-cost" class="section-name selfRef">"Cost"</a>
-          </h4>
-<p id="section-3.3.1-1">"Cost" has been presented on the list as the motivation for ML-KEM but no reference has yet been presented.
-We believe costs will depend on several factors and it is quite subjective.
-There seems to be a need for a thorough study to understand the "cost."
-We invite the WG participants to perform this analysis and share the results with the WG.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.1-2">Our proposed solution for this point is in <a href="#sec-sol-ml-kem" class="auto internal xref">Section 4.2</a>.<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
 </section>
 </div>
 <div id="proposed-solutions">
@@ -1691,110 +1622,21 @@ We invite the WG participants to perform this analysis and share the results wit
 </div>
 </section>
 </div>
-<div id="sec-sol-ml-kem">
-<section id="section-4.2">
-        <h3 id="name-ml-kem-fatt-review">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-ml-kem-fatt-review" class="section-name selfRef">ML-KEM: FATT Review</a>
-        </h3>
-<p id="section-4.2-1">We have formally requested the chairs to initiate the FATT process for <span>[<a href="#I-D.ietf-tls-mlkem" class="cite xref">I-D.ietf-tls-mlkem</a>]</span>.
-See <a href="https://mailarchive.ietf.org/arch/msg/tls/rClgrWm2hnhESXHx56U8InbwQQs/">this</a> and <a href="https://mailarchive.ietf.org/arch/msg/tls/7lj6fYAweMBwNMxFerNl7xhY0pk/">this</a>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<div id="expected-learning">
-<section id="section-4.2.1">
-          <h4 id="name-expected-learning">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-expected-learning" class="section-name selfRef">Expected Learning</a>
-          </h4>
-<p id="section-4.2.1-1">We believe formal methods can provide additional value for security considerations of this draft in order to maintain the high cryptographic assurance of TLS. Since we have no guarantee on whether ECDHE will break before ML-KEM, it seems appropriate to do thorough cryptographic analysis. The Harvest Now, Decrypt Later (HNDL) attack applies equally well to non-hybrid ML-KEM. Adversary can record all traffic and decrypt it when ML-KEM is broken (or probably it is already broken; who knows?)<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-4.2.1-2.1">
-              <p id="section-4.2.1-2.1.1">As an example, it can help justify design choices, such as the preference for hybrids.
-It can help identify ways in which ML-KEM can break.
-It can also help identify all the assumptions under which the properties hold.<a href="#section-4.2.1-2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-4.2.1-2.2">
-              <p id="section-4.2.1-2.2.1">As a relevant data point in the context of standardization, LAKE WG has done formal analysis for EDHOC-PSK with KEM (<a href="https://mailarchive.ietf.org/arch/msg/lake/2XGOI9OCwylJUfSCasvvwM2FXmw/">ref</a>).<a href="#section-4.2.1-2.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-4.2.1-2.3">
-              <p id="section-4.2.1-2.3.1"><em>Computational</em> analysis (cf. <a href="https://eprint.iacr.org/2019/1393.pdf">SoK</a>)-- using tools such as CryptoVerif -- seems like a reasonable approach to ensure security of ML-KEM in TLS, such as binding.<a href="#section-4.2.1-2.3.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-</section>
-</div>
-<div id="formal-analysis-work-in-progress">
-<section id="section-4.2.2">
-          <h4 id="name-formal-analysis-work-in-pro">
-<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-formal-analysis-work-in-pro" class="section-name selfRef">Formal Analysis (Work-in-progress)</a>
-          </h4>
-<p id="section-4.2.2-1">We have presented observation from our ongoing symbolic security analysis
-(cf. limitations in <a href="#sec-sec-cons" class="auto internal xref">Section 8</a>) using ProVerif on the mailing list.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-2">We argue that in general:<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-4.2.2-3">
-<li id="section-4.2.2-3.1">
-              <p id="section-4.2.2-3.1.1">Migration from ECDHE to hybrid is security improvement.<a href="#section-4.2.2-3.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li id="section-4.2.2-3.2">
-              <p id="section-4.2.2-3.2.1">Migration from hybrid to standalone ML-KEM is security regression.<a href="#section-4.2.2-3.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ol>
-<div id="hybrid-pqt">
-<section id="section-4.2.2.1">
-            <h5 id="name-hybrid-pq-t">
-<a href="#section-4.2.2.1" class="section-number selfRef">4.2.2.1. </a><a href="#name-hybrid-pq-t" class="section-name selfRef">Hybrid PQ/T</a>
-            </h5>
-<p id="section-4.2.2.1-1">More formally, the property hybrid PQ/T should provide is:<a href="#section-4.2.2.1-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.2.2.1-2">
-<pre>
-Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
-</pre><a href="#section-4.2.2.1-2" class="pilcrow">¶</a>
-</div>
-<p id="section-4.2.2.1-3">Hybrid preserves ECDHE, and adds ML-KEM as an additional factor. So as
-long as one of them is not broken, the system is secure. In particular, even if ML-KEM is
-completely broken, the system retains the security level of ECDHE.<a href="#section-4.2.2.1-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="non-hybrid-pq">
-<section id="section-4.2.2.2">
-            <h5 id="name-non-hybrid-pq">
-<a href="#section-4.2.2.2" class="section-number selfRef">4.2.2.2. </a><a href="#name-non-hybrid-pq" class="section-name selfRef">Non-hybrid PQ</a>
-            </h5>
-<p id="section-4.2.2.2-1">On the other hand, the formal property non-hybrid PQ provides is:<a href="#section-4.2.2.2-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.2.2.2-2">
-<pre>
-Non-hybrid PQ is secure unless ML-KEM is broken.
-</pre><a href="#section-4.2.2.2-2" class="pilcrow">¶</a>
-</div>
-<p id="section-4.2.2.2-3">If ML-KEM is broken, the whole system is broken.<a href="#section-4.2.2.2-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="comparison">
-<section id="section-4.2.2.3">
-            <h5 id="name-comparison">
-<a href="#section-4.2.2.3" class="section-number selfRef">4.2.2.3. </a><a href="#name-comparison" class="section-name selfRef">Comparison</a>
-            </h5>
-<p id="section-4.2.2.3-1">Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-KEM. Clearly, hybrid is
-in general more secure, unless ECDHE is fully broken, in which case it still falls
-equivalent to standalone ML-KEM, or in the hypothetical scenario that there is an implementation
-bug in the ECDHE part which is triggered only in composition.<a href="#section-4.2.2.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-</section>
-</div>
 <div id="scope-of-fatt">
-<section id="section-4.3">
+<section id="section-4.2">
         <h3 id="name-scope-of-fatt">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-scope-of-fatt" class="section-name selfRef">Scope of FATT</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-scope-of-fatt" class="section-name selfRef">Scope of FATT</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="section-4.3-1.1">
-            <p id="section-4.3-1.1.1">Be more explicit on:<a href="#section-4.3-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.2-1.1">
+            <p id="section-4.2-1.1.1">Be more explicit on:<a href="#section-4.2-1.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3-1.1.2.1">
-                <p id="section-4.3-1.1.2.1.1">what is the scope of FATT?<a href="#section-4.3-1.1.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.2-1.1.2.1">
+                <p id="section-4.2-1.1.2.1.1">what is the scope of FATT?<a href="#section-4.2-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-4.3-1.1.2.2">
-                <p id="section-4.3-1.1.2.2.1">what kind of drafts need FATT review and why?
-Discussion on this is happening in <a href="https://github.com/tlswg/tls-fatt/issues/19">issue 19</a>.<a href="#section-4.3-1.1.2.2.1" class="pilcrow">¶</a></p>
+              <li class="normal" id="section-4.2-1.1.2.2">
+                <p id="section-4.2-1.1.2.2.1">what kind of drafts need FATT review and why?
+Discussion on this is happening in <a href="https://github.com/tlswg/tls-fatt/issues/19">issue 19</a>.<a href="#section-4.2-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1802,57 +1644,57 @@ Discussion on this is happening in <a href="https://github.com/tlswg/tls-fatt/is
 </section>
 </div>
 <div id="sec-discuss-meetings">
-<section id="section-4.4">
+<section id="section-4.3">
         <h3 id="name-discussion-at-meeting">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-discussion-at-meeting" class="section-name selfRef">Discussion at Meeting</a>
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-discussion-at-meeting" class="section-name selfRef">Discussion at Meeting</a>
         </h3>
-<p id="section-4.4-1">Formal analysis is not set in stone. It's a piece of software. In our experience, it's most useful to guide an evolving design rather than verify a designed protocol.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.4-2">
+<p id="section-4.3-1">Formal analysis is not set in stone. It's a piece of software. In our experience, it's most useful to guide an evolving design rather than verify a designed protocol.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.3-2">
 <pre>
 Formal analysis -- just like any other code development -- is an
 iterative process and needs to be **progressively** discussed with
 the WG (and not just authors!) to be able to propose secure
 solutions.
-</pre><a href="#section-4.4-2" class="pilcrow">¶</a>
+</pre><a href="#section-4.3-2" class="pilcrow">¶</a>
 </div>
-<p id="section-4.4-3">So at least some time should be allocated in the meetings for discussion of ongoing formal analysis, rather than just the results.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
-<p id="section-4.4-4">If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:<a href="#section-4.4-4" class="pilcrow">¶</a></p>
+<p id="section-4.3-3">So at least some time should be allocated in the meetings for discussion of ongoing formal analysis, rather than just the results.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
+<p id="section-4.3-4">If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:<a href="#section-4.3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.4-5.1">
-            <p id="section-4.4-5.1.1">Approach used: symbolic or computational<a href="#section-4.4-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.3-5.1">
+            <p id="section-4.3-5.1.1">Approach used: symbolic or computational<a href="#section-4.3-5.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-5.2">
-            <p id="section-4.4-5.2.1">Tool used: ProVerif, CryptoVerif etc.<a href="#section-4.4-5.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.3-5.2">
+            <p id="section-4.3-5.2.1">Tool used: ProVerif, CryptoVerif etc.<a href="#section-4.3-5.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-5.3">
-            <p id="section-4.4-5.3.1">Properties established<a href="#section-4.4-5.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.3-5.3">
+            <p id="section-4.3-5.3.1">Properties established<a href="#section-4.3-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.4-6">This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.<a href="#section-4.4-6" class="pilcrow">¶</a></p>
+<p id="section-4.3-6">This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.<a href="#section-4.3-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="understanding-the-opposing-goals">
-<section id="section-4.5">
+<section id="section-4.4">
         <h3 id="name-understanding-the-opposing-">
-<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-understanding-the-opposing-" class="section-name selfRef">Understanding the Opposing Goals</a>
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-understanding-the-opposing-" class="section-name selfRef">Understanding the Opposing Goals</a>
         </h3>
-<p id="section-4.5-1">The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
-This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.5-2">
+<p id="section-4.4-1">The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
+This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.4-2">
 <pre>
 Unless the Verifier remains really focused on checking subtleties,
 there is little value of formal analysis.
-</pre><a href="#section-4.5-2" class="pilcrow">¶</a>
+</pre><a href="#section-4.4-2" class="pilcrow">¶</a>
 </div>
-<p id="section-4.5-3">In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+<p id="section-4.4-3">In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="response-within-reasonable-time-frame">
-<section id="section-4.6">
+<section id="section-4.5">
         <h3 id="name-response-within-reasonable-">
-<a href="#section-4.6" class="section-number selfRef">4.6. </a><a href="#name-response-within-reasonable-" class="section-name selfRef">Response Within Reasonable Time Frame</a>
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-response-within-reasonable-" class="section-name selfRef">Response Within Reasonable Time Frame</a>
         </h3>
-<p id="section-4.6-1">If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
+<p id="section-4.5-1">If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2158,10 +2000,6 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
         <dd>
 <span class="refAuthor">Housley, R.</span>, <span class="refTitle">"TLS 1.3 Extension for Using Certificates with an External Pre-Shared Key"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-8773bis-13</span>, <time datetime="2025-09-05" class="refDate">5 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-8773bis-13">https://datatracker.ietf.org/doc/html/draft-ietf-tls-8773bis-13</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.ietf-tls-mlkem">[I-D.ietf-tls-mlkem]</dt>
-        <dd>
-<span class="refAuthor">Connolly, D.</span>, <span class="refTitle">"ML-KEM Post-Quantum Key Agreement for TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-mlkem-07</span>, <time datetime="2026-02-12" class="refDate">12 February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-mlkem-07">https://datatracker.ietf.org/doc/html/draft-ietf-tls-mlkem-07</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="I-D.ietf-tls-pake">[I-D.ietf-tls-pake]</dt>
         <dd>
 <span class="refAuthor">Bauman, L.</span>, <span class="refAuthor">Benjamin, D.</span>, <span class="refAuthor">Menon, S.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"A Password Authenticated Key Exchange Extension for TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-pake-01</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-pake-01">https://datatracker.ietf.org/doc/html/draft-ietf-tls-pake-01</a>&gt;</span>. </dd>
@@ -2205,94 +2043,100 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
         <h3 id="name-document-history">
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
         </h3>
-<p id="appendix-A.1-1">-07<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-1">-08<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-2.1">
-            <p id="appendix-A.1-2.1.1">Failure of current process in <a href="#fail-proc" class="auto internal xref">Section 3.2.1</a><a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.1-2.2">
-            <p id="appendix-A.1-2.2.1">Students of FATT in <a href="#stud-fatt" class="auto internal xref">Section 4.1.3</a><a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.1-2.3">
-            <p id="appendix-A.1-2.3.1">Lead FATT Person for Contact in <a href="#lead-fatt" class="auto internal xref">Section 4.1.2</a><a href="#appendix-A.1-2.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.1-2.4">
-            <p id="appendix-A.1-2.4.1">Feedback from the WG<a href="#appendix-A.1-2.4.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-2.1.1">Moved ML-KEM to a draft of its own<a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-3">-06<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-3">-07<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-4.1">
-            <p id="appendix-A.1-4.1.1">Solution for ML-KEM: FATT analysis<a href="#appendix-A.1-4.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.1.1">Failure of current process in <a href="#fail-proc" class="auto internal xref">Section 3.2.1</a><a href="#appendix-A.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-4.2">
-            <p id="appendix-A.1-4.2.1">Solution for FATT contact: new mailing list<a href="#appendix-A.1-4.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.2.1">Students of FATT in <a href="#stud-fatt" class="auto internal xref">Section 4.1.3</a><a href="#appendix-A.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-4.3">
-            <p id="appendix-A.1-4.3.1">Replaced responsibilities by expected contributions<a href="#appendix-A.1-4.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.3.1">Lead FATT Person for Contact in <a href="#lead-fatt" class="auto internal xref">Section 4.1.2</a><a href="#appendix-A.1-4.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-4.4">
-            <p id="appendix-A.1-4.4.1">Clarified Verifier even further that it is just a WG member; no formal role<a href="#appendix-A.1-4.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.1-4.5">
-            <p id="appendix-A.1-4.5.1">s/pure/non-hybrid<a href="#appendix-A.1-4.5.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-4.4.1">Feedback from the WG<a href="#appendix-A.1-4.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-5">-05<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-5">-06<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-6.1">
-            <p id="appendix-A.1-6.1.1">Removed process-related stuff<a href="#appendix-A.1-6.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-6.1.1">Solution for ML-KEM: FATT analysis<a href="#appendix-A.1-6.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-6.2">
-            <p id="appendix-A.1-6.2.1">Moved discussion at meeting to solutions<a href="#appendix-A.1-6.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-6.2.1">Solution for FATT contact: new mailing list<a href="#appendix-A.1-6.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-6.3">
-            <p id="appendix-A.1-6.3.1">Added ML-KEM<a href="#appendix-A.1-6.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-6.3.1">Replaced responsibilities by expected contributions<a href="#appendix-A.1-6.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-6.4">
+            <p id="appendix-A.1-6.4.1">Clarified Verifier even further that it is just a WG member; no formal role<a href="#appendix-A.1-6.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-6.5">
+            <p id="appendix-A.1-6.5.1">s/pure/non-hybrid<a href="#appendix-A.1-6.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-7">-04<a href="#appendix-A.1-7" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-7">-05<a href="#appendix-A.1-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-8.1">
-            <p id="appendix-A.1-8.1.1">Extended threat model <a href="#sec-th-model" class="auto internal xref">Section 5.2</a><a href="#appendix-A.1-8.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-8.1.1">Removed process-related stuff<a href="#appendix-A.1-8.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-8.2">
-            <p id="appendix-A.1-8.2.1">Helpful discussions on formal analysis in meetings in <a href="#sec-discuss-meetings" class="auto internal xref">Section 4.4</a><a href="#appendix-A.1-8.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-8.2.1">Moved discussion at meeting to solutions<a href="#appendix-A.1-8.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-8.3">
-            <p id="appendix-A.1-8.3.1">Pointer to formal analysis and costs in <a href="#sec-ml-kem" class="auto internal xref">Section 3.3</a><a href="#appendix-A.1-8.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-8.3.1">Added ML-KEM<a href="#appendix-A.1-8.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-9">-03<a href="#appendix-A.1-9" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-9">-04<a href="#appendix-A.1-9" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-10.1">
-            <p id="appendix-A.1-10.1.1">Limitations of formal analysis in security considerations<a href="#appendix-A.1-10.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-10.1.1">Extended threat model <a href="#sec-th-model" class="auto internal xref">Section 5.2</a><a href="#appendix-A.1-10.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-10.2">
-            <p id="appendix-A.1-10.2.1">Proposed solutions section<a href="#appendix-A.1-10.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-10.2.1">Helpful discussions on formal analysis in meetings in <a href="#sec-discuss-meetings" class="auto internal xref">Section 4.3</a><a href="#appendix-A.1-10.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-10.3">
-            <p id="appendix-A.1-10.3.1">More guidance for authors: Threat Model and Informal Security Goals<a href="#appendix-A.1-10.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-10.3.1">Pointer to formal analysis and costs<a href="#appendix-A.1-10.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-11">-02<a href="#appendix-A.1-11" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-11">-03<a href="#appendix-A.1-11" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-12.1">
-            <p id="appendix-A.1-12.1.1">Added document structure<a href="#appendix-A.1-12.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-12.1.1">Limitations of formal analysis in security considerations<a href="#appendix-A.1-12.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-12.2">
-            <p id="appendix-A.1-12.2.1">FATT-bypass by Other TLS-related WGs<a href="#appendix-A.1-12.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-12.2.1">Proposed solutions section<a href="#appendix-A.1-12.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-12.3">
-            <p id="appendix-A.1-12.3.1">FATT process not being followed<a href="#appendix-A.1-12.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-12.3.1">More guidance for authors: Threat Model and Informal Security Goals<a href="#appendix-A.1-12.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="appendix-A.1-13">-01<a href="#appendix-A.1-13" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-13">-02<a href="#appendix-A.1-13" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-14.1">
-            <p id="appendix-A.1-14.1.1">Pain points of Verifier <a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a><a href="#appendix-A.1-14.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-14.1.1">Added document structure<a href="#appendix-A.1-14.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-14.2">
-            <p id="appendix-A.1-14.2.1">Small adjustment of phrasing<a href="#appendix-A.1-14.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-14.2.1">FATT-bypass by Other TLS-related WGs<a href="#appendix-A.1-14.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-14.3">
+            <p id="appendix-A.1-14.3.1">FATT process not being followed<a href="#appendix-A.1-14.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="appendix-A.1-15">-01<a href="#appendix-A.1-15" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-A.1-16.1">
+            <p id="appendix-A.1-16.1.1">Pain points of Verifier <a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a><a href="#appendix-A.1-16.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-16.2">
+            <p id="appendix-A.1-16.2.1">Small adjustment of phrasing<a href="#appendix-A.1-16.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
