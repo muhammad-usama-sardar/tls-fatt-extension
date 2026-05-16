@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                               13 May 2026
-Expires: 14 November 2026
+Intended status: Informational                               16 May 2026
+Expires: 17 November 2026
 
 
                      Extensions to TLS FATT Process
@@ -23,14 +23,6 @@ Abstract
    *  Provide protection against FATT-bypass by other TLS-related WGs
 
    *  Contacting FATT
-
-   *  ML-KEM
-
-   We assert that the security considerations of [I-D.ietf-tls-mlkem]
-   are insufficient.  We believe that symbolic and computational
-   analysis is helpful here.  We also request that if the author has
-   done any formal analysis, it would be helpful to present the current
-   state of formal analysis in the next meeting for discussion.
 
 About This Document
 
@@ -64,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 November 2026.
+   This Internet-Draft will expire on 17 November 2026.
 
 Copyright Notice
 
@@ -94,20 +86,15 @@ Table of Contents
            WGs
      3.2.  Contacting FATT
        3.2.1.  Failure of Current Process
-     3.3.  ML-KEM
-       3.3.1.  "Cost"
    4.  Proposed Solutions
      4.1.  Contacting FATT
        4.1.1.  Separate List for FATT and WG Members
        4.1.2.  Lead FATT Person for Contact
        4.1.3.  Students/Researchers of FATT
-     4.2.  ML-KEM: FATT Review
-       4.2.1.  Expected Learning
-       4.2.2.  Formal Analysis (Work-in-progress)
-     4.3.  Scope of FATT
-     4.4.  Discussion at Meeting
-     4.5.  Understanding the Opposing Goals
-     4.6.  Response Within Reasonable Time Frame
+     4.2.  Scope of FATT
+     4.3.  Discussion at Meeting
+     4.4.  Understanding the Opposing Goals
+     4.5.  Response Within Reasonable Time Frame
    5.  Contribution of Authors
      5.1.  Real Motivation
      5.2.  Threat Model
@@ -312,42 +299,6 @@ Table of Contents
    PAKE authors seemed ready for WGLC in meeting 125, no FATT person has
    been announced at the time of publishing this draft.
 
-3.3.  ML-KEM
-
-   While ML-KEM [I-D.ietf-tls-mlkem] looks like just a "trivial"
-   addition, it does changes as deep as the key schedule of TLS.
-   Moreover, it had an opposition of several (ca. 25 in our
-   understanding) WG members in the last WGLC.  We see 2 possible
-   options:
-
-   *  Continue tabletop discussions on subjective calculation of risks,
-      costs, tradeoffs, etc., and keep burning WG energy.
-
-   *  Do some technical analysis using formal methods (such as symbolic
-      and computational) to get a confirmation and offer a statement for
-      security considerations, and move on to more critical works like
-      hybrid authentication.
-
-   We believe the former cannot resolve the dispute.  We believe the
-   latter _may_ help.
-
-   We believe the security considerations of {{I-D.ietf-tls-mlkem}} are
-   insufficient. We also believe FATT review could have significantly
-   improved it, including but not limited to the preference of hybrids,
-   and potential issues regarding KEM binding in TLS.
-   We have provided significant feedback during the two WGLCs. However,
-   almost none of that is actually reflected in the updated editor's
-   version.
-
-3.3.1.  "Cost"
-
-   "Cost" has been presented on the list as the motivation for ML-KEM
-   but no reference has yet been presented.  We believe costs will
-   depend on several factors and it is quite subjective.  There seems to
-   be a need for a thorough study to understand the "cost."
-
-   Our proposed solution for this point is in Section 4.2.
-
 4.  Proposed Solutions
 
    In addition to those mentioned inline in the previous section, we
@@ -443,83 +394,7 @@ Table of Contents
    Most of FATT persons are from academia.  WG can request FATT to use
    their own students/researchers to do the formal analysis.
 
-4.2.  ML-KEM: FATT Review
-
-   We have formally requested the chairs to initiate the FATT process
-   for [I-D.ietf-tls-mlkem].  See this
-   (https://mailarchive.ietf.org/arch/msg/tls/
-   rClgrWm2hnhESXHx56U8InbwQQs/) and this
-   (https://mailarchive.ietf.org/arch/msg/
-   tls/7lj6fYAweMBwNMxFerNl7xhY0pk/).
-
-4.2.1.  Expected Learning
-
-   We believe formal methods can provide additional value for security
-   considerations of this draft in order to maintain the high
-   cryptographic assurance of TLS.  Since we have no guarantee on
-   whether ECDHE will break before ML-KEM, it seems appropriate to do
-   thorough cryptographic analysis.  The Harvest Now, Decrypt Later
-   (HNDL) attack applies equally well to non-hybrid ML-KEM.  Adversary
-   can record all traffic and decrypt it when ML-KEM is broken (or
-   probably it is already broken; who knows?)
-
-   *  As an example, it can help justify design choices, such as the
-      preference for hybrids.  It can help identify ways in which ML-KEM
-      can break.  It can also help identify all the assumptions under
-      which the properties hold.
-
-   *  As a relevant data point in the context of standardization, LAKE
-      WG has done formal analysis for EDHOC-PSK with KEM (ref
-      (https://mailarchive.ietf.org/arch/msg/
-      lake/2XGOI9OCwylJUfSCasvvwM2FXmw/)).
-
-   *  _Computational_ analysis (cf. SoK
-      (https://eprint.iacr.org/2019/1393.pdf))-- using tools such as
-      CryptoVerif -- seems like a reasonable approach to ensure security
-      of ML-KEM in TLS, such as binding.
-
-4.2.2.  Formal Analysis (Work-in-progress)
-
-   We have presented observation from our ongoing symbolic security
-   analysis (cf. limitations in Section 8) using ProVerif on the mailing
-   list.
-
-   We argue that in general:
-
-   1.  Migration from ECDHE to hybrid is security improvement.
-
-   2.  Migration from hybrid to standalone ML-KEM is security
-       regression.
-
-4.2.2.1.  Hybrid PQ/T
-
-   More formally, the property hybrid PQ/T should provide is:
-
-   Hybrid PQ/T is secure unless both ECDHE and ML-KEM are broken.
-
-   Hybrid preserves ECDHE, and adds ML-KEM as an additional factor.  So
-   as long as one of them is not broken, the system is secure.  In
-   particular, even if ML-KEM is completely broken, the system retains
-   the security level of ECDHE.
-
-4.2.2.2.  Non-hybrid PQ
-
-   On the other hand, the formal property non-hybrid PQ provides is:
-
-   Non-hybrid PQ is secure unless ML-KEM is broken.
-
-   If ML-KEM is broken, the whole system is broken.
-
-4.2.2.3.  Comparison
-
-   Leak out the ECDHE key from hybrid PQ/T and you get a standalone ML-
-   KEM.  Clearly, hybrid is in general more secure, unless ECDHE is
-   fully broken, in which case it still falls equivalent to standalone
-   ML-KEM, or in the hypothetical scenario that there is an
-   implementation bug in the ECDHE part which is triggered only in
-   composition.
-
-4.3.  Scope of FATT
+4.2.  Scope of FATT
 
    *  Be more explicit on:
 
@@ -529,7 +404,7 @@ Table of Contents
          this is happening in issue 19 (https://github.com/tlswg/tls-
          fatt/issues/19).
 
-4.4.  Discussion at Meeting
+4.3.  Discussion at Meeting
 
    Formal analysis is not set in stone.  It's a piece of software.  In
    our experience, it's most useful to guide an evolving design rather
@@ -556,7 +431,7 @@ Table of Contents
    This will help the WG give any feedback and avoid other Verifiers
    doing redundant effort using potentially same tools.
 
-4.5.  Understanding the Opposing Goals
+4.4.  Understanding the Opposing Goals
 
    The authors need to understand that the task of the Verifier is to
    find the subtle corner cases where the protocol may fail.  This is
@@ -570,7 +445,7 @@ Table of Contents
    specifications because small changes or ambiguites may make a big
    difference.
 
-4.6.  Response Within Reasonable Time Frame
+4.5.  Response Within Reasonable Time Frame
 
    If authors do not respond to the Verifier's questions within a
    reasonable time frame (say a few weeks but not months), the Verifier
@@ -801,13 +676,6 @@ Table of Contents
               2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
               tls-8773bis-13>.
 
-   [I-D.ietf-tls-mlkem]
-              Connolly, D., "ML-KEM Post-Quantum Key Agreement for TLS
-              1.3", Work in Progress, Internet-Draft, draft-ietf-tls-
-              mlkem-07, 12 February 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              mlkem-07>.
-
    [I-D.ietf-tls-pake]
               Bauman, L., Benjamin, D., Menon, S., and C. A. Wood, "A
               Password Authenticated Key Exchange Extension for TLS
@@ -856,6 +724,10 @@ Appendix
 
 Document History
 
+   -08
+
+   *  Moved ML-KEM to a draft of its own
+
    -07
 
    *  Failure of current process in Section 3.2.1
@@ -891,9 +763,9 @@ Document History
 
    *  Extended threat model Section 5.2
 
-   *  Helpful discussions on formal analysis in meetings in Section 4.4
+   *  Helpful discussions on formal analysis in meetings in Section 4.3
 
-   *  Pointer to formal analysis and costs in Section 3.3
+   *  Pointer to formal analysis and costs
 
    -03
 
