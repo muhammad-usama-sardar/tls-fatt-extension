@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-14T03:24:31.599549+00:00",
+  "timestamp": "2026-05-17T03:24:26.904016+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -449,26 +449,28 @@
     {
       "number": 16,
       "id": "PR_kwDOPHS9bs7bLQBR",
-      "title": "where the ProVerif proofs break",
+      "title": "Remove ML-KEM",
       "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/16",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
-      "body": "- clarify secuirty of ML-KEM in the context of TLS and not of ML-KEM itself\r\n- where the proofs in ProVerif break",
+      "body": "- Moved ML-KEM to its own draft",
       "createdAt": "2026-05-13T15:16:05Z",
-      "updatedAt": "2026-05-13T15:45:11Z",
+      "updatedAt": "2026-05-16T21:22:31Z",
       "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
       "baseRefName": "main",
       "baseRefOid": "70941d4f3ebd3ccbdf6c68c89e1e69d6338bfc7d",
       "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
       "headRefName": "ml-kem",
-      "headRefOid": "8d504cd614d0ec684e125fa58579334d47e948b0",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "1df6475f5b9458d61d9c8f54392a59f9e2eb0c78",
+      "closedAt": "2026-05-16T21:22:31Z",
+      "mergedAt": "2026-05-16T21:22:31Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "230a5bbbac13b6a137cdcb871adf8ddc7c3e13cb"
+      },
       "comments": [],
       "reviews": []
     }
