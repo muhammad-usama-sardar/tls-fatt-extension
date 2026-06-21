@@ -163,7 +163,7 @@ TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.
       justification with compelling arguments and authentic references
       why authors think it ought to be done within TLS WG (and within handshake).
    * For {{I-D.wang-tls-service-affinity}}, authors could put CATS here as a motivational use case.
-   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify why the problem is specific to PQ-only and why did the WG do such a thing for the transition for other primitives.
+   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify why the problem is specific to PQ-only and why did the WG not do such a thing for the transition for other primitives.
 
 ## Proposed solution (one or more sections)
    * Protocol design with Protocol Diagram: we work on the formal analysis of TLS 1.3 exclusively. Please contact someone else if your draft relates to older versions.
@@ -176,7 +176,7 @@ TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.
 
 As draft proceeds these desired security goals will become what the draft actually achieves.
 
-   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify which property of the TLS protocol is broken and how does the proposal improve the security.
+   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify which security property of the TLS protocol is broken and how does the proposal achieve that property.
 
 ### Other security implications/considerations
 
