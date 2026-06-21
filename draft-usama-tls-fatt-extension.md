@@ -1,5 +1,5 @@
 ---
-title: "Extensions to TLS FATT Process"
+title: "Proposed Document Template for TLS FATT Process"
 category: info
 
 docname: draft-usama-tls-fatt-extension-latest
@@ -36,41 +36,19 @@ informative:
   I-D.ietf-tls-rfc8446bis:
   I-D.fossati-tls-attestation-08:
   RFC4101:
-  ID-Crisis:
-    title: "Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"
-    date: November 2025,
-    target: https://www.researchgate.net/publication/398839141_Identity_Crisis_in_Confidential_Computing_Formal_Analysis_of_Attested_TLS
-    author:
-      - ins: M. U. Sardar
-      - ins: M. Moustafa
-      - ins: T. Aura
-  I-D.irtf-cfrg-cryptography-specification:
+  ID-Crisis: DOI.10.1145/3779208.3785387
   I-D.ietf-tls-8773bis:
-  I-D.fossati-seat-early-attestation-00:
   I-D.wang-tls-service-affinity:
-  RFC2418:
-  I-D.ietf-tls-pake:
+  I-D.sheffer-tls-pqc-continuity:
 
 --- abstract
 
-This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
-We also briefly present a few pain points of the team doing the formal analysis which -- we believe -- require reforming the process:
-
-* Provide protection against FATT-bypass by other TLS-related WGs
-* Contacting FATT
+This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 
 --- middle
 
 # Introduction
 While the TLS FATT process {{TLS-FATT}} marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group (WG) process, the current FATT process has some practical limitations. Given a relatively smaller formal methods community, and a steep learning curve as well as very low consideration of usability in the existing formal analysis tools, this document proposes some solutions to make the FATT process sustainable.
-
-Specifically, the TLS FATT process does not outline the division of formal analysis work between the authors and the WG members doing the formal analysis; the latter is hereafter referred to as the "Verifier" for convenience. This document aims to propose some solutions without putting an extensive burden on either party.
-
-An argument is often presented by the authors that an Internet-Draft is written for the implementers. We make several counter-arguments here:
-
-* Researchers and protocol designers are also stakeholders of such specifications {{I-D.irtf-cfrg-cryptography-specification}}.
-* Even implementers may like to understand the security implications before blindly starting to implement it.
-* With the FATT process, this argument is clearly invalid. The Verifier may not be an implementer.
 
 This document outlines the corresponding changes in the way Internet-Drafts are typically written.
 For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:
@@ -82,12 +60,11 @@ For the Internet-Draft to be useful for the formal analysis, this document propo
 
 Each one of these is summarized in {{sec-res-authors}}. Future versions of this draft will include concrete examples.
 
-Expected contributions of the Verifier are summarized in {{sec-res-verifier}}.
-
 ## Motivation
-A clear separation of expected contributions would help IRTF UFMRG to train the authors and Verifiers separately to make their own contributions to the formal analysis.
+This helps make the formal analysis closer to the intention in specifications.
 
-Moreover, we believe that the experiences can help improve the FATT process. The goal is to document the identified gaps with concrete examples, discuss those and mutually find the best way forward.
+Implementers may like to understand the security implications before blindly starting to implement the spec.
+
 
 ## Scope
 The scope of this document is only non-trivial extensions of TLS, which require formal analysis.
@@ -101,169 +78,6 @@ The scope of this document is only non-trivial extensions of TLS, which require 
 
 In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential.
 
-## Verifier
-In this document, the Verifier refers to the **WG members** doing the formal analysis.
-Note that it is **NOT** a new formal role in the WG process.
-
-## Definition of Attack
-Any ambiguity originating from the threat model, informal security goals, and a Protocol Diagram is to be considered as an attack.
-The authors are, therefore, encouraged to be as precise as possible.
-The Verifier may propose text for consideration by authors/WG to disambiguate or propose a fix to the attack.
-
-# Need for Reform
-{: #sec-pain-points }
-
-From the two extremes -- {{I-D.ietf-tls-8773bis}} where the author kindly provided all requested inputs and we were able to get it through (with a [small change](https://mailarchive.ietf.org/arch/msg/tls/6Wk82oBGd61rTK23DgfYb7BmRKM/)) without any formal analysis to {{I-D.fossati-tls-attestation-08}} where formal analysis revealed vulnerabilities {{ID-Crisis}} and resulted in a separate WG to tackle this problem -- we summarize the pain points of the Verifier with the hope that we can reform the process.
-
-Note that we are not at all asserting that the authors have no pain points. They very likely have their own -- that is another indication that the process needs a reform.
-
-## Provide Protection Against FATT-bypass by Other TLS-related WGs
-TLS-related WGs in particular those where the representation of TLS WG is a minority -- including the one (SEAT WG) that the author has defended himself as one of the six proponents -- MUST NOT be allowed to make changes to the TLS protocol beyond what is explicitly allowed in their charter.
-
-If rechartering of such WGs is *absolutely unavoidable* and includes non-trivial changes to the TLS protocol, it MUST only be done after agreement with the TLS WG. This will prevent the short-circuit path for FATT. If the WG does not have proper FATT-like process, TLS WG may request FATT review before WGLC.
-
-In short, our concern is:
-
-~~~
-What's the point of such a TLS FATT process when other WGs
-can simply bypass this process to make key schedule level changes?
-~~~
-
-For example, {{I-D.fossati-seat-early-attestation-00}} makes key schedule level changes, breaks the SEAT WG charter and SEAT WG has no formal FATT-like process.
-
-## Contacting FATT
-According to FATT process {{TLS-FATT}}, FATT is a 'design team' as per {{RFC2418}} (also see [this](https://datatracker.ietf.org/doc/statement-iesg-on-design-teams-20011221/)).
-
-The FATT process restricts the WG members -- except for **authors** (see for example [this](https://mailarchive.ietf.org/arch/msg/tls/pYmjTTlYd11FnjdYoOL6RdGk0sk/))-- from contacting the FATT directly.
-This creates an unjustified situation where the authors have an **exclusive** access to FATT.
-We argue that WG members -- including the Verifier -- should also be allowed to contact the FATT because of the following reasons:
-
-* Formal methods community is small and within this small community, those with deep knowledge of TLS are quite limited.
-
-~~~
-Such a restriction would not have been there if the Verifier
-were not a member of the TLS WG and analyzing the same draft
-and free to contact the same FATT for advice. Being a member
-of the TLS WG actually puts the Verifier at unnecessary disadvantage.
-~~~
-
-* The feedback we receive on the list is really limited.
-
-* Communication via chairs is a source of misunderstandings, as it has already happened with the chairs summarizing the intent of "Tamarin-like" to just "Tamarin".
-
-* The process has to be **inclusive** of WG members who are willing to help in doing formal analysis but don't work in formal methods research groups.
-
-Our proposed solution for this point is in {{sec-contact-fatt}}.
-
-### Failure of Current Process
-{: #fail-proc }
-
-The FATT process assigns a "FATT point person" {{TLS-FATT}} after adoption.
-However, until FATT point person is assigned for a draft, Verifier is essentially not allowed to talk to any one in FATT.
-Note that it could mean (almost) the whole lifetime of the draft.
-A practical example is the PAKE draft {{I-D.ietf-tls-pake}}.
-While the PAKE authors seemed ready for WGLC in meeting 125, no FATT person has been announced at the time of publishing this draft.
-
-[comment]: <> (The goal of authors of Internet-Draft is to ...)
-
-# Proposed Solutions
-In addition to those mentioned inline in the previous section, we propose the following:
-
-## Contacting FATT
-{: #sec-contact-fatt }
-
-### Separate List for FATT and WG Members
-
-We propose creating a public mailing list (something like tls-fatt) for discussions between interested WG members and FATT.
-
-In our understanding, the idea -- in a nutshell -- is something like **hybrid** design team, i.e.,:
-
-* FATT continues to use whatever they currently use for their internal communication ("closed")
-* The proposed list additionally allows public FATT-WG engagement ("open") for questions and discussion of WG members or FATT
-
-
-#### Potential Need of FATT-WG Engagement
-
-In addition to the questions from the WG for the FATT, FATT also needs to engage with the WG:
-
-* At **initial** FATT review (just after adoption), FATT may have questions from authors as well as Verifiers. For the former, to understand better the threat model and desired security goals, etc. to be able to suggest which approach is best-suited. For the latter, to better understand what formal analysis approach and tool is being planned/currently used (if any).
-* During **final** FATT review (just before WGLC), FATT may have questions on what the Verifier has done, especially in cases where a peer-reviewed publication is not yet available. We believe evaluating someone else's code is not easy, or at least if FATT has the opportunity to talk to the Verifier, it will decrease the brain cycles that they will have to spend on it.
-
-#### Design Goals
-
-* **minimal process change**: some private discussions typically happen between authors and FATT; move them to public list for transparency. Keep intra-FATT communication private as it is.
-* **balanced workload**: not to increase anyone's workload on average over a finite period of time (say lifetime of one document): joining list is voluntary; responding to list questions is voluntary
-* **all stakeholders benefit**: ensure all stakeholders (FATT, authors, WG members, chairs) benefit compared to current process
-
-#### Benefits
-In addition to transparency where this removes the current situation where only the authors have an exclusive access to FATT, we think the proposal has merits where all stakeholders benefit:
-
-* **Chairs** get relief from carrying messages back and forth between WG and FATT.
-* **FATT** gets involved early in the process and has to do lesser work later on (e.g., checking artifacts before WGLC).
-* **Interested WG members** get a direct contact with experts.
-* **Uninterested WG members** get lesser noise on the TLS list. They can check the public archives by searching for a specific draft if they would like to.
-
-#### Risks
-
-* We acknowledge the risk of '**no response from FATT**' identified on list. In such cases, WG can continue with its best judgement based on its understanding of the available literature.
-
-#### Open Questions
-
-Opinion of FATT is critical in this proposal whether the middle ground of hybrid is acceptable to (some of) them.
-
-### Lead FATT Person for Contact
-{: #lead-fatt }
-
-This proposal assigns a single FATT person -- referred to as Lead FATT Person -- who the WG group members and authors can contact for general queries. It can keep rotating after certain time, such as one month.
-
-### Students/Researchers of FATT
-{: #stud-fatt }
-
-Most of FATT persons are from academia. WG can request FATT to use their own students/researchers to do the formal analysis.
-
-## Scope of FATT
-   * Be more explicit on:
-      * what is the scope of FATT?
-      * what kind of drafts need FATT review and why?
-Discussion on this is happening in [issue 19](https://github.com/tlswg/tls-fatt/issues/19).
-
-## Discussion at Meeting
-{: #sec-discuss-meetings }
-
-Formal analysis is not set in stone. It's a piece of software. In our experience, it's most useful to guide an evolving design rather than verify a designed protocol.
-
-~~~
-Formal analysis -- just like any other code development -- is an
-iterative process and needs to be **progressively** discussed with
-the WG (and not just authors!) to be able to propose secure
-solutions.
-~~~
-
-So at least some time should be allocated in the meetings for discussion of ongoing formal analysis, rather than just the results.
-
-If the authors are doing the formal analysis themselves, it would be helpful to also present the current state of formal analysis in meetings for discussion. This may be a single slide describing:
-
-* Approach used: symbolic or computational
-* Tool used: ProVerif, CryptoVerif etc.
-* Properties established
-
-This will help the WG give any feedback and avoid other Verifiers doing redundant effort using potentially same tools.
-
-## Understanding the Opposing Goals
-The authors need to understand that the task of the Verifier is to find the subtle corner cases where the protocol may fail.
-This is naturally opposed to the goal of the authors -- that is, to convince the WG that the protocol is good enough to be adopted/published.
-
-~~~
-Unless the Verifier remains really focused on checking subtleties,
-there is little value of formal analysis.
-~~~
-
-In particular, some topics like remote attestation need more precise specifications because small changes or ambiguites may make a big difference.
-
-## Response Within Reasonable Time Frame
-If authors do not respond to the Verifier's questions within a reasonable time frame (say a few weeks but not months), the Verifier may not pursue formal analysis of their draft.
-
-
 # Contribution of Authors
 {: #sec-res-authors }
 
@@ -271,12 +85,11 @@ The following contributions are expected from the authors:
 
 ## Real Motivation
 Authors are expected to provide the real motivation of the work (i.e., the proposed extension of TLS).
-The Verifier can then ask questions to improve it.
 
 ## Threat Model
 {: #sec-th-model }
 
-A threat model identifies which threats are in scope for the protocol design. So it should answer questions like:
+A threat model identifies which threats are in scope for the protocol design. So it ought to answer questions like:
 
 * What are the capabilities of the adversary? What can the adversary do?
 * Whether post-quantum threats are in scope?
@@ -286,7 +99,7 @@ A threat model identifies which threats are in scope for the protocol design. So
 ### Typical Dolev-Yao adversary
 A typical threat model assumes the classical Dolev-Yao adversary, who has full control over the communication channel.
 
-Any additional adversary capabilities and assumptions should be explicitly stated.
+Any additional adversary capabilities and assumptions ought to be explicitly stated.
 
 ### Potential Weaknesses of Cryptographic Primitives
 In general, it also outlines the potential weaknesses of the cryptographic primitives used in the proposed protocol extension. Examples include:
@@ -296,7 +109,7 @@ In general, it also outlines the potential weaknesses of the cryptographic primi
 * weak elements within strong DH groups
 
 ### Keys
-This section should specify any keys in the system (e.g., long-term keys of the server) in addition to the standard TLS key schedule. Theoretically and arguably practically, any key may be compromised (i.e., become available to the adversary).
+This section ought to specify any keys in the system (e.g., long-term keys of the server) in addition to the standard TLS key schedule. Theoretically and arguably practically, any key may be compromised (i.e., become available to the adversary).
 
 For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
 
@@ -304,10 +117,10 @@ For readability, we propose defining each key clearly as in Section 4.1 of {{ID-
 * Purpose of the key
 * (optionally but preferably -- particularly when the endpoint is not fully trusted) Which software in the system has access to the key?
 
-If more than one servers are involved (such as migration cases), the keys for servers should be distinguished in an unambiguous way.
+If more than one servers are involved (such as migration cases), the keys for servers ought to be distinguished in an unambiguous way.
 
 ## Informal Security Goals
-Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. should be outlined in the Internet-Draft.
+Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the Internet-Draft.
 If the informal security goals are not spelled out in the Internet-Draft, it is safe to assume that the goals are still unclear to the authors.
 
 [section]: <> (In such a case, the Internet-Draft should not be considered as ready for adoption. These goals could be part of the security considerations or the Appendix.)
@@ -322,7 +135,7 @@ Examples:
 See Section 5.1 of {{ID-Crisis}} for concrete examples.
 
 ## Protocol Diagram
-A Protocol Diagram should clearly mention the initial knowledge of the protocol participants, e.g., which authentic public keys are known to the protocol participants at the start of the protocol. An example of a Protocol Diagram for {{I-D.fossati-tls-attestation-08}} is provided in Figure 5 in {{ID-Crisis}}.
+A Protocol Diagram ought to clearly mention the initial knowledge of the protocol participants, e.g., which authentic public keys are known to the protocol participants at the start of the protocol. An example of a Protocol Diagram for {{I-D.fossati-tls-attestation-08}} is provided in Figure 5 in {{ID-Crisis}}.
 
 # Document Structure
 While the needs may differ for some drafts, we propose the following baseline template, with an example of {{I-D.wang-tls-service-affinity}}:
@@ -338,18 +151,19 @@ TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.
 ## Introduction
    * Problem statement: Say in general what the problem is.
    * For {{I-D.wang-tls-service-affinity}}, we believe this
-      should *not* include CATS. Anyone unfamiliar with CATS should be
+      should *not* include CATS. Anyone unfamiliar with CATS ought to be
       able to understand your problem.
 
 ## Terminology
    * Define any terms not defined in RFC8446bis or point to other drafts from where the definition is used.
 
 ## Motivation and design rationale
-   * We really like how the author motivates the problem statement in {{I-D.ietf-tls-8773bis}}. Use it as a sample.
-   * Here authors should address all the concerns from WG, including
+   * We really like how the author of {{I-D.ietf-tls-8773bis}} motivates the problem statement. Use it as a sample.
+   * Here authors ought to address all the concerns from WG, including
       justification with compelling arguments and authentic references
-      why authors think it should be done within TLS WG (and within handshake).
+      why authors think it ought to be done within TLS WG (and within handshake).
    * For {{I-D.wang-tls-service-affinity}}, authors could put CATS here as a motivational use case.
+   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify why the problem is specific to PQ-only and why did the WG do such a thing for the transition for other primitives.
 
 ## Proposed solution (one or more sections)
    * Protocol design with Protocol Diagram: we work on the formal analysis of TLS 1.3 exclusively. Please contact someone else if your draft relates to older versions.
@@ -362,12 +176,10 @@ TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.
 
 As draft proceeds these desired security goals will become what the draft actually achieves.
 
+   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify which property of the TLS protocol is broken and how does the proposal improve the security.
+
 ### Other security implications/considerations
 
-# Contribution of Verifier
-{: #sec-res-verifier }
-
-When the authors declare the version as ready for formal analysis, the Verifier takes the above inputs, performs the formal analysis, and brings the results back to the authors and the WG. Based on the analysis, the verifier may propose updates to the Security Considerations section or other sections of the Internet-Draft.
 
 [comment]: <> (This most likely needs some coordination with the authors.)
 
@@ -394,13 +206,13 @@ This document has no IANA actions.
 
 -08
 
-* Moved ML-KEM to a draft of its own
+* Focused on document structure only
 
 -07
 
-* Failure of current process in {{fail-proc}}
-* Students of FATT in {{stud-fatt}}
-* Lead FATT Person for Contact in {{lead-fatt}}
+* Failure of current process
+* Students of FATT
+* Lead FATT Person for Contact
 * Feedback from the WG
 
 
@@ -421,7 +233,7 @@ This document has no IANA actions.
 -04
 
 * Extended threat model {{sec-th-model}}
-* Helpful discussions on formal analysis in meetings in {{sec-discuss-meetings}}
+* Helpful discussions on formal analysis in meetings
 * Pointer to formal analysis and costs
 
 -03
