@@ -300,8 +300,8 @@ Table of Contents
       as a motivational use case.
 
    *  For [I-D.sheffer-tls-pqc-continuity], it should clarify why the
-      problem is specific to PQ-only and why did the WG do such a thing
-      for the transition for other primitives.
+      problem is specific to PQ-only and why did the WG not do such a
+      thing for the transition for other primitives.
 
 4.4.  Proposed solution (one or more sections)
 
@@ -319,8 +319,8 @@ Table of Contents
    draft actually achieves.
 
    *  For [I-D.sheffer-tls-pqc-continuity], it should clarify which
-      property of the TLS protocol is broken and how does the proposal
-      improve the security.
+      security property of the TLS protocol is broken and how does the
+      proposal achieve that property.
 
 4.5.3.  Other security implications/considerations
 
