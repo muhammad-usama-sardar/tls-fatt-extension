@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-17T03:24:26.904016+00:00",
+  "timestamp": "2026-06-23T03:31:19.773027+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -321,16 +321,24 @@
       "id": "I_kwDOPHS9bs8AAAABCJbSVg",
       "title": "ML-KEM vs. ML-KEM in TLS",
       "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/issues/17",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Clarify: proof in the context of TLS and not of ML-KEM itself",
       "createdAt": "2026-05-13T15:18:31Z",
-      "updatedAt": "2026-05-13T15:18:31Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-06-21T22:24:13Z",
+      "closedAt": "2026-06-21T22:24:13Z",
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "Moved to https://datatracker.ietf.org/doc/draft-usama-tls-risks-of-mlkem/",
+          "createdAt": "2026-06-21T22:24:13Z",
+          "updatedAt": "2026-06-21T22:24:13Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -470,6 +478,34 @@
       "mergedBy": "muhammad-usama-sardar",
       "mergeCommit": {
         "oid": "230a5bbbac13b6a137cdcb871adf8ddc7c3e13cb"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOPHS9bs7o8HNG",
+      "title": "Document template",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/18",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-06-21T22:23:06Z",
+      "updatedAt": "2026-06-21T22:23:48Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "230a5bbbac13b6a137cdcb871adf8ddc7c3e13cb",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "ml-kem",
+      "headRefOid": "53778c80f2386cb10f37d90b4fc6da45df347c3d",
+      "closedAt": "2026-06-21T22:23:48Z",
+      "mergedAt": "2026-06-21T22:23:48Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "1bf1459223f75d69834a2503a47c46e13e422a74"
       },
       "comments": [],
       "reviews": []
