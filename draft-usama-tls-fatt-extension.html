@@ -8,7 +8,7 @@
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="
        This document applies only to non-trivial extensions of TLS, which require formal analysis.
-FATT process has successfully discovered CVEs of CVSS 7.5 and most recently expected CVSS 9.1 in the implementations of the drafts proposed in the TLS WG.
+FATT process has successfully discovered CVEs of  CVSS 7.5  and most recently expected  CVSS 9.1  in the  production  implementations of the drafts proposed in the TLS WG.
 To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft. 
     " name="description">
 <meta content="xml2rfc 3.34.0" name="generator">
@@ -1081,7 +1081,7 @@ svg {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis.
-FATT process has successfully discovered CVEs of CVSS 7.5 and most recently expected CVSS 9.1 in the implementations of the drafts proposed in the TLS WG.
+FATT process has successfully discovered CVEs of <strong>CVSS 7.5</strong> and most recently expected <strong>CVSS 9.1</strong> in the <strong>production</strong> implementations of the drafts proposed in the TLS WG.
 To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
@@ -1283,7 +1283,7 @@ To achieve high cryptographic assurances, this document proposes the drafts spec
           <h4 id="name-concrete-motivational-examp">
 <a href="#section-1.1.1" class="section-number selfRef">1.1.1. </a><a href="#name-concrete-motivational-examp" class="section-name selfRef">Concrete Motivational Example: Attacks and High-severity CVEs</a>
           </h4>
-<p id="section-1.1.1-1">As a historical note, authors of <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> asked for adoption in IETF 121 <span>[<a href="#Intra-handshake-attestation" class="cite xref">Intra-handshake-attestation</a>]</span>. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:<a href="#section-1.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1.1-1">As a historical note, authors of <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> asked for adoption in IETF 121, explicitly requesting us for formal analysis by name <span>[<a href="#Intra-handshake-attestation" class="cite xref">Intra-handshake-attestation</a>]</span>. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:<a href="#section-1.1.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1.1.1-2.1">
               <p id="section-1.1.1-2.1.1">Formal analysis <span>[<a href="#ID-Crisis-repo" class="cite xref">ID-Crisis-repo</a>]</span> found <strong>diversion</strong> attacks for <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span>. For technical details, please see the corresponding paper <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-1.1.1-2.1.1" class="pilcrow">¶</a></p>
@@ -1305,8 +1305,8 @@ To achieve high cryptographic assurances, this document proposes the drafts spec
         <h3 id="name-proposal">
 <a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-proposal" class="section-name selfRef">Proposal</a>
         </h3>
-<p id="section-1.2-1">To produce high-quality specifications, this document outlines the corresponding changes in the way Internet-Drafts are typically written.
-For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-1">To produce high-quality specifications, this document outlines the corresponding changes in the way drafts are typically written.
+For the draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1.2-2.1">
             <p id="section-1.2-2.1.1">motivation,<a href="#section-1.2-2.1.1" class="pilcrow">¶</a></p>
@@ -1433,7 +1433,7 @@ This section ought to specify any keys in the system (e.g., long-term keys of th
         <h3 id="name-informal-security-goals">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-informal-security-goals" class="section-name selfRef">Informal Security Goals</a>
         </h3>
-<p id="section-3.3-1">Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the Internet-Draft.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the draft.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">Examples:<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-3.1">
@@ -1823,7 +1823,10 @@ This section ought to specify any keys in the system (e.g., long-term keys of th
           <p id="appendix-B-2.5.1">Songbo Bu<a href="#appendix-B-2.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-3">The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<p id="appendix-B-3">We gratefully acknowledge the valuable contributions of co-authors of papers for their instrumental contributions in formal analysis: Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie Jacquet.<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<p id="appendix-B-4">We sincerely thank the contributors of the formal analyses <span>[<a href="#ID-Crisis-repo" class="cite xref">ID-Crisis-repo</a>]</span> and <span>[<a href="#Intra-handshake.fail-repo" class="cite xref">Intra-handshake.fail-repo</a>]</span> mentioned in the respective repositories.<a href="#appendix-B-4" class="pilcrow">¶</a></p>
+<p id="appendix-B-5">We express our appreciation to Yaakov Stein and Ilari Liusvaara for their substantial technical guidance, valuable feedback, and contributions in early attempts to formally model ML-KEM.<a href="#appendix-B-5" class="pilcrow">¶</a></p>
+<p id="appendix-B-6">The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")<a href="#appendix-B-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
