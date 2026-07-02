@@ -7,7 +7,9 @@
 <title>Proposed Document Template for TLS FATT Process</title>
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="
-       This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft. 
+       This document applies only to non-trivial extensions of TLS, which require formal analysis.
+FATT process has successfully discovered CVEs of CVSS 7.5 and most recently expected CVSS 9.1 in the implementations of the drafts proposed in the TLS WG.
+To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft. 
     " name="description">
 <meta content="xml2rfc 3.34.0" name="generator">
 <meta content="draft-usama-tls-fatt-extension-latest" name="ietf.draft">
@@ -1043,11 +1045,11 @@ svg {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Proposed Document Template for TLS FATT </td>
-<td class="right">June 2026</td>
+<td class="right">July 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sardar</td>
-<td class="center">Expires 23 December 2026</td>
+<td class="center">Expires 3 January 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1060,12 +1062,12 @@ svg {
 <dd class="internet-draft">draft-usama-tls-fatt-extension-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-06-21" class="published">21 June 2026</time>
+<time datetime="2026-07-02" class="published">2 July 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-12-23">23 December 2026</time></dd>
+<dd class="expires"><time datetime="2027-01-03">3 January 2027</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1078,7 +1080,9 @@ svg {
 <h1 id="title">Proposed Document Template for TLS FATT Process</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis.
+FATT process has successfully discovered CVEs of CVSS 7.5 and most recently expected CVSS 9.1 in the implementations of the drafts proposed in the TLS WG.
+To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1115,7 +1119,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1145,13 +1149,21 @@ svg {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-motivation" class="internal xref">Motivation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1.2.1">
+                    <p id="section-toc.1-1.1.2.1.2.1.1" class="keepWithNext"><a href="#section-1.1.1" class="auto internal xref">1.1.1</a>.  <a href="#name-concrete-motivational-examp" class="internal xref">Concrete Motivational Example: Attacks and High-severity CVEs</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-proposal" class="internal xref">Proposal</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
+                <p id="section-toc.1-1.1.2.3.1"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
 </li>
             </ul>
 </li>
@@ -1164,10 +1176,10 @@ svg {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-contribution-of-authors" class="internal xref">Contribution of Authors</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-contents-of-drafts" class="internal xref">Contents of Drafts</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-real-motivation" class="internal xref">Real Motivation</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-motivation-2" class="internal xref">Motivation</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-threat-model" class="internal xref">Threat Model</a></p>
@@ -1176,10 +1188,7 @@ svg {
                     <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-typical-dolev-yao-adversary" class="internal xref">Typical Dolev-Yao adversary</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-potential-weaknesses-of-cry" class="internal xref">Potential Weaknesses of Cryptographic Primitives</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
-                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-keys" class="internal xref">Keys</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-keys" class="internal xref">Keys</a></p>
 </li>
                 </ul>
 </li>
@@ -1262,39 +1271,65 @@ svg {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">While the TLS FATT process <span>[<a href="#TLS-FATT" class="cite xref">TLS-FATT</a>]</span> marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group (WG) process, the current FATT process has some practical limitations. Given a relatively smaller formal methods community, and a steep learning curve as well as very low consideration of usability in the existing formal analysis tools, this document proposes some solutions to make the FATT process sustainable.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This document outlines the corresponding changes in the way Internet-Drafts are typically written.
-For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:<a href="#section-1-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-1-3.1">
-          <p id="section-1-3.1.1">motivation,<a href="#section-1-3.1.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-1-3.2">
-          <p id="section-1-3.2.1">a threat model,<a href="#section-1-3.2.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-1-3.3">
-          <p id="section-1-3.3.1">informal security goals, and<a href="#section-1-3.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-1-3.4">
-          <p id="section-1-3.4.1">a protocol diagram (<a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a>).<a href="#section-1-3.4.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="section-1-4">Each one of these is summarized in <a href="#sec-res-authors" class="auto internal xref">Section 3</a>. Future versions of this draft will include concrete examples.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-1">While the TLS FATT process <span>[<a href="#TLS-FATT" class="cite xref">TLS-FATT</a>]</span> marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group (WG) process, it would be helpful to adapt the way in which drafts are typically written to get the benefits.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <div id="motivation">
 <section id="section-1.1">
         <h3 id="name-motivation">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-motivation" class="section-name selfRef">Motivation</a>
         </h3>
-<p id="section-1.1-1">This helps make the formal analysis closer to the intention in specifications.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">Implementers may like to understand the security implications before blindly starting to implement the spec.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">Unverified protocol designs, imprecisely stated threat model and security goals have led to high-severity vulnerabilities of the extensions proposed in the drafts.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<div id="sec-mot-example">
+<section id="section-1.1.1">
+          <h4 id="name-concrete-motivational-examp">
+<a href="#section-1.1.1" class="section-number selfRef">1.1.1. </a><a href="#name-concrete-motivational-examp" class="section-name selfRef">Concrete Motivational Example: Attacks and High-severity CVEs</a>
+          </h4>
+<p id="section-1.1.1-1">As a historical note, authors of <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> asked for adoption in IETF 121 <span>[<a href="#Intra-handshake-attestation" class="cite xref">Intra-handshake-attestation</a>]</span>. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:<a href="#section-1.1.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.1.1-2.1">
+              <p id="section-1.1.1-2.1.1">Formal analysis <span>[<a href="#ID-Crisis-repo" class="cite xref">ID-Crisis-repo</a>]</span> found <strong>diversion</strong> attacks for <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span>. For technical details, please see the corresponding paper <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-1.1.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-1.1.1-2.2">
+              <p id="section-1.1.1-2.2.1">Formal analysis <span>[<a href="#Intra-handshake.fail-repo" class="cite xref">Intra-handshake.fail-repo</a>]</span> of several <strong>production</strong> implementations of <span>[<a href="#I-D.fossati-tls-attestation-09" class="cite xref">I-D.fossati-tls-attestation-09</a>]</span> led to discovery of <span>[<a href="#CVE-2026-33697" class="cite xref">CVE-2026-33697</a>]</span> of <strong>CVSS 7.5</strong> for <strong>relay</strong> attacks. For technical details, please see the corresponding paper <span>[<a href="#Intra-handshake.fail" class="cite xref">Intra-handshake.fail</a>]</span>.<a href="#section-1.1.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-1.1.1-2.3">
+              <p id="section-1.1.1-2.3.1">Further formal analysis of <strong>production</strong> implementation of <span>[<a href="#I-D.fossati-tls-attestation-09" class="cite xref">I-D.fossati-tls-attestation-09</a>]</span> has led to discovery of another class of attacks and will potentially lead to two CVEs (currently under <em>responsible</em> disclosure) each with an expected <strong>CVSS 9.1</strong>.<a href="#section-1.1.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-1.1.1-3">This shows the value of formal analysis in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.<a href="#section-1.1.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="proposal">
+<section id="section-1.2">
+        <h3 id="name-proposal">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-proposal" class="section-name selfRef">Proposal</a>
+        </h3>
+<p id="section-1.2-1">To produce high-quality specifications, this document outlines the corresponding changes in the way Internet-Drafts are typically written.
+For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.2-2.1">
+            <p id="section-1.2-2.1.1">motivation,<a href="#section-1.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.2">
+            <p id="section-1.2-2.2.1">a threat model,<a href="#section-1.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.3">
+            <p id="section-1.2-2.3.1">informal security goals, and<a href="#section-1.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.4">
+            <p id="section-1.2-2.4.1">a protocol diagram (<a href="#sec-prot-diagram" class="auto internal xref">Section 2.1</a>).<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-1.2-3">Each one of these is summarized in <a href="#sec-res-authors" class="auto internal xref">Section 3</a>. Future versions of this draft will include further concrete examples.<a href="#section-1.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="scope">
-<section id="section-1.2">
+<section id="section-1.3">
         <h3 id="name-scope">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
+<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
         </h3>
-<p id="section-1.2-1">The scope of this document is only non-trivial extensions of TLS, which require formal analysis.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.3-1">The scope of this document is only non-trivial extensions of TLS, which require formal analysis.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1313,23 +1348,31 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-protocol-diagram">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-protocol-diagram" class="section-name selfRef">Protocol Diagram</a>
         </h3>
-<p id="section-2.1-1">In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span>. This is conceptually similar to the Protocol Model in <span>[<a href="#RFC4101" class="cite xref">RFC4101</a>]</span>. However, while <span>[<a href="#RFC4101" class="cite xref">RFC4101</a>]</span> only recommends diagrams, we consider diagrams to be essential.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-1">In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol <span>[<a href="#I-D.ietf-tls-rfc8446bis" class="cite xref">I-D.ietf-tls-rfc8446bis</a>]</span>. This is conceptually similar to the Protocol Model in <span>[<a href="#RFC4101" class="cite xref">RFC4101</a>]</span>. However, while <span>[<a href="#RFC4101" class="cite xref">RFC4101</a>]</span> only recommends diagrams, we consider diagrams to be essential to reduce the gap between:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.1-2.1">
+            <p id="section-2.1-2.1.1">the specifications and formal analysis<a href="#section-2.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.1-2.2">
+            <p id="section-2.1-2.2.1">the specifications and implementation<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
 </section>
 </div>
 <div id="sec-res-authors">
 <section id="section-3">
-      <h2 id="name-contribution-of-authors">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-contribution-of-authors" class="section-name selfRef">Contribution of Authors</a>
+      <h2 id="name-contents-of-drafts">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-contents-of-drafts" class="section-name selfRef">Contents of Drafts</a>
       </h2>
-<p id="section-3-1">The following contributions are expected from the authors:<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="real-motivation">
+<p id="section-3-1">The following contents are expected in drafts:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<div id="motivation-1">
 <section id="section-3.1">
-        <h3 id="name-real-motivation">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-real-motivation" class="section-name selfRef">Real Motivation</a>
+        <h3 id="name-motivation-2">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-motivation-2" class="section-name selfRef">Motivation</a>
         </h3>
-<p id="section-3.1-1">Authors are expected to provide the real motivation of the work (i.e., the proposed extension of TLS).<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">Drafts are expected to provide the motivation of the work (i.e., the proposed extension of TLS).<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-th-model">
@@ -1337,7 +1380,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-threat-model">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-threat-model" class="section-name selfRef">Threat Model</a>
         </h3>
-<p id="section-3.2-1">A threat model identifies which threats are in scope for the protocol design. So it ought to answer questions like:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">A threat model identifies which threats are in scope for the protocol design. So it can answer questions like:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.2-2.1">
             <p id="section-3.2-2.1.1">What are the capabilities of the adversary? What can the adversary do?<a href="#section-3.2-2.1.1" class="pilcrow">¶</a></p>
@@ -1361,44 +1404,26 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <p id="section-3.2.1-2">Any additional adversary capabilities and assumptions ought to be explicitly stated.<a href="#section-3.2.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="potential-weaknesses-of-cryptographic-primitives">
-<section id="section-3.2.2">
-          <h4 id="name-potential-weaknesses-of-cry">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-potential-weaknesses-of-cry" class="section-name selfRef">Potential Weaknesses of Cryptographic Primitives</a>
-          </h4>
-<p id="section-3.2.2-1">In general, it also outlines the potential weaknesses of the cryptographic primitives used in the proposed protocol extension. Examples include:<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.2.2-2.1">
-              <p id="section-3.2.2-2.1.1">weak hash functions<a href="#section-3.2.2-2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.2.2-2.2">
-              <p id="section-3.2.2-2.2.1">weak Diffie-Hellman (DH) groups<a href="#section-3.2.2-2.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.2.2-2.3">
-              <p id="section-3.2.2-2.3.1">weak elements within strong DH groups<a href="#section-3.2.2-2.3.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-</section>
-</div>
 <div id="keys">
-<section id="section-3.2.3">
+<section id="section-3.2.2">
           <h4 id="name-keys">
-<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-keys" class="section-name selfRef">Keys</a>
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-keys" class="section-name selfRef">Keys</a>
           </h4>
-<p id="section-3.2.3-1">This section ought to specify any keys in the system (e.g., long-term keys of the server) in addition to the standard TLS key schedule. Theoretically and arguably practically, any key may be compromised (i.e., become available to the adversary).<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.3-2">For readability, we propose defining each key clearly as in Section 4.1 of <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>. Alternatively, present as a table with the following entries for each key:<a href="#section-3.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-1">This is particularly relevant for proposals of hybrid key establishment or hybrid authentication.
+This section ought to specify any keys in the system (e.g., long-term keys of the server) in addition to the standard TLS key schedule. Theoretically and arguably practically, any key may be compromised (i.e., become available to the adversary).<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-2">For readability, we propose defining each key clearly as in Section 4.1 of <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>. Alternatively, present as a table with the following entries for each key:<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.2.3-3.1">
-              <p id="section-3.2.3-3.1.1">Name (or symbol) of the key<a href="#section-3.2.3-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.2.2-3.1">
+              <p id="section-3.2.2-3.1.1">Name (or symbol) of the key<a href="#section-3.2.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.2.3-3.2">
-              <p id="section-3.2.3-3.2.1">Purpose of the key<a href="#section-3.2.3-3.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.2.2-3.2">
+              <p id="section-3.2.2-3.2.1">Purpose of the key<a href="#section-3.2.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.2.3-3.3">
-              <p id="section-3.2.3-3.3.1">(optionally but preferably -- particularly when the endpoint is not fully trusted) Which software in the system has access to the key?<a href="#section-3.2.3-3.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.2.2-3.3">
+              <p id="section-3.2.2-3.3.1">(optionally but preferably -- particularly when the endpoint is not fully trusted) Which software in the system has access to the key?<a href="#section-3.2.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.2.3-4">If more than one servers are involved (such as migration cases), the keys for servers ought to be distinguished in an unambiguous way.<a href="#section-3.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-4">If more than one servers are involved (such as migration cases), the keys for servers ought to be distinguished in an unambiguous way.<a href="#section-3.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1408,8 +1433,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-informal-security-goals">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-informal-security-goals" class="section-name selfRef">Informal Security Goals</a>
         </h3>
-<p id="section-3.3-1">Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the Internet-Draft.
-If the informal security goals are not spelled out in the Internet-Draft, it is safe to assume that the goals are still unclear to the authors.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the Internet-Draft.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">Examples:<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-3.1">
@@ -1443,7 +1467,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
       <h2 id="name-document-structure">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-document-structure" class="section-name selfRef">Document Structure</a>
       </h2>
-<p id="section-4-1">While the needs may differ for some drafts, we propose the following baseline template, with an example of <span>[<a href="#I-D.wang-tls-service-affinity" class="cite xref">I-D.wang-tls-service-affinity</a>]</span>:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">While the needs may differ for some drafts, we propose the following baseline template, with examples of <span>[<a href="#I-D.wang-tls-service-affinity" class="cite xref">I-D.wang-tls-service-affinity</a>]</span> and <span>[<a href="#I-D.sheffer-tls-pqc-continuity" class="cite xref">I-D.sheffer-tls-pqc-continuity</a>]</span>:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">The template is:<a href="#section-4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-3.1">
@@ -1456,7 +1480,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
           <p id="section-4-3.3.1">Easy for formal analysis<a href="#section-4-3.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-4">TODO: Currently it is almost a copy of the <a href="https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/">guidance email</a> to the authors. We will add details in next versions.<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-4">TODO: Currently it is almost a copy of the <a href="https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/">guidance email</a> to the authors. We request feedback on what to add in next versions.<a href="#section-4-4" class="pilcrow">¶</a></p>
 <div id="introduction-1">
 <section id="section-4.1">
         <h3 id="name-introduction-2">
@@ -1468,8 +1492,8 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 </li>
           <li class="normal" id="section-4.1-1.2">
             <p id="section-4.1-1.2.1">For <span>[<a href="#I-D.wang-tls-service-affinity" class="cite xref">I-D.wang-tls-service-affinity</a>]</span>, we believe this
- should <em>not</em> include CATS. Anyone unfamiliar with CATS ought to be
- able to understand your problem.<a href="#section-4.1-1.2.1" class="pilcrow">¶</a></p>
+ may preferably <em>not</em> include CATS. Anyone unfamiliar with CATS ought to be
+ able to understand the problem statement.<a href="#section-4.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1496,7 +1520,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
             <p id="section-4.3-1.1.1">We really like how the author of <span>[<a href="#I-D.ietf-tls-8773bis" class="cite xref">I-D.ietf-tls-8773bis</a>]</span> motivates the problem statement. Use it as a sample.<a href="#section-4.3-1.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.3-1.2">
-            <p id="section-4.3-1.2.1">Here authors ought to address all the concerns from WG, including
+            <p id="section-4.3-1.2.1">Here authors can address all the concerns from WG, including
  justification with compelling arguments and authentic references
  why authors think it ought to be done within TLS WG (and within handshake).<a href="#section-4.3-1.2.1" class="pilcrow">¶</a></p>
 </li>
@@ -1504,7 +1528,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
             <p id="section-4.3-1.3.1">For <span>[<a href="#I-D.wang-tls-service-affinity" class="cite xref">I-D.wang-tls-service-affinity</a>]</span>, authors could put CATS here as a motivational use case.<a href="#section-4.3-1.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.3-1.4">
-            <p id="section-4.3-1.4.1">For <span>[<a href="#I-D.sheffer-tls-pqc-continuity" class="cite xref">I-D.sheffer-tls-pqc-continuity</a>]</span>, it should clarify why the problem is specific to PQ-only and why did the WG do such a thing for the transition for other primitives.<a href="#section-4.3-1.4.1" class="pilcrow">¶</a></p>
+            <p id="section-4.3-1.4.1">For <span>[<a href="#I-D.sheffer-tls-pqc-continuity" class="cite xref">I-D.sheffer-tls-pqc-continuity</a>]</span>, it should clarify why the problem is specific to PQ-only and why did the WG do such a thing for the transition for other primitives, as requested by several WG participants.<a href="#section-4.3-1.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1562,7 +1586,7 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
       <h2 id="name-security-considerations-2">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations-2" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">The whole document is about improving security considerations.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The whole document is about improving security considerations. As mentioned in <a href="#sec-mot-example" class="auto internal xref">Section 1.1.1</a>, some specifications have led to high-severity CVEs.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1606,9 +1630,17 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="CVE-2026-33697">[CVE-2026-33697]</dt>
+        <dd>
+<span class="refAuthor">CVE</span>, <span class="refTitle">"CoCoS attested TLS is vulnerable to relay attacks via extracted ephemeral TLS keys"</span>, <time datetime="2026-03" class="refDate">March 2026</time>, <span>&lt;<a href="https://www.cve.org/CVERecord?id=CVE-2026-33697">https://www.cve.org/CVERecord?id=CVE-2026-33697</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.fossati-tls-attestation-08">[I-D.fossati-tls-attestation-08]</dt>
         <dd>
 <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Sheffer, Y.</span>, <span class="refAuthor">Howard, P.</span>, <span class="refAuthor">Mihalcea, I.</span>, <span class="refAuthor">Deshpande, Y.</span>, <span class="refAuthor">Niemi, A.</span>, and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"Using Attestation in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-fossati-tls-attestation-08</span>, <time datetime="2024-10-21" class="refDate">21 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-fossati-tls-attestation-08">https://datatracker.ietf.org/doc/html/draft-fossati-tls-attestation-08</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.fossati-tls-attestation-09">[I-D.fossati-tls-attestation-09]</dt>
+        <dd>
+<span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Sheffer, Y.</span>, <span class="refAuthor">Howard, P.</span>, <span class="refAuthor">Mihalcea, I.</span>, <span class="refAuthor">Deshpande, Y.</span>, <span class="refAuthor">Niemi, A.</span>, and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"Using Attestation in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-fossati-tls-attestation-09</span>, <time datetime="2025-04-30" class="refDate">30 April 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-fossati-tls-attestation-09">https://datatracker.ietf.org/doc/html/draft-fossati-tls-attestation-09</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-8773bis">[I-D.ietf-tls-8773bis]</dt>
         <dd>
@@ -1624,11 +1656,27 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <dd class="break"></dd>
 <dt id="I-D.wang-tls-service-affinity">[I-D.wang-tls-service-affinity]</dt>
         <dd>
-<span class="refAuthor">Wang, W.</span>, <span class="refAuthor">Wang, A.</span>, <span class="refAuthor">汪宗斌, P.</span>, <span class="refAuthor">Sahni, M.</span>, and <span class="refAuthor">K. Sheth</span>, <span class="refTitle">"Service Affinity Solution based on Transport Layer Security (TLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-wang-tls-service-affinity-02</span>, <time datetime="2026-05-18" class="refDate">18 May 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-02">https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-02</a>&gt;</span>. </dd>
+<span class="refAuthor">Wang, W.</span>, <span class="refAuthor">Wang, A.</span>, <span class="refAuthor">汪宗斌, P.</span>, <span class="refAuthor">Sahni, M.</span>, and <span class="refAuthor">K. Sheth</span>, <span class="refTitle">"Service Affinity Solution based on Transport Layer Security (TLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-wang-tls-service-affinity-03</span>, <time datetime="2026-06-25" class="refDate">25 June 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-03">https://datatracker.ietf.org/doc/html/draft-wang-tls-service-affinity-03</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ID-Crisis">[ID-Crisis]</dt>
         <dd>
 <span class="refAuthor">Sardar, M.</span>, <span class="refAuthor">Moustafa, M.</span>, and <span class="refAuthor">T. Aura</span>, <span class="refTitle">"Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"</span>, <span class="refContent">ACM</span>, <span class="seriesInfo">Proceedings of the ACM Asia Conference on Computer and Communications Security pp. 547-560</span>, <span class="seriesInfo">DOI 10.1145/3779208.3785387</span>, <time datetime="2026-06" class="refDate">June 2026</time>, <span>&lt;<a href="https://doi.org/10.1145/3779208.3785387">https://doi.org/10.1145/3779208.3785387</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ID-Crisis-repo">[ID-Crisis-repo]</dt>
+        <dd>
+<span class="refAuthor">Sardar, M. U.</span>, <span class="refAuthor">Moustafa, M.</span>, and <span class="refAuthor">T. Aura</span>, <span class="refTitle">"Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://github.com/CCC-Attestation/formal-spec-id-crisis">https://github.com/CCC-Attestation/formal-spec-id-crisis</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Intra-handshake-attestation">[Intra-handshake-attestation]</dt>
+        <dd>
+<span class="refAuthor">Hannes Tschofenig</span>, <span class="refTitle">"Attestation and TLS"</span>, <time datetime="2024-11" class="refDate">November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/meeting/121/materials/slides-121-tls-tls-and-attestation-00.pdf">https://datatracker.ietf.org/meeting/121/materials/slides-121-tls-tls-and-attestation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Intra-handshake.fail">[Intra-handshake.fail]</dt>
+        <dd>
+<span class="refAuthor">Sardar, M. U.</span>, <span class="refAuthor">Dubeyko, V.</span>, and <span class="refAuthor">J.-M. Jacquet</span>, <span class="refTitle">"Intra-handshake.fail (CVE-2026-33697): High-severity CVE in Attested TLS"</span>, <time datetime="2026-06" class="refDate">June 2026</time>, <span>&lt;<a href="https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS">https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Intra-handshake.fail-repo">[Intra-handshake.fail-repo]</dt>
+        <dd>
+<span class="refAuthor">Sardar, M. U.</span>, <span class="refAuthor">Dubeyko, V.</span>, and <span class="refAuthor">J.-M. Jacquet</span>, <span class="refTitle">"Intra-handshake.fail (CVE-2026-33697): High-severity CVE in Attested TLS"</span>, <time datetime="2026-06" class="refDate">June 2026</time>, <span>&lt;<a href="https://github.com/CCC-Attestation/formal-spec-KBS">https://github.com/CCC-Attestation/formal-spec-KBS</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4101">[RFC4101]</dt>
       <dd>
@@ -1653,6 +1701,9 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
 <ul class="normal">
 <li class="normal" id="appendix-A.1-2.1">
             <p id="appendix-A.1-2.1.1">Focused on document structure only<a href="#appendix-A.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-2.2">
+            <p id="appendix-A.1-2.2.1">Motivational examples<a href="#appendix-A.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-A.1-3">-07<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
@@ -1763,13 +1814,13 @@ If the informal security goals are not spelled out in the Internet-Draft, it is 
           <p id="appendix-B-2.2.1">John Mattsson for proposing text for security considerations.<a href="#appendix-B-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-2.3">
-          <p id="appendix-B-2.3.1">S. Moonesamy for identifying the 'no response' risk in the proposal for new list.<a href="#appendix-B-2.3.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.3.1">David Benjamin for review of -06.<a href="#appendix-B-2.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-2.4">
-          <p id="appendix-B-2.4.1">David Benjamin for review of -06.<a href="#appendix-B-2.4.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.4.1">Mike Ounsworth for review of -07.<a href="#appendix-B-2.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-2.5">
-          <p id="appendix-B-2.5.1">Mike Ounsworth for review of -07.<a href="#appendix-B-2.5.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.5.1">Songbo Bu<a href="#appendix-B-2.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="appendix-B-3">The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")<a href="#appendix-B-3" class="pilcrow">¶</a></p>
