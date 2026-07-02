@@ -8,7 +8,7 @@
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="
        This document applies only to non-trivial extensions of TLS, which require formal analysis.
-FATT process has successfully discovered CVEs of  CVSS 7.5  and most recently expected  CVSS 9.1  in the  production  implementations of the drafts proposed in the TLS WG.
+FATT process has successfully discovered CVEs of  CVSS 7.5  and most recently expected  CVSS 9.1  in the  production  implementations of the drafts proposed for adoption in the TLS WG.
 To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft. 
     " name="description">
 <meta content="xml2rfc 3.34.0" name="generator">
@@ -1081,7 +1081,7 @@ svg {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document applies only to non-trivial extensions of TLS, which require formal analysis.
-FATT process has successfully discovered CVEs of <strong>CVSS 7.5</strong> and most recently expected <strong>CVSS 9.1</strong> in the <strong>production</strong> implementations of the drafts proposed in the TLS WG.
+FATT process has successfully discovered CVEs of <strong>CVSS 7.5</strong> and most recently expected <strong>CVSS 9.1</strong> in the <strong>production</strong> implementations of the drafts proposed for adoption in the TLS WG.
 To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
@@ -1155,7 +1155,7 @@ To achieve high cryptographic assurances, this document proposes the drafts spec
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-motivation" class="internal xref">Motivation</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1.2.1">
-                    <p id="section-toc.1-1.1.2.1.2.1.1" class="keepWithNext"><a href="#section-1.1.1" class="auto internal xref">1.1.1</a>.  <a href="#name-concrete-motivational-examp" class="internal xref">Concrete Motivational Example: Attacks and High-severity CVEs</a></p>
+                    <p id="section-toc.1-1.1.2.1.2.1.1" class="keepWithNext"><a href="#section-1.1.1" class="auto internal xref">1.1.1</a>.  <a href="#name-concrete-motivational-examp" class="internal xref">Concrete Motivational Example: Practical Exploits in Production Systems</a></p>
 </li>
                 </ul>
 </li>
@@ -1277,13 +1277,13 @@ To achieve high cryptographic assurances, this document proposes the drafts spec
         <h3 id="name-motivation">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-motivation" class="section-name selfRef">Motivation</a>
         </h3>
-<p id="section-1.1-1">Unverified protocol designs, imprecisely stated threat model and security goals have led to high-severity vulnerabilities of the extensions proposed in the drafts.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">Unverified protocol designs, imprecisely stated threat model and security goals have led to high and critical severity vulnerabilities of the extensions proposed in the drafts.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <div id="sec-mot-example">
 <section id="section-1.1.1">
           <h4 id="name-concrete-motivational-examp">
-<a href="#section-1.1.1" class="section-number selfRef">1.1.1. </a><a href="#name-concrete-motivational-examp" class="section-name selfRef">Concrete Motivational Example: Attacks and High-severity CVEs</a>
+<a href="#section-1.1.1" class="section-number selfRef">1.1.1. </a><a href="#name-concrete-motivational-examp" class="section-name selfRef">Concrete Motivational Example: Practical Exploits in Production Systems</a>
           </h4>
-<p id="section-1.1.1-1">As a historical note, authors of <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> asked for adoption in IETF 121, explicitly requesting us for formal analysis by name <span>[<a href="#Intra-handshake-attestation" class="cite xref">Intra-handshake-attestation</a>]</span>. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:<a href="#section-1.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1.1-1">As an illustrative example, authors of <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span> asked for adoption in IETF 121, explicitly requesting us (by name) for formal analysis <span>[<a href="#Intra-handshake-attestation" class="cite xref">Intra-handshake-attestation</a>]</span>. We carried out formal analysis of draft in support for FATT process. The formal analysis led to three orthogonal issues:<a href="#section-1.1.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1.1.1-2.1">
               <p id="section-1.1.1-2.1.1">Formal analysis <span>[<a href="#ID-Crisis-repo" class="cite xref">ID-Crisis-repo</a>]</span> found <strong>diversion</strong> attacks for <span>[<a href="#I-D.fossati-tls-attestation-08" class="cite xref">I-D.fossati-tls-attestation-08</a>]</span>. For technical details, please see the corresponding paper <span>[<a href="#ID-Crisis" class="cite xref">ID-Crisis</a>]</span>.<a href="#section-1.1.1-2.1.1" class="pilcrow">¶</a></p>
@@ -1295,7 +1295,7 @@ To achieve high cryptographic assurances, this document proposes the drafts spec
               <p id="section-1.1.1-2.3.1">Further formal analysis of <strong>production</strong> implementation of <span>[<a href="#I-D.fossati-tls-attestation-09" class="cite xref">I-D.fossati-tls-attestation-09</a>]</span> has led to discovery of another class of attacks and will potentially lead to two CVEs (currently under <em>responsible</em> disclosure) each with an expected <strong>CVSS 9.1</strong>.<a href="#section-1.1.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-1.1.1-3">This shows the value of formal analysis in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.<a href="#section-1.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1.1-3">This shows the value of FATT process in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.<a href="#section-1.1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1586,7 +1586,7 @@ This section ought to specify any keys in the system (e.g., long-term keys of th
       <h2 id="name-security-considerations-2">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations-2" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">The whole document is about improving security considerations. As mentioned in <a href="#sec-mot-example" class="auto internal xref">Section 1.1.1</a>, some specifications have led to high-severity CVEs.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The whole document is about improving security considerations. As mentioned in <a href="#sec-mot-example" class="auto internal xref">Section 1.1.1</a>, unverified specifications have led to high and critical severity exploits.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
