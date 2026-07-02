@@ -83,7 +83,7 @@ informative:
 --- abstract
 
 This document applies only to non-trivial extensions of TLS, which require formal analysis.
-FATT process has successfully discovered CVEs of CVSS 7.5 and most recently expected CVSS 9.1 in the implementations of the drafts proposed in the TLS WG.
+FATT process has successfully discovered CVEs of **CVSS 7.5** and most recently expected **CVSS 9.1** in the **production** implementations of the drafts proposed in the TLS WG.
 To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 
 --- middle
@@ -98,7 +98,7 @@ Unverified protocol designs, imprecisely stated threat model and security goals 
 ### Concrete Motivational Example: Attacks and High-severity CVEs
 {: #sec-mot-example }
 
-As a historical note, authors of {{I-D.fossati-tls-attestation-08}} asked for adoption in IETF 121 {{Intra-handshake-attestation}}. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:
+As a historical note, authors of {{I-D.fossati-tls-attestation-08}} asked for adoption in IETF 121, explicitly requesting us for formal analysis by name {{Intra-handshake-attestation}}. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:
 
 - Formal analysis {{ID-Crisis-repo}} found **diversion** attacks for {{I-D.fossati-tls-attestation-08}}. For technical details, please see the corresponding paper {{ID-Crisis}}.
 
@@ -109,8 +109,8 @@ As a historical note, authors of {{I-D.fossati-tls-attestation-08}} asked for ad
 This shows the value of formal analysis in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.
 
 ## Proposal
-To produce high-quality specifications, this document outlines the corresponding changes in the way Internet-Drafts are typically written.
-For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:
+To produce high-quality specifications, this document outlines the corresponding changes in the way drafts are typically written.
+For the draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:
 
 * motivation,
 * a threat model,
@@ -171,7 +171,7 @@ For readability, we propose defining each key clearly as in Section 4.1 of {{ID-
 If more than one servers are involved (such as migration cases), the keys for servers ought to be distinguished in an unambiguous way.
 
 ## Informal Security Goals
-Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the Internet-Draft.
+Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the draft.
 
 [section]: <> (In such a case, the Internet-Draft should not be considered as ready for adoption. These goals could be part of the security considerations or the Appendix.)
 
@@ -313,5 +313,11 @@ We thankfully acknowledge the following for their valuable input:
 * David Benjamin for review of -06.
 * Mike Ounsworth for review of -07.
 * Songbo Bu
+
+We gratefully acknowledge the valuable contributions of co-authors of papers for their instrumental contributions in formal analysis: Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie Jacquet.
+
+We sincerely thank the contributors of the formal analyses {{ID-Crisis-repo}} and {{Intra-handshake.fail-repo}} mentioned in the respective repositories.
+
+We express our appreciation to Yaakov Stein and Ilari Liusvaara for their substantial technical guidance, valuable feedback, and contributions in early attempts to formally model ML-KEM.
 
 The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
