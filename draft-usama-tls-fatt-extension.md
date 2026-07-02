@@ -83,7 +83,7 @@ informative:
 --- abstract
 
 This document applies only to non-trivial extensions of TLS, which require formal analysis.
-FATT process has successfully discovered CVEs of **CVSS 7.5** and most recently expected **CVSS 9.1** in the **production** implementations of the drafts proposed in the TLS WG.
+FATT process has successfully discovered CVEs of **CVSS 7.5** and most recently expected **CVSS 9.1** in the **production** implementations of the drafts proposed for adoption in the TLS WG.
 To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 
 --- middle
@@ -93,12 +93,12 @@ While the TLS FATT process {{TLS-FATT}} marks a historic change in achieving hig
 
 
 ## Motivation
-Unverified protocol designs, imprecisely stated threat model and security goals have led to high-severity vulnerabilities of the extensions proposed in the drafts.
+Unverified protocol designs, imprecisely stated threat model and security goals have led to high and critical severity vulnerabilities of the extensions proposed in the drafts.
 
-### Concrete Motivational Example: Attacks and High-severity CVEs
+### Concrete Motivational Example: Practical Exploits in Production Systems
 {: #sec-mot-example }
 
-As a historical note, authors of {{I-D.fossati-tls-attestation-08}} asked for adoption in IETF 121, explicitly requesting us for formal analysis by name {{Intra-handshake-attestation}}. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:
+As an illustrative example, authors of {{I-D.fossati-tls-attestation-08}} asked for adoption in IETF 121, explicitly requesting us (by name) for formal analysis {{Intra-handshake-attestation}}. We carried out formal analysis of draft in support for FATT process. The formal analysis led to three orthogonal issues:
 
 - Formal analysis {{ID-Crisis-repo}} found **diversion** attacks for {{I-D.fossati-tls-attestation-08}}. For technical details, please see the corresponding paper {{ID-Crisis}}.
 
@@ -106,7 +106,7 @@ As a historical note, authors of {{I-D.fossati-tls-attestation-08}} asked for ad
 
 - Further formal analysis of **production** implementation of {{I-D.fossati-tls-attestation-09}} has led to discovery of another class of attacks and will potentially lead to two CVEs (currently under *responsible* disclosure) each with an expected **CVSS 9.1**.
 
-This shows the value of formal analysis in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.
+This shows the value of FATT process in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.
 
 ## Proposal
 To produce high-quality specifications, this document outlines the corresponding changes in the way drafts are typically written.
@@ -236,7 +236,7 @@ As draft proceeds these desired security goals will become what the draft actual
 # Security Considerations
 {: #sec-sec-cons }
 
-The whole document is about improving security considerations. As mentioned in {{sec-mot-example}}, some specifications have led to high-severity CVEs.
+The whole document is about improving security considerations. As mentioned in {{sec-mot-example}}, unverified specifications have led to high and critical severity exploits.
 
 Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.
 
