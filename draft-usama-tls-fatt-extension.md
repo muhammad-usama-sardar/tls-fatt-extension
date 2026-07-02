@@ -35,22 +35,81 @@ normative:
 informative:
   I-D.ietf-tls-rfc8446bis:
   I-D.fossati-tls-attestation-08:
+  I-D.fossati-tls-attestation-09:
   RFC4101:
   ID-Crisis: DOI.10.1145/3779208.3785387
+  ID-Crisis-repo:
+    title: "Identity Crisis in Confidential Computing: Formal Analysis of Attested TLS"
+    date: November 2025,
+    target: https://github.com/CCC-Attestation/formal-spec-id-crisis
+    author:
+      - ins: M. U. Sardar
+      - ins: M. Moustafa
+      - ins: T. Aura
   I-D.ietf-tls-8773bis:
   I-D.wang-tls-service-affinity:
   I-D.sheffer-tls-pqc-continuity:
+  Intra-handshake.fail:
+    title: "Intra-handshake.fail (CVE-2026-33697): High-severity CVE in Attested TLS"
+    date: June 2026,
+    target: https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS
+    author:
+      - ins: M. U. Sardar
+      - ins: V. Dubeyko
+      - ins: J-M. Jacquet
+  Intra-handshake.fail-repo:
+    title: "Intra-handshake.fail (CVE-2026-33697): High-severity CVE in Attested TLS"
+    date: June 2026,
+    target: https://github.com/CCC-Attestation/formal-spec-KBS
+    author:
+      - ins: M. U. Sardar
+      - ins: V. Dubeyko
+      - ins: J-M. Jacquet
+  Intra-handshake-attestation:
+    title: "Attestation and TLS"
+    date: 8 November 2024,
+    target: https://datatracker.ietf.org/meeting/121/materials/slides-121-tls-tls-and-attestation-00.pdf
+    author:
+      - ins: Hannes Tschofenig
+  CVE-2026-33697:
+     author:
+        org: CVE
+     title: CoCoS attested TLS is vulnerable to relay attacks via extracted ephemeral TLS keys
+     target: https://www.cve.org/CVERecord?id=CVE-2026-33697
+     date: March 2026
+
+
 
 --- abstract
 
-This document applies only to non-trivial extensions of TLS, which require formal analysis. It proposes the authors specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
+This document applies only to non-trivial extensions of TLS, which require formal analysis.
+FATT process has successfully discovered CVEs of CVSS 7.5 and most recently expected CVSS 9.1 in the implementations of the drafts proposed in the TLS WG.
+To achieve high cryptographic assurances, this document proposes the drafts specify a clear threat model and informal security goals in the Security Considerations section, as well as motivation and a protocol diagram in the draft.
 
 --- middle
 
 # Introduction
-While the TLS FATT process {{TLS-FATT}} marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group (WG) process, the current FATT process has some practical limitations. Given a relatively smaller formal methods community, and a steep learning curve as well as very low consideration of usability in the existing formal analysis tools, this document proposes some solutions to make the FATT process sustainable.
+While the TLS FATT process {{TLS-FATT}} marks a historic change in achieving high cryptographic assurances by tightly integrating formal methods in the working group (WG) process, it would be helpful to adapt the way in which drafts are typically written to get the benefits.
 
-This document outlines the corresponding changes in the way Internet-Drafts are typically written.
+
+## Motivation
+Unverified protocol designs, imprecisely stated threat model and security goals have led to high-severity vulnerabilities of the extensions proposed in the drafts.
+
+### Concrete Motivational Example: Attacks and High-severity CVEs
+{: #sec-mot-example }
+
+As a historical note, authors of {{I-D.fossati-tls-attestation-08}} asked for adoption in IETF 121 {{Intra-handshake-attestation}}. We carried out formal analysis in support of draft. The formal analysis led to three orthogonal issues:
+
+- Formal analysis {{ID-Crisis-repo}} found **diversion** attacks for {{I-D.fossati-tls-attestation-08}}. For technical details, please see the corresponding paper {{ID-Crisis}}.
+
+- Formal analysis {{Intra-handshake.fail-repo}} of several **production** implementations of {{I-D.fossati-tls-attestation-09}} led to discovery of {{CVE-2026-33697}} of **CVSS 7.5** for **relay** attacks. For technical details, please see the corresponding paper {{Intra-handshake.fail}}.
+
+- Further formal analysis of **production** implementation of {{I-D.fossati-tls-attestation-09}} has led to discovery of another class of attacks and will potentially lead to two CVEs (currently under *responsible* disclosure) each with an expected **CVSS 9.1**.
+
+This shows the value of formal analysis in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.
+
+## Proposal
+To produce high-quality specifications, this document outlines the corresponding changes in the way Internet-Drafts are typically written.
 For the Internet-Draft to be useful for the formal analysis, this document proposes that it would be helpful for the formal analysis if the draft contains four main items, namely:
 
 * motivation,
@@ -58,13 +117,7 @@ For the Internet-Draft to be useful for the formal analysis, this document propo
 * informal security goals, and
 * a protocol diagram ({{sec-prot-diagram}}).
 
-Each one of these is summarized in {{sec-res-authors}}. Future versions of this draft will include concrete examples.
-
-## Motivation
-This helps make the formal analysis closer to the intention in specifications.
-
-Implementers may like to understand the security implications before blindly starting to implement the spec.
-
+Each one of these is summarized in {{sec-res-authors}}. Future versions of this draft will include further concrete examples.
 
 ## Scope
 The scope of this document is only non-trivial extensions of TLS, which require formal analysis.
@@ -76,20 +129,24 @@ The scope of this document is only non-trivial extensions of TLS, which require 
 ## Protocol Diagram
 {: #sec-prot-diagram }
 
-In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential.
+In the context of this document, a Protocol Diagram specifies the proposed cryptographically-relevant changes compared to the standard TLS protocol {{I-D.ietf-tls-rfc8446bis}}. This is conceptually similar to the Protocol Model in {{RFC4101}}. However, while {{RFC4101}} only recommends diagrams, we consider diagrams to be essential to reduce the gap between:
 
-# Contribution of Authors
+* the specifications and formal analysis
+* the specifications and implementation
+
+
+# Contents of Drafts
 {: #sec-res-authors }
 
-The following contributions are expected from the authors:
+The following contents are expected in drafts:
 
-## Real Motivation
-Authors are expected to provide the real motivation of the work (i.e., the proposed extension of TLS).
+## Motivation
+Drafts are expected to provide the motivation of the work (i.e., the proposed extension of TLS).
 
 ## Threat Model
 {: #sec-th-model }
 
-A threat model identifies which threats are in scope for the protocol design. So it ought to answer questions like:
+A threat model identifies which threats are in scope for the protocol design. So it can answer questions like:
 
 * What are the capabilities of the adversary? What can the adversary do?
 * Whether post-quantum threats are in scope?
@@ -101,14 +158,8 @@ A typical threat model assumes the classical Dolev-Yao adversary, who has full c
 
 Any additional adversary capabilities and assumptions ought to be explicitly stated.
 
-### Potential Weaknesses of Cryptographic Primitives
-In general, it also outlines the potential weaknesses of the cryptographic primitives used in the proposed protocol extension. Examples include:
-
-* weak hash functions
-* weak Diffie-Hellman (DH) groups
-* weak elements within strong DH groups
-
 ### Keys
+This is particularly relevant for proposals of hybrid key establishment or hybrid authentication.
 This section ought to specify any keys in the system (e.g., long-term keys of the server) in addition to the standard TLS key schedule. Theoretically and arguably practically, any key may be compromised (i.e., become available to the adversary).
 
 For readability, we propose defining each key clearly as in Section 4.1 of {{ID-Crisis}}. Alternatively, present as a table with the following entries for each key:
@@ -121,7 +172,6 @@ If more than one servers are involved (such as migration cases), the keys for se
 
 ## Informal Security Goals
 Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the Internet-Draft.
-If the informal security goals are not spelled out in the Internet-Draft, it is safe to assume that the goals are still unclear to the authors.
 
 [section]: <> (In such a case, the Internet-Draft should not be considered as ready for adoption. These goals could be part of the security considerations or the Appendix.)
 
@@ -138,7 +188,7 @@ See Section 5.1 of {{ID-Crisis}} for concrete examples.
 A Protocol Diagram ought to clearly mention the initial knowledge of the protocol participants, e.g., which authentic public keys are known to the protocol participants at the start of the protocol. An example of a Protocol Diagram for {{I-D.fossati-tls-attestation-08}} is provided in Figure 5 in {{ID-Crisis}}.
 
 # Document Structure
-While the needs may differ for some drafts, we propose the following baseline template, with an example of {{I-D.wang-tls-service-affinity}}:
+While the needs may differ for some drafts, we propose the following baseline template, with examples of {{I-D.wang-tls-service-affinity}} and {{I-D.sheffer-tls-pqc-continuity}}:
 
 The template is:
 
@@ -146,24 +196,24 @@ The template is:
 * Easy for reviewers
 * Easy for formal analysis
 
-TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/) to the authors. We will add details in next versions.
+TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/) to the authors. We request feedback on what to add in next versions.
 
 ## Introduction
    * Problem statement: Say in general what the problem is.
    * For {{I-D.wang-tls-service-affinity}}, we believe this
-      should *not* include CATS. Anyone unfamiliar with CATS ought to be
-      able to understand your problem.
+      may preferably *not* include CATS. Anyone unfamiliar with CATS ought to be
+      able to understand the problem statement.
 
 ## Terminology
    * Define any terms not defined in RFC8446bis or point to other drafts from where the definition is used.
 
 ## Motivation and design rationale
    * We really like how the author of {{I-D.ietf-tls-8773bis}} motivates the problem statement. Use it as a sample.
-   * Here authors ought to address all the concerns from WG, including
+   * Here authors can address all the concerns from WG, including
       justification with compelling arguments and authentic references
       why authors think it ought to be done within TLS WG (and within handshake).
    * For {{I-D.wang-tls-service-affinity}}, authors could put CATS here as a motivational use case.
-   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify why the problem is specific to PQ-only and why did the WG do such a thing for the transition for other primitives.
+   * For {{I-D.sheffer-tls-pqc-continuity}}, it should clarify why the problem is specific to PQ-only and why did the WG do such a thing for the transition for other primitives, as requested by several WG participants.
 
 ## Proposed solution (one or more sections)
    * Protocol design with Protocol Diagram: we work on the formal analysis of TLS 1.3 exclusively. Please contact someone else if your draft relates to older versions.
@@ -186,7 +236,7 @@ As draft proceeds these desired security goals will become what the draft actual
 # Security Considerations
 {: #sec-sec-cons }
 
-The whole document is about improving security considerations.
+The whole document is about improving security considerations. As mentioned in {{sec-mot-example}}, some specifications have led to high-severity CVEs.
 
 Like all security proofs, formal analysis is only as strong as its assumptions and model. The scope is typically limited, and the model does not necessarily capture real-world deployment complexity, implementation details, operational constraints, or misuse scenarios. Formal methods should be used as complementary and not as subtitute of other analysis methods.
 
@@ -207,6 +257,7 @@ This document has no IANA actions.
 -08
 
 * Focused on document structure only
+* Motivational examples
 
 -07
 
@@ -259,8 +310,8 @@ We thankfully acknowledge the following for their valuable input:
 
 * Eric Rescorla for review of -02, -05, and -06.
 * John Mattsson for proposing text for security considerations.
-* S. Moonesamy for identifying the 'no response' risk in the proposal for new list.
 * David Benjamin for review of -06.
 * Mike Ounsworth for review of -07.
+* Songbo Bu
 
 The research work is funded by German Research Foundation ("Deutsche Forschungsgemeinschaft.")
