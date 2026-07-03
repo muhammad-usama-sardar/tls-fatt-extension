@@ -1,0 +1,615 @@
+
+
+
+
+Transport Layer Security                                    M. U. Sardar
+Internet-Draft                                                TU Dresden
+Intended status: Informational                               3 July 2026
+Expires: 4 January 2027
+
+
+            Proposed Document Template for TLS FATT Process
+                 draft-usama-tls-fatt-extension-latest
+
+Abstract
+
+   This document applies only to non-trivial extensions of TLS, which
+   require formal analysis.  FATT process has successfully discovered
+   CVEs of *CVSS 7.5* and most recently expected *CVSS 9.1* in the
+   *production* implementations of the drafts proposed for adoption in
+   the TLS WG.  To achieve high cryptographic assurances, this document
+   proposes the drafts specify a clear threat model and informal
+   security goals in the Security Considerations section, as well as
+   motivation and a protocol diagram in the draft.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at https://muhammad-
+   usama-sardar.github.io/tls-fatt-extension/draft-usama-tls-fatt-
+   extension.html.  Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-usama-tls-fatt-extension/.
+
+   Discussion of this document takes place on the Transport Layer
+   Security Working Group mailing list (mailto:tls@ietf.org), which is
+   archived at https://mailarchive.ietf.org/arch/browse/tls/.  Subscribe
+   at https://www.ietf.org/mailman/listinfo/tls/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/muhammad-usama-sardar/tls-fatt-extension.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 4 January 2027.
+
+Copyright Notice
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Motivation
+       1.1.1.  Concrete Motivational Example: Practical Exploits in
+               Production Systems
+     1.2.  Proposal
+     1.3.  Scope
+   2.  Conventions and Definitions
+     2.1.  Protocol Diagram
+   3.  Contents of Drafts
+     3.1.  Motivation
+     3.2.  Threat Model
+       3.2.1.  Typical Dolev-Yao adversary
+       3.2.2.  Keys
+       3.2.3.  Template
+     3.3.  Informal Security Goals
+       3.3.1.  Template
+     3.4.  Protocol Diagram
+   4.  Document Structure
+     4.1.  Introduction
+     4.2.  Terminology
+     4.3.  Motivation and design rationale
+     4.4.  Proposed solution (one or more sections)
+     4.5.  Security considerations
+       4.5.1.  Threat model
+       4.5.2.  Desired security goals
+       4.5.3.  Other security implications/considerations
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
+   Appendix
+     Document History
+   Acknowledgments
+   Author's Address
+
+1.  Introduction
+
+   While the TLS FATT process [TLS-FATT] marks a historic change in
+   achieving high cryptographic assurances by tightly integrating formal
+   methods in the working group (WG) process, it would be helpful to
+   adapt the way in which drafts are typically written to get the
+   benefits.
+
+1.1.  Motivation
+
+   Unverified protocol designs, imprecisely stated threat model and
+   security goals have led to high and critical severity vulnerabilities
+   of the extensions proposed in the drafts.
+
+1.1.1.  Concrete Motivational Example: Practical Exploits in Production
+        Systems
+
+   As an illustrative example, authors of
+   [I-D.fossati-tls-attestation-08] asked for adoption in IETF 121,
+   explicitly requesting us (by name) for formal analysis
+   [Intra-handshake-attestation].  We carried out formal analysis of
+   draft in support for FATT process.  The formal analysis led to three
+   orthogonal issues:
+
+   *  Formal analysis [ID-Crisis-repo] found *diversion* attacks for
+      [I-D.fossati-tls-attestation-08].  For technical details, please
+      see the corresponding paper [ID-Crisis].
+
+   *  Formal analysis [Intra-handshake.fail-repo] of several
+      *production* implementations of [I-D.fossati-tls-attestation-09]
+      led to discovery of [CVE-2026-33697] of *CVSS 7.5* for *relay*
+      attacks.  For technical details, please see the corresponding
+      paper [Intra-handshake.fail].
+
+   *  Further formal analysis of *production* implementation of
+      [I-D.fossati-tls-attestation-09] has led to discovery of another
+      class of attacks and will potentially lead to two CVEs (currently
+      under _responsible_ disclosure) each with an expected *CVSS 9.1*.
+
+   This shows the value of FATT process in the design of secure
+   protocols to find subtle vulnerabilities, which could otherwise be
+   missed.
+
+1.2.  Proposal
+
+   To produce high-quality specifications, this document outlines the
+   corresponding changes in the way drafts are typically written.  For
+   the draft to be useful for the formal analysis, this document
+   proposes that it would be helpful for the formal analysis if the
+   draft contains four main items, namely:
+
+   *  motivation,
+
+   *  a threat model,
+
+   *  informal security goals, and
+
+   *  a protocol diagram (Section 2.1).
+
+   Each one of these is summarized in Section 3.  Future versions of
+   this draft will include further concrete examples.
+
+1.3.  Scope
+
+   The scope of this document is only non-trivial extensions of TLS,
+   which require formal analysis.  As per FATT process [TLS-FATT], this
+   includes changes in the key schedule or the authentication process or
+   any other part of the cryptographic protocol that has been formally
+   modeled and analyzed in the past.  The chairs will make a
+   determination whether the change proposed by the document requires
+   review by the FATT to determine if formal protocol analysis is
+   necessary for the change.  Hence, such a determination is out of
+   scope of this document.
+
+2.  Conventions and Definitions
+
+2.1.  Protocol Diagram
+
+   In the context of this document, a Protocol Diagram specifies the
+   proposed cryptographically-relevant changes compared to the standard
+   TLS protocol [I-D.ietf-tls-rfc8446bis].  This is conceptually similar
+   to the Protocol Model in [RFC4101].  However, while [RFC4101] only
+   recommends diagrams, we consider diagrams to be essential to reduce
+   the gap between:
+
+   *  the specifications and formal analysis
+
+   *  the specifications and implementation
+
+3.  Contents of Drafts
+
+   The following contents are expected in drafts:
+
+3.1.  Motivation
+
+   Drafts are expected to provide the motivation of the work (i.e., the
+   proposed extension of TLS).
+
+3.2.  Threat Model
+
+   A threat model identifies which threats are in scope for the protocol
+   design.  So it can answer questions like:
+
+   *  What are the capabilities of the adversary?  What can the
+      adversary do?
+
+   *  Whether post-quantum threats are in scope?
+
+   *  What can go wrong in the system? etc.
+
+   *  What are the computational and memory resources available to the
+      adversary?
+
+3.2.1.  Typical Dolev-Yao adversary
+
+   A typical threat model assumes the classical Dolev-Yao adversary, who
+   has full control over the communication channel.
+
+   Any additional adversary capabilities and assumptions ought to be
+   explicitly stated.
+
+3.2.2.  Keys
+
+   This is particularly relevant for proposals of hybrid key
+   establishment or hybrid authentication.  This section ought to
+   specify any keys in the system (e.g., long-term keys of the server)
+   in addition to the standard TLS key schedule.  Theoretically and
+   arguably practically, any key may be compromised (i.e., become
+   available to the adversary).
+
+   For readability, we propose defining each key clearly as in
+   Section 4.1 of [ID-Crisis].  Alternatively, present as a table with
+   the following entries for each key:
+
+   *  Name (or symbol) of the key
+
+   *  Purpose of the key
+
+   *  (optionally but preferably -- particularly when the endpoint is
+      not fully trusted) Which software in the system has access to the
+      key?
+
+   If more than one servers are involved (such as migration cases), the
+   keys for servers ought to be distinguished in an unambiguous way.
+
+3.2.3.  Template
+
+   For the threat model, useful fields might include:
+
+   *  protocol participants and roles;
+
+   *  assets or properties to protect;
+
+   *  initial authenticated knowledge;
+
+   *  adversary capabilities;
+
+   *  trust boundaries;
+
+   *  key-compromise assumptions;
+
+   *  downgrade and negotiation assumptions;
+
+   *  deployment or migration assumptions;
+
+   *  explicit non-goals.
+
+3.3.  Informal Security Goals
+
+   Knowing what you want is the first step toward achieving it.  Hence,
+   informal security goals such as integrity, authentication, freshness,
+   etc. ought to be outlined in the draft.
+
+   Examples:
+
+   *  Integrity of message X holds unless some key Y is leaked.
+
+   *  (stated differently) Integrity of message X holds as long as some
+      key Y is protected.
+
+   *  Freshness of message X holds unless some key Y or some key Z is
+      leaked.
+
+   *  Server Authentication holds unless some key Y or some key Z is
+      leaked.
+
+   See Section 5.1 of [ID-Crisis] for concrete examples.
+
+3.3.1.  Template
+
+   *  Property:
+
+   *  Protected object:
+
+   *  Adversary capability:
+
+   *  Required assumptions:
+
+   *  Failure condition:
+
+   *  Non-goals:
+
+   *  Candidate formal query or correspondence:
+
+3.4.  Protocol Diagram
+
+   A Protocol Diagram ought to clearly mention the initial knowledge of
+   the protocol participants, e.g., which authentic public keys are
+   known to the protocol participants at the start of the protocol.  An
+   example of a Protocol Diagram for [I-D.fossati-tls-attestation-08] is
+   provided in Figure 5 in [ID-Crisis].
+
+4.  Document Structure
+
+   While the needs may differ for some drafts, we propose the following
+   baseline template, with examples of [I-D.wang-tls-service-affinity]
+   and [I-D.sheffer-tls-pqc-continuity]:
+
+   The template is:
+
+   *  Easy for readers
+
+   *  Easy for reviewers
+
+   *  Easy for formal analysis
+
+   TODO: Currently it is almost a copy of the guidance email
+   (https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-
+   KPs/) to the authors.  We request feedback on what to add in next
+   versions.
+
+4.1.  Introduction
+
+   *  Problem statement: Say in general what the problem is.
+
+   *  For [I-D.wang-tls-service-affinity], we believe this may
+      preferably _not_ include CATS.  Anyone unfamiliar with CATS ought
+      to be able to understand the problem statement.
+
+4.2.  Terminology
+
+   *  Define any terms not defined in RFC8446bis or point to other
+      drafts from where the definition is used.
+
+4.3.  Motivation and design rationale
+
+   *  We really like how the author of [I-D.ietf-tls-8773bis] motivates
+      the problem statement.  Use it as a sample.
+
+   *  Here authors can address all the concerns from WG, including
+      justification with compelling arguments and authentic references
+      why authors think it ought to be done within TLS WG (and within
+      handshake).
+
+   *  For [I-D.wang-tls-service-affinity], authors could put CATS here
+      as a motivational use case.
+
+   *  For [I-D.sheffer-tls-pqc-continuity], it should clarify why the
+      problem is specific to PQ-only and why did the WG do such a thing
+      for the transition for other primitives, as requested by several
+      WG participants.
+
+4.4.  Proposed solution (one or more sections)
+
+   *  Protocol design with Protocol Diagram: we work on the formal
+      analysis of TLS 1.3 exclusively.  Please contact someone else if
+      your draft relates to older versions.
+
+4.5.  Security considerations
+
+4.5.1.  Threat model
+
+4.5.2.  Desired security goals
+
+   As draft proceeds these desired security goals will become what the
+   draft actually achieves.
+
+   *  For [I-D.sheffer-tls-pqc-continuity], it should clarify which
+      property of the TLS protocol is broken and how does the proposal
+      improve the security.
+
+4.5.3.  Other security implications/considerations
+
+5.  Security Considerations
+
+   The whole document is about improving security considerations.  As
+   mentioned in Section 1.1.1, unverified specifications have led to
+   high and critical severity exploits.
+
+   Like all security proofs, formal analysis is only as strong as its
+   assumptions and model.  The scope is typically limited, and the model
+   does not necessarily capture real-world deployment complexity,
+   implementation details, operational constraints, or misuse scenarios.
+   Formal methods should be used as complementary and not as subtitute
+   of other analysis methods.
+
+6.  IANA Considerations
+
+   This document has no IANA actions.
+
+7.  References
+
+7.1.  Normative References
+
+   [TLS-FATT] IETF TLS WG, "TLS FATT Process", June 2025,
+              <https://github.com/tlswg/tls-fatt>.
+
+7.2.  Informative References
+
+   [CVE-2026-33697]
+              CVE, "CoCoS attested TLS is vulnerable to relay attacks
+              via extracted ephemeral TLS keys", March 2026,
+              <https://www.cve.org/CVERecord?id=CVE-2026-33697>.
+
+   [I-D.fossati-tls-attestation-08]
+              Tschofenig, H., Sheffer, Y., Howard, P., Mihalcea, I.,
+              Deshpande, Y., Niemi, A., and T. Fossati, "Using
+              Attestation in Transport Layer Security (TLS) and Datagram
+              Transport Layer Security (DTLS)", Work in Progress,
+              Internet-Draft, draft-fossati-tls-attestation-08, 21
+              October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-fossati-tls-attestation-08>.
+
+   [I-D.fossati-tls-attestation-09]
+              Tschofenig, H., Sheffer, Y., Howard, P., Mihalcea, I.,
+              Deshpande, Y., Niemi, A., and T. Fossati, "Using
+              Attestation in Transport Layer Security (TLS) and Datagram
+              Transport Layer Security (DTLS)", Work in Progress,
+              Internet-Draft, draft-fossati-tls-attestation-09, 30 April
+              2025, <https://datatracker.ietf.org/doc/html/draft-
+              fossati-tls-attestation-09>.
+
+   [I-D.ietf-tls-8773bis]
+              Housley, R., "TLS 1.3 Extension for Using Certificates
+              with an External Pre-Shared Key", Work in Progress,
+              Internet-Draft, draft-ietf-tls-8773bis-13, 5 September
+              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              tls-8773bis-13>.
+
+   [I-D.ietf-tls-rfc8446bis]
+              Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", Work in Progress, Internet-Draft, draft-
+              ietf-tls-rfc8446bis-14, 13 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
+              rfc8446bis-14>.
+
+   [I-D.sheffer-tls-pqc-continuity]
+              Sheffer, Y. and T. Reddy.K, "PQC Continuity: Downgrade
+              Protection for TLS Servers Migrating to PQC", Work in
+              Progress, Internet-Draft, draft-sheffer-tls-pqc-
+              continuity-02, 9 June 2026,
+              <https://datatracker.ietf.org/doc/html/draft-sheffer-tls-
+              pqc-continuity-02>.
+
+   [I-D.wang-tls-service-affinity]
+              Wang, W., Wang, A., 汪宗斌, P., Sahni, M., and K. Sheth,
+              "Service Affinity Solution based on Transport Layer
+              Security (TLS)", Work in Progress, Internet-Draft, draft-
+              wang-tls-service-affinity-03, 25 June 2026,
+              <https://datatracker.ietf.org/doc/html/draft-wang-tls-
+              service-affinity-03>.
+
+   [ID-Crisis]
+              Sardar, M., Moustafa, M., and T. Aura, "Identity Crisis in
+              Confidential Computing: Formal Analysis of Attested TLS",
+              ACM, Proceedings of the ACM Asia Conference on Computer
+              and Communications Security pp. 547-560,
+              DOI 10.1145/3779208.3785387, June 2026,
+              <https://doi.org/10.1145/3779208.3785387>.
+
+   [ID-Crisis-repo]
+              Sardar, M. U., Moustafa, M., and T. Aura, "Identity Crisis
+              in Confidential Computing: Formal Analysis of Attested
+              TLS", November 2025, <https://github.com/CCC-Attestation/
+              formal-spec-id-crisis>.
+
+   [Intra-handshake-attestation]
+              Hannes Tschofenig, "Attestation and TLS", November 2024,
+              <https://datatracker.ietf.org/meeting/121/materials/
+              slides-121-tls-tls-and-attestation-00.pdf>.
+
+   [Intra-handshake.fail]
+              Sardar, M. U., Dubeyko, V., and J.-M. Jacquet, "Intra-
+              handshake.fail (CVE-2026-33697): High-severity CVE in
+              Attested TLS", June 2026, <https://www.researchgate.net/
+              publication/408219182_Intra-handshakefail_CVE-2026-
+              33697_High-severity_CVE_in_Attested_TLS>.
+
+   [Intra-handshake.fail-repo]
+              Sardar, M. U., Dubeyko, V., and J.-M. Jacquet, "Intra-
+              handshake.fail (CVE-2026-33697): High-severity CVE in
+              Attested TLS", June 2026,
+              <https://github.com/CCC-Attestation/formal-spec-KBS>.
+
+   [RFC4101]  Rescorla, E. and IAB, "Writing Protocol Models", RFC 4101,
+              DOI 10.17487/RFC4101, June 2005,
+              <https://www.rfc-editor.org/rfc/rfc4101>.
+
+Appendix
+
+Document History
+
+   -08
+
+   *  Focused on document structure only
+
+   *  Motivational examples
+
+   -07
+
+   *  Failure of current process
+
+   *  Students of FATT
+
+   *  Lead FATT Person for Contact
+
+   *  Feedback from the WG
+
+   -06
+
+   *  Solution for ML-KEM: FATT analysis
+
+   *  Solution for FATT contact: new mailing list
+
+   *  Replaced responsibilities by expected contributions
+
+   *  Clarified Verifier even further that it is just a WG member; no
+      formal role
+
+   *  s/pure/non-hybrid
+
+   -05
+
+   *  Removed process-related stuff
+
+   *  Moved discussion at meeting to solutions
+
+   *  Added ML-KEM
+
+   -04
+
+   *  Extended threat model Section 3.2
+
+   *  Helpful discussions on formal analysis in meetings
+
+   *  Pointer to formal analysis and costs
+
+   -03
+
+   *  Limitations of formal analysis in security considerations
+
+   *  Proposed solutions section
+
+   *  More guidance for authors: Threat Model and Informal Security
+      Goals
+
+   -02
+
+   *  Added document structure
+
+   *  FATT-bypass by Other TLS-related WGs
+
+   *  FATT process not being followed
+
+   -01
+
+   *  Pain points of Verifier Section 2.1
+
+   *  Small adjustment of phrasing
+
+Acknowledgments
+
+   We thankfully acknowledge the following for their valuable input:
+
+   *  Eric Rescorla for review of -02, -05, and -06.
+
+   *  John Mattsson for proposing text for security considerations.
+
+   *  David Benjamin for review of -06.
+
+   *  Mike Ounsworth for review of -07.
+
+   *  Songbo Bu
+
+   We gratefully acknowledge the valuable contributions of co-authors of
+   papers for their instrumental contributions in formal analysis:
+   Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie
+   Jacquet.
+
+   We sincerely thank the contributors of the formal analyses
+   [ID-Crisis-repo] and [Intra-handshake.fail-repo] mentioned in the
+   respective repositories.
+
+   We express our appreciation to Yaakov Stein and Ilari Liusvaara for
+   their substantial technical guidance, valuable feedback, and
+   contributions in early attempts to formally model ML-KEM.
+
+   The research work is funded by German Research Foundation ("Deutsche
+   Forschungsgemeinschaft.")
+
+Author's Address
+
+   Muhammad Usama Sardar
+   TU Dresden
+   Email: muhammad_usama.sardar@tu-dresden.de
