@@ -338,7 +338,7 @@ We thankfully acknowledge the following for their valuable input:
 * John Mattsson for proposing text for security considerations.
 * David Benjamin for review of -06.
 * Mike Ounsworth for review of -07.
-* Songbo Bu
+* Songbo Bu for review of -08.
 
 We gratefully acknowledge the valuable contributions of co-authors of papers for their instrumental contributions in formal analysis: Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie Jacquet.
 
