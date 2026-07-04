@@ -121,10 +121,13 @@ Each one of these is summarized in {{sec-res-authors}}. Future versions of this 
 
 ## Scope
 The scope of this document is only non-trivial extensions of TLS, which require formal analysis.
+As per FATT process {{TLS-FATT}}, this includes changes in the key schedule or the authentication process or any other part of the cryptographic protocol that has been formally modeled and analyzed in the past.
+As per FATT process {{TLS-FATT}}, the chairs make a determination whether the change proposed by the document requires review by the FATT to determine if formal protocol analysis is necessary for the change.
+Hence, such a determination is out of scope of this document.
 
 # Conventions and Definitions
 
-{::boilerplate bcp14-tagged}
+[comment2]: <> ({::boilerplate bcp14-tagged})
 
 ## Protocol Diagram
 {: #sec-prot-diagram }
@@ -170,6 +173,19 @@ For readability, we propose defining each key clearly as in Section 4.1 of {{ID-
 
 If more than one servers are involved (such as migration cases), the keys for servers ought to be distinguished in an unambiguous way.
 
+### Template
+For the threat model, useful fields might include:
+
+- protocol participants and roles;
+- assets or properties to protect;
+- initial authenticated knowledge;
+- adversary capabilities;
+- trust boundaries;
+- key-compromise assumptions;
+- downgrade and negotiation assumptions;
+- deployment or migration assumptions;
+- explicit non-goals.
+
 ## Informal Security Goals
 Knowing what you want is the first step toward achieving it. Hence, informal security goals such as integrity, authentication, freshness, etc. ought to be outlined in the draft.
 
@@ -183,6 +199,16 @@ Examples:
 * Server Authentication holds unless some key Y or some key Z is leaked.
 
 See Section 5.1 of {{ID-Crisis}} for concrete examples.
+
+### Template
+
+- Property:
+- Protected object:
+- Adversary capability:
+- Required assumptions:
+- Failure condition:
+- Non-goals:
+- Candidate formal query or correspondence:
 
 ## Protocol Diagram
 A Protocol Diagram ought to clearly mention the initial knowledge of the protocol participants, e.g., which authentic public keys are known to the protocol participants at the start of the protocol. An example of a Protocol Diagram for {{I-D.fossati-tls-attestation-08}} is provided in Figure 5 in {{ID-Crisis}}.
@@ -312,7 +338,7 @@ We thankfully acknowledge the following for their valuable input:
 * John Mattsson for proposing text for security considerations.
 * David Benjamin for review of -06.
 * Mike Ounsworth for review of -07.
-* Songbo Bu
+* Songbo Bu for review of -08.
 
 We gratefully acknowledge the valuable contributions of co-authors of papers for their instrumental contributions in formal analysis: Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie Jacquet.
 
