@@ -4,8 +4,8 @@
 
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                                TU Dresden
-Intended status: Informational                               3 July 2026
-Expires: 4 January 2027
+Intended status: Informational                               4 July 2026
+Expires: 5 January 2027
 
 
             Proposed Document Template for TLS FATT Process
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2027.
+   This Internet-Draft will expire on 5 January 2027.
 
 Copyright Notice
 
@@ -176,11 +176,11 @@ Table of Contents
    which require formal analysis.  As per FATT process [TLS-FATT], this
    includes changes in the key schedule or the authentication process or
    any other part of the cryptographic protocol that has been formally
-   modeled and analyzed in the past.  The chairs will make a
-   determination whether the change proposed by the document requires
-   review by the FATT to determine if formal protocol analysis is
-   necessary for the change.  Hence, such a determination is out of
-   scope of this document.
+   modeled and analyzed in the past.  The chairs make a determination
+   whether the change proposed by the document requires review by the
+   FATT to determine if formal protocol analysis is necessary for the
+   change.  Hence, such a determination is out of scope of this
+   document.
 
 2.  Conventions and Definitions
 
