@@ -122,7 +122,7 @@ Each one of these is summarized in {{sec-res-authors}}. Future versions of this 
 ## Scope
 The scope of this document is only non-trivial extensions of TLS, which require formal analysis.
 As per FATT process {{TLS-FATT}}, this includes changes in the key schedule or the authentication process or any other part of the cryptographic protocol that has been formally modeled and analyzed in the past.
-The chairs will make a determination whether the change proposed by the document requires review by the FATT to determine if formal protocol analysis is necessary for the change.
+The chairs make a determination whether the change proposed by the document requires review by the FATT to determine if formal protocol analysis is necessary for the change.
 Hence, such a determination is out of scope of this document.
 
 # Conventions and Definitions
