@@ -145,8 +145,9 @@ Table of Contents
 
    *  Further formal analysis of *production* implementation of
       [I-D.fossati-tls-attestation-09] has led to discovery of another
-      class of attacks and will potentially lead to two CVEs (currently
-      under _responsible_ disclosure) each with an expected *CVSS 9.1*.
+      class of attacks and will potentially lead to three CVEs
+      (currently under _responsible_ disclosure) each with an expected
+      *CVSS 9.1*.
 
    This shows the value of FATT process in the design of secure
    protocols to find subtle vulnerabilities, which could otherwise be
