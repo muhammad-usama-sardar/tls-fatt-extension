@@ -21,8 +21,13 @@ venue:
 author:
  -
     fullname: "Muhammad Usama Sardar"
-    organization: TU Dresden
+    organization: TU Dresden, Germany
     email: "muhammad_usama.sardar@tu-dresden.de"
+ -
+    fullname: "Songbo Bu"
+    organization: Shanghai Guan An Information Technology Co., Ltd., China
+    email: "bluedognull@gmail.com"
+
 
 normative:
   TLS-FATT:
@@ -216,11 +221,11 @@ A Protocol Diagram ought to clearly mention the initial knowledge of the protoco
 # Document Structure
 While the needs may differ for some drafts, we propose the following baseline template, with examples of {{I-D.wang-tls-service-affinity}} and {{I-D.sheffer-tls-pqc-continuity}}:
 
-The template is:
+The template is easy for:
 
-* Easy for readers
-* Easy for reviewers
-* Easy for formal analysis
+* readers
+* reviewers
+* formal analysis team
 
 TODO: Currently it is almost a copy of the [guidance email](https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-KPs/) to the authors. We request feedback on what to add in next versions.
 
@@ -280,6 +285,11 @@ This document has no IANA actions.
 ## Document History
 {:unnumbered}
 
+-09
+
+* Template for threat model and informal security goals
+* Added Songbo as co-author
+
 -08
 
 * Focused on document structure only
@@ -338,7 +348,6 @@ We thankfully acknowledge the following for their valuable input:
 * John Mattsson for proposing text for security considerations.
 * David Benjamin for review of -06.
 * Mike Ounsworth for review of -07.
-* Songbo Bu for review of -08.
 
 We gratefully acknowledge the valuable contributions of co-authors of papers for their instrumental contributions in formal analysis: Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie Jacquet.
 
