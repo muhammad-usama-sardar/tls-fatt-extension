@@ -3,9 +3,10 @@
 
 
 Transport Layer Security                                    M. U. Sardar
-Internet-Draft                                                TU Dresden
-Intended status: Informational                               4 July 2026
-Expires: 5 January 2027
+Internet-Draft                                       TU Dresden, Germany
+Intended status: Informational                                     S. Bu
+Expires: 6 January 2027Shanghai Guan An Information Technology Co., Ltd., China
+                                                             5 July 2026
 
 
             Proposed Document Template for TLS FATT Process
@@ -54,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 January 2027.
+   This Internet-Draft will expire on 6 January 2027.
 
 Copyright Notice
 
@@ -106,7 +107,7 @@ Table of Contents
    Appendix
      Document History
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -326,13 +327,13 @@ Table of Contents
    baseline template, with examples of [I-D.wang-tls-service-affinity]
    and [I-D.sheffer-tls-pqc-continuity]:
 
-   The template is:
+   The template is easy for:
 
-   *  Easy for readers
+   *  readers
 
-   *  Easy for reviewers
+   *  reviewers
 
-   *  Easy for formal analysis
+   *  formal analysis team
 
    TODO: Currently it is almost a copy of the guidance email
    (https://mailarchive.ietf.org/arch/msg/tls/LfIHs1OVwDKWmDuCEx0p8wP-
@@ -510,6 +511,12 @@ Appendix
 
 Document History
 
+   -09
+
+   *  Template for threat model and informal security goals
+
+   *  Added Songbo as co-author
+
    -08
 
    *  Focused on document structure only
@@ -590,8 +597,6 @@ Acknowledgments
 
    *  Mike Ounsworth for review of -07.
 
-   *  Songbo Bu for review of -08.
-
    We gratefully acknowledge the valuable contributions of co-authors of
    papers for their instrumental contributions in formal analysis:
    Mariam Moustafa, Tuomas Aura, Viacheslav Dubeyko, and Jean-Marie
@@ -608,8 +613,13 @@ Acknowledgments
    The research work is funded by German Research Foundation ("Deutsche
    Forschungsgemeinschaft.")
 
-Author's Address
+Authors' Addresses
 
    Muhammad Usama Sardar
-   TU Dresden
+   TU Dresden, Germany
    Email: muhammad_usama.sardar@tu-dresden.de
+
+
+   Songbo Bu
+   Shanghai Guan An Information Technology Co., Ltd., China
+   Email: bluedognull@gmail.com
