@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-23T03:31:19.773027+00:00",
+  "timestamp": "2026-07-05T03:20:52.146190+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -509,6 +509,69 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOPHS9bs7trGvl",
+      "title": "Songbo comments",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/19",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://mailarchive.ietf.org/arch/msg/tls/oQKFEORMhBQcfHhTlcXJt-WLaXc/",
+      "createdAt": "2026-07-03T17:14:13Z",
+      "updatedAt": "2026-07-04T10:26:52Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "1b04762baf27ca6552853fbdccf68ac3606d86d4",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "songbo-feedback",
+      "headRefOid": "d1bd88370296065797413a6daa7e2618b21cc586",
+      "closedAt": "2026-07-04T10:26:52Z",
+      "mergedAt": "2026-07-04T10:26:52Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "221b9d376dd5f72c55e593d0b6688e9cf09f8ca2"
+      },
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "OWNER",
+          "body": "> One minor editorial point for a later pass: the FATT review sentence can be simplified to avoid repeating \"determine\", but this is not blocking.\r\n\r\nI mentioned that it comes from FATT process:\r\n\r\n> When a document is adopted by the working group the chairs will make a determination whether the change proposed by the document requires review by the FATT to determine if formal protocol analysis is necessary for the change.\r\n\r\nSo I don't want to change the words.",
+          "createdAt": "2026-07-04T08:22:14Z",
+          "updatedAt": "2026-07-04T08:22:14Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPHS9bs8AAAABE-OSuw",
+          "commit": {
+            "abbreviatedOid": "94787d1"
+          },
+          "author": "B1ueD0g",
+          "authorAssociation": "COLLABORATOR",
+          "state": "DISMISSED",
+          "body": "Reviewed the update. The added threat-model and security-goal templates, the clarified scope, and the BCP14 cleanup address my comments. One minor editorial point for a later pass: the FATT review sentence can be simplified to avoid repeating \"determine\", but this is not blocking.",
+          "createdAt": "2026-07-04T01:37:02Z",
+          "updatedAt": "2026-07-04T01:38:37Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOPHS9bs8AAAABE-1ihw",
+          "commit": {
+            "abbreviatedOid": "d1bd883"
+          },
+          "author": "B1ueD0g",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I rechecked the latest head d1bd88370296065797413a6daa7e2618b21cc586. The PR addresses my template/document-structure comments, the GitHub checks are green, and the local build passes. I am OK with this being merged.",
+          "createdAt": "2026-07-04T09:48:15Z",
+          "updatedAt": "2026-07-04T09:48:15Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
