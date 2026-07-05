@@ -109,7 +109,7 @@ As an illustrative example, authors of {{I-D.fossati-tls-attestation-08}} asked 
 
 - Formal analysis {{Intra-handshake.fail-repo}} of several **production** implementations of {{I-D.fossati-tls-attestation-09}} led to discovery of {{CVE-2026-33697}} of **CVSS 7.5** for **relay** attacks. For technical details, please see the corresponding paper {{Intra-handshake.fail}}.
 
-- Further formal analysis of **production** implementation of {{I-D.fossati-tls-attestation-09}} has led to discovery of another class of attacks and will potentially lead to two CVEs (currently under *responsible* disclosure) each with an expected **CVSS 9.1**.
+- Further formal analysis of **production** implementation of {{I-D.fossati-tls-attestation-09}} has led to discovery of another class of attacks and will potentially lead to three CVEs (currently under *responsible* disclosure) each with an expected **CVSS 9.1**.
 
 This shows the value of FATT process in the design of secure protocols to find subtle vulnerabilities, which could otherwise be missed.
 
