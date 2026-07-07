@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-05T03:20:52.146190+00:00",
+  "timestamp": "2026-07-07T03:19:10.511361+00:00",
   "repo": "muhammad-usama-sardar/tls-fatt-extension",
   "labels": [
     {
@@ -569,6 +569,48 @@
           "body": "I rechecked the latest head d1bd88370296065797413a6daa7e2618b21cc586. The PR addresses my template/document-structure comments, the GitHub checks are green, and the local build passes. I am OK with this being merged.",
           "createdAt": "2026-07-04T09:48:15Z",
           "updatedAt": "2026-07-04T09:48:15Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOPHS9bs7uH4gK",
+      "title": "Co-author and history",
+      "url": "https://github.com/muhammad-usama-sardar/tls-fatt-extension/pull/20",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-07-05T22:45:11Z",
+      "updatedAt": "2026-07-06T01:26:10Z",
+      "baseRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "baseRefName": "main",
+      "baseRefOid": "221b9d376dd5f72c55e593d0b6688e9cf09f8ca2",
+      "headRepository": "muhammad-usama-sardar/tls-fatt-extension",
+      "headRefName": "songbo-feedback",
+      "headRefOid": "e4bb41c1f3fd8152480fe5900c2a567d080a9262",
+      "closedAt": "2026-07-06T01:26:10Z",
+      "mergedAt": "2026-07-06T01:26:10Z",
+      "mergedBy": "B1ueD0g",
+      "mergeCommit": {
+        "oid": "69259b62e168e1e88f787bb2c2283db72b807fde"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPHS9bs8AAAABFByang",
+          "commit": {
+            "abbreviatedOid": "e4bb41c"
+          },
+          "author": "B1ueD0g",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I confirm the co-authorship addition and approve this PR.",
+          "createdAt": "2026-07-06T01:21:00Z",
+          "updatedAt": "2026-07-06T01:21:01Z",
           "comments": []
         }
       ]
