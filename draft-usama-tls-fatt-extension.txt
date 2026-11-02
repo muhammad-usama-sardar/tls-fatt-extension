@@ -5,8 +5,8 @@
 Transport Layer Security                                    M. U. Sardar
 Internet-Draft                                       TU Dresden, Germany
 Intended status: Informational                                     S. Bu
-Expires: 5 May 2027                      Stevens Institute of Technology
-                                                         1 November 2026
+Expires: 6 May 2027                      Stevens Institute of Technology
+                                                         2 November 2026
 
 
             Proposed Document Template for TLS FATT Process
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 May 2027.
+   This Internet-Draft will expire on 6 May 2027.
 
 Copyright Notice
 
@@ -85,6 +85,7 @@ Table of Contents
      2.3.  EarlyAttestationBleed
        2.3.1.  Architectural Flaws in Early Attestation
      2.4.  EarlyAttestationTschüss (EAT)
+     2.5.  More details
    3.  Conventions and Definitions
      3.1.  Protocol Diagram
    4.  Contents of Drafts
@@ -192,15 +193,15 @@ Table of Contents
 
 2.  Concrete CVEs
 
+   We consider the example of extension of TLS with remote attestation.
+
 2.1.  Intra-handshake.fail
 
    [Intra-handshake.fail] presents a general approach to analyze the
-   intra-handshake (aka early) attestation proposals, regardless of
-   whether they are within the scope of SEAT charter or not.  From a
-   security perspective, one of the key decision factors is the
-   candidate binding mechanism.  Some binding mechanisms are within
-   scope of SEAT charter and others are not.  The artifacts are
-   available in [Intra-handshake.fail-repo] under Apache-2.0 license for
+   intra-handshake (aka early) attestation proposals.  From a security
+   perspective, one of the key decision factors is the candidate binding
+   mechanism.  The artifacts are available in
+   [Intra-handshake.fail-repo] under Apache-2.0 license for
    reproducibility, extensibility, and further research.
 
    *  This work resulted in [CVE-2026-33697] of CVSS 7.5.
@@ -234,15 +235,25 @@ Table of Contents
    Sec. 7 of [EarlyAttestationBleed] presents four architectural flaws
    in early attestation:
 
-   *  Hardware-level Information of Server
+   *  A malicious TLS client retrieves sensitive *hardware-level and
+      firmware-level information* from the server’s Evidence before the
+      server has authenticated the client.
 
-   *  Only Boot-time Claims
+   *  Early attestation can typically provide information about *only
+      boot-time Claims*, since most runtime Claims may not be available
+      at the handshake time.
 
-   *  Re-attestation
+   *  Re-attestation requires post-handshake attestation.  Early
+      attestation thus adds *unnecessary complexity*.
 
-   *  High Handshake Latency, Timeouts, and Failures
+   *  Early attestation results in *high handshake latency, timeouts,
+      and even failures*.
 
 2.4.  EarlyAttestationTschüss (EAT)
+
+   [EarlyAttestationTschuess] resulted in the following CVEs
+   demonstrating relay and diversion attacks against early attestation
+   implementations/deployments:
 
    *  [CVE-2026-100835] of CVSS 9.1 against Edgeless Systems Contrast
 
@@ -259,6 +270,10 @@ Table of Contents
    *  [CVE-2026-108268] of CVSS 9.1 against Privasys
 
    *  [CVE-2026-108269] of CVSS 9.1 against Privasys
+
+2.5.  More details
+
+   Further examples of CVEs are in [I-D.intra-handshake-fail].
 
 3.  Conventions and Definitions
 
@@ -568,6 +583,13 @@ Table of Contents
               publication/414529199_EarlyAttestationBleed_Three_Critical-
               severity_Vulnerabilities_of_CVSS_90_in_Confidential_Computing>.
 
+   [EarlyAttestationTschuess]
+              Sardar, M. U. and Songbo Bu, "EarlyAttestationTschüss
+              (EAT): 8+ Critical-Severity Vulnerabilities of CVSS 9.1
+              Resulting in End of Life of Early Attestation", November
+              2026, <https://www.researchgate.net/
+              publication/417343302_EarlyAttestationTschuss_EAT>.
+
    [EUVD-2026-16488]
               ENISA, "CoCoS attested TLS is vulnerable to relay attacks
               via extracted ephemeral TLS keys", March 2026,
@@ -772,6 +794,21 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
               rfc8446bis-14>.
 
+   [I-D.intra-handshake-fail]
+              Sardar, M. U., Dubeyko, V., Jacquet, J., Bu, S., Huang,
+              C., Song, H., Ercihan, K., Küçük, K. A., Bellemare, S.,
+              Willems, E., SAINTEN, J. D., Brighindi, M., Quintyne-
+              Collins, M., Schrock, I., Aboubakarov, I., Gul, A., and V.
+              Malladi, "Early Attestation Considered Very Harmful (CVE-
+              2026-100833, CVE-2026-100835,CVE-2026-108265, CVE-
+              2026-108266, CVE-2026-108267, CVE-2026-108268, CVE-
+              2026-108269, CVE-2026-92701, CVE-2026-92702, CVE-
+              2026-108362, CVE-2026-33697, CVE-2026-108361 and others)",
+              Work in Progress, Internet-Draft, draft-intra-handshake-
+              fail-61, 2 November 2026,
+              <https://datatracker.ietf.org/doc/html/draft-intra-
+              handshake-fail-61>.
+
    [I-D.irtf-cfrg-cryptography-specification]
               Sullivan, N. and C. A. Wood, "Guidelines for Writing
               Cryptography Specifications", Work in Progress, Internet-
@@ -882,6 +919,14 @@ Table of Contents
 Appendix
 
 Document History
+
+   -11
+
+   *  Refocus motivational CVEs
+
+   -10
+
+   *  Added concrete CVEs for motivation
 
    -09
 
