@@ -484,7 +484,14 @@ informative:
      title: EUVD-2026-104535
      target: https://euvd.enisa.europa.eu/enisa/EUVD-2026-104535
      date: 19 Oct 2026
-
+  EarlyAttestationTschuess:
+    title: "EarlyAttestationTschüss (EAT): 8+ Critical-Severity Vulnerabilities of CVSS 9.1 Resulting in End of Life of Early Attestation"
+    date: November 2026,
+    target: https://www.researchgate.net/publication/417343302_EarlyAttestationTschuss_EAT
+    author:
+      - ins: M. U. Sardar
+      - ins: Songbo Bu
+  I-D.intra-handshake-fail:
 
 
 --- abstract
@@ -535,8 +542,10 @@ Hence, such a determination is out of scope of this document.
 
 # Concrete CVEs
 
+We consider the example of extension of TLS with remote attestation.
+
 ## Intra-handshake.fail
-{{Intra-handshake.fail}} presents a general approach to analyze the intra-handshake (aka early) attestation proposals, regardless of whether they are within the scope of SEAT charter or not. From a security perspective, one of the key decision factors is the candidate binding mechanism. Some binding mechanisms are within scope of SEAT charter and others are not. The artifacts are available in {{Intra-handshake.fail-repo}} under Apache-2.0 license for reproducibility, extensibility, and further research.
+{{Intra-handshake.fail}} presents a general approach to analyze the intra-handshake (aka early) attestation proposals. From a security perspective, one of the key decision factors is the candidate binding mechanism. The artifacts are available in {{Intra-handshake.fail-repo}} under Apache-2.0 license for reproducibility, extensibility, and further research.
 
 - This work resulted in {{CVE-2026-33697}} of CVSS 7.5.
 
@@ -554,13 +563,16 @@ A *complementary* paper {{ID-Crisis}} presents the identity crisis in pre- and i
 
 Sec. 7 of {{EarlyAttestationBleed}} presents four architectural flaws in early attestation:
 
-- Hardware-level Information of Server
-- Only Boot-time Claims
-- Re-attestation
-- High Handshake Latency, Timeouts, and Failures
+- A malicious TLS client retrieves sensitive **hardware-level and firmware-level information** from the server’s Evidence before the server has authenticated the client.
+- Early attestation can typically provide information about **only boot-time Claims**, since
+most runtime Claims may not be available at the handshake time.
+- Re-attestation requires post-handshake attestation. Early attestation thus adds **unnecessary complexity**.
+- Early attestation results in **high handshake latency, timeouts, and even failures**.
 
 
 ## EarlyAttestationTschüss (EAT)
+
+{{EarlyAttestationTschuess}} resulted in the following CVEs demonstrating relay and diversion attacks against early attestation implementations/deployments:
 
 - {{CVE-2026-100835}} of CVSS 9.1 against Edgeless Systems Contrast
 - {{CVE-2026-112377}} of CVSS 9.1 against CCC Attestation SIG
@@ -571,6 +583,9 @@ Sec. 7 of {{EarlyAttestationBleed}} presents four architectural flaws in early a
 - {{CVE-2026-108268}} of CVSS 9.1 against Privasys
 - {{CVE-2026-108269}} of CVSS 9.1 against Privasys
 
+## More details
+
+Further examples of CVEs are in {{I-D.intra-handshake-fail}}.
 
 # Conventions and Definitions
 
@@ -726,6 +741,14 @@ This document has no IANA actions.
 
 ## Document History
 {:unnumbered}
+
+-11
+
+* Refocus motivational CVEs
+
+-10
+
+* Added concrete CVEs for motivation
 
 -09
 
